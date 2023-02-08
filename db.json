@@ -1,0 +1,3816 @@
+{
+    "courses": [{
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211003_01",
+            "courseName": "آزمايشگاه ماشين هاي الكتريكي1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 8,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اميري اميرحسين",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211003_02",
+            "courseName": "آزمايشگاه ماشين هاي الكتريكي1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 8,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اميري اميرحسين",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211003_03",
+            "courseName": "آزمايشگاه ماشين هاي الكتريكي1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 8,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جعفري نوكندي ميثم",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211003_04",
+            "courseName": "آزمايشگاه ماشين هاي الكتريكي1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 8,
+            "registeredCount": 7,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عبدالهي سيد احسان",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211003_05",
+            "courseName": "آزمايشگاه ماشين هاي الكتريكي1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 8,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عبدالهي سيد احسان",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_01",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اصغري سليماني مرتضي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_02",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 7,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اصغري سليماني مرتضي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_03",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 9,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاربيني طلايه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_04",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 9,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عباسي نوذري حسن",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_05",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 9,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ساداتي رستمي سيد جليل",
+            "dateAndTime": {
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211005_06",
+            "courseName": "آزمايشگاه سيستمهاي كنترل خطي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 6,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قلي زاده روشن فاطمه",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_01",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نوروزپور نيازي احمد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_02",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 9,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نوروزپور نيازي احمد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_03",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 10,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نوروزپور نيازي احمد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_04",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كياني اميركسري",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_05",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حيدري رضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211011_06",
+            "courseName": "كارگاه برق",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حيدري رضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211012_01",
+            "courseName": "زبان تخصصي",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ادبي فيروزجايي جعفر",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211012_02",
+            "courseName": "زبان تخصصي",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قريشي هدي",
+            "dateAndTime": {
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211013_01",
+            "courseName": "نقشه كشي مهندسي (صنعتي)",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 18,
+            "registeredCount": 6,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده رمي فاطمه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211013_02",
+            "courseName": "نقشه كشي مهندسي (صنعتي)",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 18,
+            "registeredCount": 10,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده رمي فاطمه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211013_03",
+            "courseName": "نقشه كشي مهندسي (صنعتي)",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 18,
+            "registeredCount": 2,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده رمي فاطمه",
+            "dateAndTime": {
+                "monday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211013_04",
+            "courseName": "نقشه كشي مهندسي (صنعتي)",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 18,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده رمي فاطمه",
+            "dateAndTime": {
+                "monday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211014_01",
+            "courseName": "رياضي مهندسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "رنجبرنوعي ابوالفضل",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211014_02",
+            "courseName": "رياضي مهندسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ساداتي رستمي سيد جليل",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211015_01",
+            "courseName": "مدارهاي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 22,
+            "registeredCount": 22,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ميرزائي محمد",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211015_02",
+            "courseName": "مدارهاي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 22,
+            "registeredCount": 22,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسيني سيدمهدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211016_01",
+            "courseName": "مدارهاي الكتريكي 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جعفري نوكندي ميثم",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211016_02",
+            "courseName": "مدارهاي الكتريكي 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قريشي هدي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211018_01",
+            "courseName": "الكترومغناطيس",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ذاكري گتابي بيژن",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211018_02",
+            "courseName": "الكترومغناطيس",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسيني نژاد سيداحسان",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211019_01",
+            "courseName": "الكترونيك 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سليماني اميري سمانه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211019_02",
+            "courseName": "الكترونيك 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ازوجي مهدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211019_03",
+            "courseName": "الكترونيك 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اردشير غلامرضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211020_01",
+            "courseName": "الكترونيك 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عزيزاله گنجي بهرام",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211020_02",
+            "courseName": "الكترونيك 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "بالغي دماوندي ياسر",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211021_01",
+            "courseName": "ماشينهاي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عبدالهي سيد احسان",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211021_02",
+            "courseName": "ماشينهاي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جعفري نوكندي ميثم",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211021_03",
+            "courseName": "ماشينهاي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلاميان سيد اصغر",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211022_01",
+            "courseName": "ماشينهاي الكتريكي 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلاميان سيد اصغر",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211022_02",
+            "courseName": "ماشينهاي الكتريكي 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 21,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عبدالهي سيد احسان",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211025_01",
+            "courseName": "سيستمهاي كنترل خطي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "رنجبرنوعي ابوالفضل",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211025_02",
+            "courseName": "سيستمهاي كنترل خطي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 17,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "خسروي عليرضا",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211027_01",
+            "courseName": "پروژه تخصصي",
+            "totalUnit": 3,
+            "practicalUnit": 3,
+            "capacity": 85,
+            "registeredCount": 67,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211035_01",
+            "courseName": "آزمايشگاه آنتن",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ذاكري گتابي بيژن",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:00",
+                    "to": "17:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211036_01",
+            "courseName": "آمار و احتمالات مهندسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ابراهيمي خاله سري فريده",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211036_02",
+            "courseName": "آمار و احتمالات مهندسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاظمي تبار اميركلايي سيد جواد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211038_01",
+            "courseName": "برنامه نويسي كامپيوتر",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 6,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نصيرايي محمد",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211044_01",
+            "courseName": "آشنايي بامهندسي برق",
+            "totalUnit": 1,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 33,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نوروزپور نيازي احمد",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211049_01",
+            "courseName": "اصول سيستم هاي مخابراتي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 35,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ذهابي محمد رضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211049_02",
+            "courseName": "اصول سيستم هاي مخابراتي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسيني اندارگلي سيد مهدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211050_01",
+            "courseName": "تحليل سيستم هاي انرژي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 22,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "بارفروشي تقي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211050_02",
+            "courseName": "تحليل سيستم هاي انرژي الكتريكي 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 25,
+            "registeredCount": 25,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسيني سيدمهدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211051_01",
+            "courseName": "سيستم هاي ديجيتال 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسن زاده محمدرضا",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211051_02",
+            "courseName": "سيستم هاي ديجيتال 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اردشير غلامرضا",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211051_03",
+            "courseName": "سيستم هاي ديجيتال 1",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 23,
+            "registeredCount": 23,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نصيرايي محمد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211052_01",
+            "courseName": "سيستم هاي ديجيتال 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 29,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "صادق زاده هدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211052_02",
+            "courseName": "سيستم هاي ديجيتال 2",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 35,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قلي پور گشنياني مرتضي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_01",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسيني سيدمهدي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_02",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عباسي فاضل",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_03",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 3,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عباسي فاضل",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_04",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "صادقي سيداسحق",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_05",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 7,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "احمدي خانقاهي ياسر",
+            "dateAndTime": {
+                "monday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211053_06",
+            "courseName": "آز مدارهاي الكتريكي و اندازه گيري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "احمدي خانقاهي ياسر",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211054_01",
+            "courseName": "آز الكترونيك",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سليماني اميري سمانه",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211054_02",
+            "courseName": "آز الكترونيك",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "آل احمد احمد",
+            "dateAndTime": {
+                "monday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211054_03",
+            "courseName": "آز الكترونيك",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مراديان فاطمه",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211054_04",
+            "courseName": "آز الكترونيك",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جوادي محسن",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211054_05",
+            "courseName": "آز الكترونيك",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جوادي محسن",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211055_01",
+            "courseName": "آز سيستم هاي ديجيتال 1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عراقي عبدالرحيم",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211055_02",
+            "courseName": "آز سيستم هاي ديجيتال 1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عراقي عبدالرحيم",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211055_03",
+            "courseName": "آز سيستم هاي ديجيتال 1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نصيرايي محمد",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211055_04",
+            "courseName": "آز سيستم هاي ديجيتال 1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نصيرايي محمد",
+            "dateAndTime": {
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211055_05",
+            "courseName": "آز سيستم هاي ديجيتال 1",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسن زاده محمدرضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211056_01",
+            "courseName": "آز سيستم هاي ديجيتال 2",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اردشير غلامرضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211056_02",
+            "courseName": "آز سيستم هاي ديجيتال 2",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اردشير غلامرضا",
+            "dateAndTime": {
+                "monday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211056_03",
+            "courseName": "آز سيستم هاي ديجيتال 2",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "نصيرايي محمد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211056_04",
+            "courseName": "آز سيستم هاي ديجيتال 2",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "وحيدي -",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211058_01",
+            "courseName": "آزمايشگاه كنترل صنعتي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 7,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "رضايي بهروز",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211058_02",
+            "courseName": "آزمايشگاه كنترل صنعتي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 9,
+            "registeredCount": 9,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "رضايي بهروز",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211101_01",
+            "courseName": "سمينار تخصصي",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 250,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211201_01",
+            "courseName": "پايان نامه كارشناسي ارشد",
+            "totalUnit": 6,
+            "practicalUnit": 6,
+            "capacity": 300,
+            "registeredCount": 47,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211300_01",
+            "courseName": "امتحان جامع",
+            "totalUnit": 1,
+            "practicalUnit": 0,
+            "capacity": 250,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211301_01",
+            "courseName": "طرح پيشنهادي رساله دكتري",
+            "totalUnit": 0,
+            "practicalUnit": 0,
+            "capacity": 300,
+            "registeredCount": 0,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211302_01",
+            "courseName": "رساله دكتري",
+            "totalUnit": 24,
+            "practicalUnit": 24,
+            "capacity": 300,
+            "registeredCount": 19,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211303_01",
+            "courseName": "رساله دكتري",
+            "totalUnit": 21,
+            "practicalUnit": 21,
+            "capacity": 300,
+            "registeredCount": 0,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "مهندسي برق و كامپيوتر",
+            "courseID": "1211305_01",
+            "courseName": "رساله دكتري پژوهشي",
+            "totalUnit": 33,
+            "practicalUnit": 33,
+            "capacity": 300,
+            "registeredCount": 3,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221003_01",
+            "courseName": "برنامه نويسي پيشرفته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 24,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مقصودي نوشين",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221005_01",
+            "courseName": "ساختمان داده ها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 19,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمرانپور بندپي حسام",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221008_01",
+            "courseName": "طراحي الگوريتمها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 50,
+            "registeredCount": 50,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "زماني فاطمه",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221009_01",
+            "courseName": "نظريه زبانها و ماشينها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 40,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "حسن پور مهيار",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221012_01",
+            "courseName": "سيستمهاي عامل",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 22,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلامي رودي علي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221013_01",
+            "courseName": "شبكه هاي كامپيوتري",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 50,
+            "registeredCount": 50,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "صادق زاده هدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221017_01",
+            "courseName": "انتقال داده ها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 27,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاظمي تبار اميركلايي سيد جواد",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221019_01",
+            "courseName": "آزمايشگاه شبكه كامپيوتري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "فيروزمندي همت",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221019_02",
+            "courseName": "آزمايشگاه شبكه كامپيوتري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "فيروزمندي همت",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221019_03",
+            "courseName": "آزمايشگاه شبكه كامپيوتري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "فيروزمندي همت",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221019_04",
+            "courseName": "آزمايشگاه شبكه كامپيوتري",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "فيروزمندي همت",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221024_01",
+            "courseName": "سيگنالها و سيستمها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "منتظري كردي حسين",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221024_02",
+            "courseName": "سيگنالها و سيستمها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "آقا گل زاده علي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221024_03",
+            "courseName": "سيگنالها و سيستمها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كرمي ملايي محمدرضا",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221024_04",
+            "courseName": "سيگنالها و سيستمها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 28,
+            "registeredCount": 28,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سخائي سيدمحمود",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221026_01",
+            "courseName": "آزمايشگاه مدارهاي الكتريكي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "صادقي سيداسحق",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221029_01",
+            "courseName": "پايگاه داده ها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 45,
+            "registeredCount": 45,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمادي مهدي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221031_01",
+            "courseName": "زبان تخصصي",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 30,
+            "registeredCount": 30,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاظمي تبار اميركلايي سيد جواد",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221031_02",
+            "courseName": "زبان تخصصي",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 30,
+            "registeredCount": 29,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاظمي تبار اميركلايي سيد جواد",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221035_01",
+            "courseName": "مهندسي نرم افزار",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 50,
+            "registeredCount": 50,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمادي مهدي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221036_01",
+            "courseName": "معماري كامپيوتر",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 30,
+            "registeredCount": 16,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ولي نتاج مجتبي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221036_02",
+            "courseName": "معماري كامپيوتر",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 30,
+            "registeredCount": 30,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عدل سيدمحمدتقي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221046_01",
+            "courseName": "مباني كامپيوتر و برنامه نويسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 6,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "زماني فاطمه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221047_01",
+            "courseName": "رياضيات گسسته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 27,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مقصودي نوشين",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221047_02",
+            "courseName": "رياضيات گسسته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 35,
+            "registeredCount": 18,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كاظمي تبار اميركلايي سيد جواد",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221050_01",
+            "courseName": "مدارهاي منطقي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 24,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "كرمي ملايي محمدرضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-31",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221052_01",
+            "courseName": "طراحي كامپيوتري سيستم هاي ديجيتال",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 33,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ولي نتاج مجتبي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221055_01",
+            "courseName": "اصول طراحي كامپايلر",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 50,
+            "registeredCount": 48,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلامي رودي علي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221056_01",
+            "courseName": "آزمايشگاه سيستم هاي عامل",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده فيروزجائي مصطفي",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221056_02",
+            "courseName": "آزمايشگاه سيستم هاي عامل",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده فيروزجائي مصطفي",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221056_03",
+            "courseName": "آزمايشگاه سيستم هاي عامل",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلامي رودي علي",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "13:30",
+                    "to": "15:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221057_01",
+            "courseName": "آزمايشگاه مدارهاي منطقي و معماري كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "يزدانيان اميري زهرا",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221057_02",
+            "courseName": "آزمايشگاه مدارهاي منطقي و معماري كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "يزدانيان اميري زهرا",
+            "dateAndTime": {
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221057_03",
+            "courseName": "آزمايشگاه مدارهاي منطقي و معماري كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 3,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "يزدانيان اميري زهرا",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221057_04",
+            "courseName": "آزمايشگاه مدارهاي منطقي و معماري كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "يزدانيان اميري زهرا",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221058_01",
+            "courseName": "روش پژوهش و ارايه",
+            "totalUnit": 2,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 27,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ولي نتاج مجتبي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221065_01",
+            "courseName": "تحليل و طراحي سيستم هاي نرم افزاري",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 20,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمادي مهدي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221066_01",
+            "courseName": "پروژه نرم افزار",
+            "totalUnit": 3,
+            "practicalUnit": 3,
+            "capacity": 20,
+            "registeredCount": 14,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221067_01",
+            "courseName": "پروژه معماري كامپيوتر",
+            "totalUnit": 3,
+            "practicalUnit": 3,
+            "capacity": 20,
+            "registeredCount": 8,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221080_01",
+            "courseName": "طراحي و ارزيابي سيستم هاي بي درنگ نهفته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عدل سيدمحمدتقي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221081_01",
+            "courseName": "حساب كامپيوتري",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ولي نتاج مجتبي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221086_01",
+            "courseName": "پردازش موازي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "غلامي رودي علي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221096_01",
+            "courseName": "طراحي زبانهاي برنامه سازي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 33,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "منصوري مجتبي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "monday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-03-30",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221098_01",
+            "courseName": "سيستمهاي نهفته و بيدرنگ",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 14,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عدل سيدمحمدتقي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221103_01",
+            "courseName": "مباني نظريه بازي ها",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 20,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده فيروزجائي مصطفي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": "اخذ اين درس فقط براي ورودي هاي 97 مجاز است"
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221104_01",
+            "courseName": "الگوريتمهاي پيشرفته كارشناسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "احمدي رضا",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": "اخذ اين درس تنها براي ورودي هاي 97 مجاز مي باشد"
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221105_01",
+            "courseName": "مقدمه اي بر مسابقات برنامه نويسي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 14,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "تقي زاده فيروزجائي مصطفي",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-04-07",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": "اخذ اين درس تنها براي ورودي هاي 97 مجاز است"
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221107_01",
+            "courseName": "آزمايشگاه پايگاه داده",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سلحشور فاطمه",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221107_02",
+            "courseName": "آزمايشگاه پايگاه داده",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سلحشور فاطمه",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221108_01",
+            "courseName": "كارگاه برنامه نويسي متلب",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ابراهيمي خاله سري فريده",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221108_02",
+            "courseName": "كارگاه برنامه نويسي متلب",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "سخائي سيدمحمود",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221108_03",
+            "courseName": "كارگاه برنامه نويسي متلب",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "منتظري كردي حسين",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221114_01",
+            "courseName": "بازيابي اطلاعات پيشرفته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "منصوري مجتبي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221117_01",
+            "courseName": "مباني داده كاوي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 39,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمرانپور بندپي حسام",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "monday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221120_01",
+            "courseName": "آزمايشگاه مهندسي نرم افزار",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مختاري مهران",
+            "dateAndTime": {
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221120_02",
+            "courseName": "آزمايشگاه مهندسي نرم افزار",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مختاري مهران",
+            "dateAndTime": {
+                "monday": {
+                    "from": "17:30",
+                    "to": "19:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221125_01",
+            "courseName": "كارگاه مباني كامپيوتر و برنامه نويسي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمرانپور بندپي حسام",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221127_01",
+            "courseName": "كارگاه آشنايي با مهندسي كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 3,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "دوست فرهي سپيده",
+            "dateAndTime": {
+                "monday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221127_02",
+            "courseName": "كارگاه آشنايي با مهندسي كامپيوتر",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 7,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "دوست فرهي سپيده",
+            "dateAndTime": {
+                "monday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221128_01",
+            "courseName": "كارگاه برنامه نويسي پيشرفته",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 6,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "چيتگر نگار",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221128_02",
+            "courseName": "كارگاه برنامه نويسي پيشرفته",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "چيتگر نگار",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221128_03",
+            "courseName": "كارگاه برنامه نويسي پيشرفته",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 2,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "چيتگر نگار",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221128_04",
+            "courseName": "كارگاه برنامه نويسي پيشرفته",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 4,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "چيتگر نگار",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221129_01",
+            "courseName": "مدارهاي الكتريكي و الكترونيكي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "ابراهيمي خاله سري فريده",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-03",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221130_01",
+            "courseName": "جبر خطي كاربردي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 45,
+            "registeredCount": 44,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "مقصودي نوشين",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "tuesday": {
+                    "from": "13:30",
+                    "to": "15:00"
+                },
+                "exam": {
+                    "date": "1402-04-04",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221131_01",
+            "courseName": "مباني و كاربردهاي هوش مصنوعي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 26,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "زماني فاطمه",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221132_01",
+            "courseName": "پروژه پاياني",
+            "totalUnit": 3,
+            "practicalUnit": 3,
+            "capacity": 40,
+            "registeredCount": 26,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "اساتيد گروه آموزشي",
+            "dateAndTime": {},
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221136_01",
+            "courseName": "مباني بازيابي اطلاعات",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 34,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "منصوري مجتبي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221137_03",
+            "courseName": "آزمايشگاه مدارهاي الكتريكي و الكترونيكي",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "جوادي محسن",
+            "dateAndTime": {
+                "tuesday": {
+                    "from": "15:30",
+                    "to": "17:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221138_01",
+            "courseName": "برنامه نويسي وب و دستگاههاي سيار",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 5,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "احسان احساني مقدم",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "tuesday": {
+                    "from": "17:30",
+                    "to": "19:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221147_01",
+            "courseName": "مباني بينايي كامپيوتر",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 40,
+            "registeredCount": 30,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "بالغي دماوندي ياسر",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "monday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-03-27",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221158_01",
+            "courseName": "هوش مصنوعي پيشرفته",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 11,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمرانپور بندپي حسام",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "tuesday": {
+                    "from": "08:00",
+                    "to": "09:30"
+                },
+                "exam": {
+                    "date": "1402-03-28",
+                    "time": "14:00-16:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221164_01",
+            "courseName": "آزمايشگاه FPGA",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قلي زاده اهنگري رويا",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "08:00",
+                    "to": "10:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221164_02",
+            "courseName": "آزمايشگاه FPGA",
+            "totalUnit": 1,
+            "practicalUnit": 1,
+            "capacity": 12,
+            "registeredCount": 12,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "قلي زاده اهنگري رويا",
+            "dateAndTime": {
+                "wednesday": {
+                    "from": "10:00",
+                    "to": "12:00"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221166_01",
+            "courseName": "معماري نرم‌افزار",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 1,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "عمادي مهدي",
+            "dateAndTime": {
+                "saturday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "monday": {
+                    "from": "15:30",
+                    "to": "17:00"
+                },
+                "exam": {
+                    "date": "1402-03-29",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        },
+        {
+            "college": "مهندسي برق و كامپيوتر",
+            "group": "كامپيوتر",
+            "courseID": "1221167_01",
+            "courseName": "مباحث ويژه در هوش مصنوعي",
+            "totalUnit": 3,
+            "practicalUnit": 0,
+            "capacity": 20,
+            "registeredCount": 0,
+            "waitListCount": 0,
+            "gender": "مختلط",
+            "professor": "زماني فاطمه",
+            "dateAndTime": {
+                "sunday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "tuesday": {
+                    "from": "10:00",
+                    "to": "11:30"
+                },
+                "exam": {
+                    "date": "1402-04-05",
+                    "time": "08:30-10:30"
+                }
+            },
+            "description": ""
+        }
+    ]
+}
