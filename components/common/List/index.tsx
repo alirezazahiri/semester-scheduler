@@ -94,7 +94,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           sx={{
             width: 350,
             position: "fixed",
-            bottom: 2,
+            bottom: 1,
             left: 0,
             zIndex: 2000,
             bgcolor: "background.default",

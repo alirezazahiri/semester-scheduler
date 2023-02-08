@@ -27,9 +27,16 @@ function SelectContainer({ items, name, value, handleChange }: IProps) {
         value={value.toString()}
         onChange={handleChange}
         label={name}
+        sx={{
+          textAlign: "right",
+        }}
       >
         {items.map((item) => (
-          <MenuItem key={item.name} value={item.value}>
+          <MenuItem
+            key={item.name}
+            value={item.value}
+            dir="rtl"
+          >
             {item.name}
           </MenuItem>
         ))}

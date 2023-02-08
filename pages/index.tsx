@@ -14,7 +14,7 @@ function Index({ courses }: IProps) {
       <Box sx={{ width: "fit-content" }}>
         <SelectCourses courses={courses} />
       </Box>
-      <Box sx={{ ml: 16.5, mt: 9, height: "100vh" }}>
+      <Box sx={{ ml: 16.5, mt: 9 }}>
         <ScheduleTable />
       </Box>
     </Box>
