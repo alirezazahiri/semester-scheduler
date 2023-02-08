@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import { TCourse } from "@/types/courses";
 import Item from "@/components/common/ListItem";
 import Pagination from "@mui/material/Pagination";
-import { SelectChangeEvent } from "@mui/material";
-import Options from "../Options";
+import { SelectChangeEvent, TextField } from "@mui/material";
+import Options from "@/components/common/Options";
 import { useContext } from "react";
-import { SelectedCollegeContext } from "../../../context/SelectedCollegeContext/index";
+import { SelectedCollegeContext } from "@/context/SelectedCollegeContext/index";
+import Box from "@mui/material/Box";
 
 interface IProps {
   items: TCourse[];
@@ -40,6 +41,7 @@ const COLLEGE_ITEMS = [
 function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
   const [unit, setUnit] = useState(0);
+  const [criteria, setCriteria] = useState<string>("");
   const { selectedCollege, setSelectedCollege } = useContext(
     SelectedCollegeContext
   );
@@ -65,15 +67,30 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   };
   const changeCollegeHandler = (e: SelectChangeEvent) => {
     const { value } = e.target;
+
     if (unit !== Number(value)) {
       setPage(1);
       setSelectedCollege(value);
     }
   };
+  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = [...e.target.value]
+      .map((char) => (char === "ی" ? "ي" : char))
+      .map((char) => (char === "ک" ? "ك" : char))
+      .join("");
+    setCriteria(value);
+  };
 
-  const filteredItems = unit
+  const unitFilteredItems = unit
     ? items.filter((item) => item.totalUnit === unit)
     : items;
+  const criteriaFilteredItems = criteria
+    ? unitFilteredItems.filter(
+        (item) =>
+          item.courseName.includes(criteria) || item.courseID.includes(criteria)
+      )
+    : unitFilteredItems;
+  const filteredItems = criteriaFilteredItems;
 
   return (
     <>
@@ -83,7 +100,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           bgcolor: "background.paper",
           borderRight: "1px solid var(--border-primary-color)",
           height: "100%",
-          pb: 15,
+          pb: 20,
           overflow: "auto",
           position: "fixed",
           top: 70,
@@ -113,22 +130,44 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           changeCollegeHandler={changeCollegeHandler}
           setSelectedItems={setSelectedItems}
         />
-        <Pagination
-          count={Math.ceil(filteredItems.length / 20)}
-          color="primary"
-          variant="outlined"
-          onChange={paginateHandler}
-          size="medium"
-          page={page}
-          sx={{
-            width: 350,
-            position: "fixed",
-            bottom: 1,
-            left: 0,
-            zIndex: 2000,
-            bgcolor: "background.default",
-          }}
-        />
+        <Box
+        sx={{
+          position: "fixed",
+          bottom: 1,
+          left: 0,
+          pl: 1,
+        }}
+        >
+          <TextField
+            variant="outlined"
+            size="small"
+            value={criteria}
+            onChange={searchHandler}
+            label="جستجو"
+            sx={{
+              width: 342,
+              zIndex: 2000,
+              textAlign:"right",
+              bgcolor: "background.default"
+            }}
+            
+            dir="rtl"
+          />
+          <Pagination
+            count={Math.ceil(filteredItems.length / 20)}
+            color="primary"
+            variant="outlined"
+            onChange={paginateHandler}
+            size="medium"
+            page={page}
+            sx={{
+              width: 342,
+              zIndex: 2000,
+              pt: 1,
+              bgcolor: "background.default",
+            }}
+          />
+        </Box>
       </>
     </>
   );

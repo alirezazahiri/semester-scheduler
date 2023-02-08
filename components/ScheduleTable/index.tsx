@@ -63,7 +63,9 @@ function ScheduleTable() {
               justifyContent: "space-around",
             }}
           >
-            <Typography component="h1" variant="h5">{WEEK_DAYS_FA[index]}</Typography>
+            <Typography component="h1" variant="h5">
+              {WEEK_DAYS_FA[index]}
+            </Typography>
             {weeklyPlan[day]?.map(({ time, courseName, courseID }) => {
               return (
                 <Box
