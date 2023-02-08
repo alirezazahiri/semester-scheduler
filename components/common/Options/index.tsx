@@ -8,12 +8,26 @@ interface IProps {
     name: string;
     value: string | number;
   }[];
-  unit: number;
+  collegeItems: {
+    name: string;
+    value: string | number;
+  }[];
+  unit: string | number;
+  college: string | number;
   changeHandler: (e: SelectChangeEvent) => void;
+  changeCollegeHandler: (e: SelectChangeEvent) => void;
   setSelectedItems: (list: any[]) => void;
 }
 
-function Options({ unitItems, unit, changeHandler, setSelectedItems }: IProps) {
+function Options({
+  collegeItems,
+  unitItems,
+  unit,
+  college,
+  changeHandler,
+  changeCollegeHandler,
+  setSelectedItems,
+}: IProps) {
   return (
     <Box
       sx={{
@@ -46,6 +60,12 @@ function Options({ unitItems, unit, changeHandler, setSelectedItems }: IProps) {
         name={"واحد"}
         value={unit}
         handleChange={changeHandler}
+      />
+      <SelectContainer
+        items={collegeItems}
+        name={"دانشکده"}
+        value={college}
+        handleChange={changeCollegeHandler}
       />
     </Box>
   );

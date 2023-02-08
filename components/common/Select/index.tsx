@@ -19,7 +19,7 @@ interface IProps {
 
 function SelectContainer({ items, name, value, handleChange }: IProps) {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+    <FormControl variant="standard" sx={{ m: 1, minWidth: 140, maxWidth: 120 }}>
       <InputLabel id="select-standard-label">{name}</InputLabel>
       <Select
         labelId="select-standard-label"
@@ -32,11 +32,7 @@ function SelectContainer({ items, name, value, handleChange }: IProps) {
         }}
       >
         {items.map((item) => (
-          <MenuItem
-            key={item.name}
-            value={item.value}
-            dir="rtl"
-          >
+          <MenuItem key={item.name} value={item.value} dir="rtl">
             {item.name}
           </MenuItem>
         ))}

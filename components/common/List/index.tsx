@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { TCourse } from "@/types/courses";
 import Item from "@/components/common/ListItem";
 import Pagination from "@mui/material/Pagination";
-import { Box, SelectChangeEvent } from "@mui/material";
+import { SelectChangeEvent } from "@mui/material";
 import Options from "../Options";
+import { useContext } from "react";
+import { SelectedCollegeContext } from "../../../context/SelectedCollegeContext/index";
 
 interface IProps {
   items: TCourse[];
@@ -12,7 +14,7 @@ interface IProps {
   setSelectedItems: (courseList?: TCourse[] | undefined) => void;
 }
 
-const ITEMS = [
+const UNIT_ITEMS = [
   { name: "همه", value: 0 },
   { name: "نیم واحدی", value: 0.5 },
   { name: "یک واحدی", value: 1 },
@@ -21,9 +23,26 @@ const ITEMS = [
   { name: "چهار واحدی", value: 4 },
 ];
 
+const COMMON_COLLEGES = [
+  { name: "علوم پايه", value: "11" },
+  { name: "معارف", value: "16" },
+  { name: "اداره تربيت بدني", value: "29" },
+  { name: "پرديس بين الملل", value: "19" },
+];
+const COLLEGE_ITEMS = [
+  { name: "مهندسي برق و كامپيوتر", value: "12" },
+  { name: "مهندسي مكانيك", value: "13" },
+  { name: "مهندسي عمران", value: "14" },
+  { name: "مهندسي شيمي", value: "15" },
+  { name: "مهندسي مواد و صنايع", value: "21" },
+];
+
 function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
   const [unit, setUnit] = useState(0);
+  const { selectedCollege, setSelectedCollege } = useContext(
+    SelectedCollegeContext
+  );
 
   const handleToggle = (course: TCourse) => {
     if (selectedItems.findIndex((c) => c.courseID === course.courseID) !== -1)
@@ -42,6 +61,13 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
     if (unit !== Number(value)) {
       setPage(1);
       setUnit(Number(value));
+    }
+  };
+  const changeCollegeHandler = (e: SelectChangeEvent) => {
+    const { value } = e.target;
+    if (unit !== Number(value)) {
+      setPage(1);
+      setSelectedCollege(value);
     }
   };
 
@@ -79,9 +105,12 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
       </List>
       <>
         <Options
-          unitItems={ITEMS}
+          unitItems={UNIT_ITEMS}
+          collegeItems={[...COMMON_COLLEGES, ...COLLEGE_ITEMS]}
           unit={unit}
+          college={selectedCollege}
           changeHandler={changeHandler}
+          changeCollegeHandler={changeCollegeHandler}
           setSelectedItems={setSelectedItems}
         />
         <Pagination

@@ -1,18 +1,27 @@
-import { TCourse } from "@/types/courses";
 import SelectCourses from "@/components/SelectCourses";
-import { Grid, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import ScheduleTable from "@/components/ScheduleTable";
+import { useContext, useEffect } from "react";
+import { AllCoursesContext } from "../context/AllCoursesContext/index";
+import { SelectedCollegeContext } from "../context/SelectedCollegeContext/index";
 
-interface IProps {
-  courses: TCourse[];
-}
-function Index({ courses }: IProps) {
+function Index() {
+  const { selectedCollege } = useContext(SelectedCollegeContext);
+  const { allCourses, setAllCourses } = useContext(AllCoursesContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`http://localhost:8080/${selectedCollege}`);
+      const courses = await res.json();
+      setAllCourses(courses);
+    };
+    fetchData();
+  }, [selectedCollege]);
+
   return (
-    <Box
-      sx={{ bgcolor: "background.default", display: "flex" }}
-    >
+    <Box sx={{ bgcolor: "background.default", display: "flex" }}>
       <Box sx={{ width: "fit-content" }}>
-        <SelectCourses courses={courses} />
+        <SelectCourses courses={allCourses} />
       </Box>
       <Box sx={{ ml: 16.5, mt: 9 }}>
         <ScheduleTable />
@@ -22,13 +31,3 @@ function Index({ courses }: IProps) {
 }
 
 export default Index;
-
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:8080/courses");
-  const courses = await res.json();
-  return {
-    props: {
-      courses,
-    },
-  };
-}

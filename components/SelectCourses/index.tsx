@@ -20,11 +20,13 @@ function SelectCourses({ courses }: IProps) {
   if (!allCourses.length) return <h1>loading...</h1>;
 
   return (
-    <ListContainer
-      items={allCourses}
-      selectedItems={selectedCourses}
-      setSelectedItems={setSelectedCourses}
-    />
+    <>
+      <ListContainer
+        items={allCourses}
+        selectedItems={selectedCourses}
+        setSelectedItems={setSelectedCourses}
+      />
+    </>
   );
 }
 export default SelectCourses;
