@@ -8,6 +8,7 @@ import Options from "@/components/common/Options";
 import { useContext } from "react";
 import { SelectedCollegeContext } from "@/context/SelectedCollegeContext/index";
 import Box from "@mui/material/Box";
+import { COLLEGE_ITEMS, COMMON_COLLEGES } from "@/constants/index.constants";
 
 interface IProps {
   items: TCourse[];
@@ -24,19 +25,7 @@ const UNIT_ITEMS = [
   { name: "چهار واحدی", value: 4 },
 ];
 
-const COMMON_COLLEGES = [
-  { name: "علوم پايه", value: "11" },
-  { name: "معارف", value: "16" },
-  { name: "اداره تربيت بدني", value: "29" },
-  { name: "پرديس بين الملل", value: "19" },
-];
-const COLLEGE_ITEMS = [
-  { name: "مهندسي برق و كامپيوتر", value: "12" },
-  { name: "مهندسي مكانيك", value: "13" },
-  { name: "مهندسي عمران", value: "14" },
-  { name: "مهندسي شيمي", value: "15" },
-  { name: "مهندسي مواد و صنايع", value: "21" },
-];
+
 
 function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
@@ -106,6 +95,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           top: 70,
           outline: 0,
           left: 0,
+          direction: "ltr"
         }}
       >
         {filteredItems.slice((page - 1) * 20, page * 20).map((item) => (
@@ -166,6 +156,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
               pt: 1,
               bgcolor: "background.default",
             }}
+            dir="ltr"
           />
         </Box>
       </>

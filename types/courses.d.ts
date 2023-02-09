@@ -11,14 +11,15 @@ export type TCourse = {
   gender: string;
   professor: string;
   dateAndTime: {
-    [day: string]: {
-      from: string;
-      to: string;
-    };
-    exam?: {
-      date: string;
-      time: string;
-    };
+    [day: string]:
+      | {
+          from: string;
+          to: string;
+        }
+      | {
+          date: string;
+          time: string;
+        };
   };
   description?: "";
 };

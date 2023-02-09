@@ -7,6 +7,7 @@ export type TSchedule = {
   courseName: string;
   courseID: string;
   totalUnit: number;
+  practicalUnit: number;
   remainingCapacity: number;
   professor: string;
   description: string;
@@ -15,6 +16,8 @@ export type TSchedule = {
 export type TDailyPlan = {
   courseID: string;
   courseName: string;
+  totalUnit: number;
+  practicalUnit: number;
   time: { from: string; to: string };
 };
 export type TWeeklyPlan = { [day: string]: TDailyPlan[] };

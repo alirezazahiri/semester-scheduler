@@ -10,7 +10,7 @@ function Layout({ children }: IProps) {
   return (
     <>
       <ThemeSwitch />
-      <Box>{children}</Box>
+      <main dir="rtl">{children}</main>
     </>
   );
 }

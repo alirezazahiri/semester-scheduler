@@ -16,6 +16,7 @@ export const getCourseWeeklyPlan = (course: TCourse) => {
         courseName: "",
         courseID: "",
         totalUnit: 0,
+        practicalUnit: 0,
         remainingCapacity: 0,
         professor: "",
         description: "",
@@ -25,6 +26,7 @@ export const getCourseWeeklyPlan = (course: TCourse) => {
       result[i].courseName = course.courseName;
       result[i].courseID = course.courseID;
       result[i].totalUnit = course.totalUnit;
+      result[i].practicalUnit = course.practicalUnit;
       result[i].remainingCapacity = course.capacity - course.registeredCount;
       result[i].professor = course.professor;
       result[i].description = course.description || "";

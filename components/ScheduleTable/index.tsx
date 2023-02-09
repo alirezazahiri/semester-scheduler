@@ -6,26 +6,13 @@ import { getCourseWeeklyPlan } from "@/utils/selectedCourses.utils";
 import { useEffect } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
 import { TWeeklyPlan } from "@/types/plan";
-import { Box } from "@mui/material";
-
-const WEEK_DAYS_EN = [
-  "saturday",
-  "sunday",
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-];
-const WEEK_DAYS_FA = [
-  "شنبه",
-  "یکشنبه",
-  "دوشنبه",
-  "سه شنبه",
-  "چهارشنبه",
-  "پنجشنبه",
-  "جمعه",
-];
+import { Box, Grid } from "@mui/material";
+import DayRow from "./DayRow";
+import {
+  TABLE_HEADER_TIME_LIST,
+  WEEK_DAYS_EN,
+  WEEK_DAYS_FA,
+} from "@/constants/index.constants";
 
 function ScheduleTable() {
   const { selectedCourses } = useContext(SelectedCoursesContext);
@@ -38,55 +25,53 @@ function ScheduleTable() {
     const week: TWeeklyPlan = {};
     for (const coursePlan of coursePlans) {
       for (const dayPlan of coursePlan) {
-        const { day, courseName, time, courseID } = dayPlan;
-        week[day] = [...(week[day] || []), { courseID, courseName, time }];
+        const { day, courseName, time, courseID, totalUnit, practicalUnit } = dayPlan;
+        week[day] = [...(week[day] || []), { courseID, courseName, time, practicalUnit, totalUnit }];
       }
     }
     setWeeklyPlan(week);
   }, [selectedCourses]);
 
   return (
-    <Box
+    <Grid
       sx={{
         bgcolor: "background.paper",
         px: 0,
         py: 2,
         ml: 30,
       }}
+      container
+      xs={12}
     >
-      {WEEK_DAYS_EN.map((day, index) => {
-        return (
-          <Box
-            key={day}
+      <Grid container xs={12}>
+        {TABLE_HEADER_TIME_LIST.map((time, idx) => (
+          <Grid
+            key={time}
+            item
+            xs={(1 / (TABLE_HEADER_TIME_LIST.length)) * 12}
             sx={{
-              display: "flex",
-              justifyContent: "space-around",
+              border:
+                idx !== 0 ? "0.1px solid var(--border-primary-color)" : "none",
             }}
           >
-            <Typography component="h1" variant="h5">
-              {WEEK_DAYS_FA[index]}
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ textAlign: "center" }}
+            >
+              {time.split("-")[0]}
+              <br />
+              {time.split("-")[1]}
             </Typography>
-            {weeklyPlan[day]?.map(({ time, courseName, courseID }) => {
-              return (
-                <Box
-                  key={courseID}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <h5>{courseName}</h5>
-                  <p>
-                    {time.from} - {time.to}
-                  </p>
-                </Box>
-              );
-            })}
-          </Box>
+          </Grid>
+        ))}
+      </Grid>
+      {WEEK_DAYS_EN.map((day, index) => {
+        return (
+          <DayRow key={day} name={WEEK_DAYS_FA[index]} plan={weeklyPlan[day]} />
         );
       })}
-    </Box>
+    </Grid>
   );
 }
 

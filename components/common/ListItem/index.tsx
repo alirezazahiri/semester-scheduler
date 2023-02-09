@@ -24,6 +24,7 @@ function Item({ item, handleToggle, checked }: IProps) {
       }
       disablePadding
       onClick={() => handleToggle(item.courseID)}
+      dir="ltr"
     >
       <ListItemButton>
         <ListItemText

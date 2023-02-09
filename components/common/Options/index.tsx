@@ -33,6 +33,7 @@ function Options({
       sx={{
         width: "fit-content",
         display: "flex",
+        flexDirection: "row-reverse",
         px: 1,
         alignItems: "center",
         position: "fixed",
