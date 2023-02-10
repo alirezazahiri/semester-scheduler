@@ -1,6 +1,6 @@
 import React from "react";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import { Box } from "@mui/material";
+import { Toaster } from "react-hot-toast";
 
 interface IProps {
   children: JSX.Element;
@@ -9,6 +9,7 @@ interface IProps {
 function Layout({ children }: IProps) {
   return (
     <>
+      <Toaster position="top-center"  />
       <ThemeSwitch />
       <main dir="rtl">{children}</main>
     </>

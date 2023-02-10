@@ -16,6 +16,15 @@ export const WEEK_DAYS_FA = [
   "پنجشنبه",
   "جمعه",
 ];
+export const WEEK_DAYS_DICTIONARY = {
+  saturday: "شنبه",
+  sunday: "یکشنبه",
+  monday: "دوشنبه",
+  tuesday: "سه شنبه",
+  wednesday: "چهارشنبه",
+  thursday: "پنجشنبه",
+  friday: "جمعه",
+};
 export const TABLE_HEADER_TIME_LIST = [
   "-",
   "7:30-8:30",

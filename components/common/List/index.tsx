@@ -25,8 +25,6 @@ const UNIT_ITEMS = [
   { name: "چهار واحدی", value: 4 },
 ];
 
-
-
 function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
   const [unit, setUnit] = useState(0);
@@ -95,7 +93,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           top: 70,
           outline: 0,
           left: 0,
-          direction: "ltr"
+          direction: "ltr",
         }}
       >
         {filteredItems.slice((page - 1) * 20, page * 20).map((item) => (
@@ -121,12 +119,12 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
           setSelectedItems={setSelectedItems}
         />
         <Box
-        sx={{
-          position: "fixed",
-          bottom: 1,
-          left: 0,
-          pl: 1,
-        }}
+          sx={{
+            position: "fixed",
+            bottom: 1,
+            left: 0,
+            pl: 1,
+          }}
         >
           <TextField
             variant="outlined"
@@ -137,10 +135,9 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
             sx={{
               width: 342,
               zIndex: 2000,
-              textAlign:"right",
-              bgcolor: "background.default"
+              textAlign: "right",
+              bgcolor: "background.default",
             }}
-            
             dir="rtl"
           />
           <Pagination

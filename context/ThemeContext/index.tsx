@@ -15,13 +15,11 @@ const SETTINGS: Partial<ThemeOptions> = {
       light: "#757ce8",
       main: "#3f50b5",
       dark: "#002884",
-      contrastText: "#B8BBC0",
     },
     secondary: {
       light: "#ff7961",
       main: "#f44336",
       dark: "#ba000d",
-      contrastText: "#0b0b0b",
     },
   },
 };
@@ -31,6 +29,10 @@ const LIGHT_THEME = createTheme({
   palette: {
     ...SETTINGS.palette,
     mode: "light",
+    primary: {
+      contrastText: "#0b0b0b",
+      main: "#002884",
+    },
     background: {
       default: "#d4d9e1",
       paper: "#d4d9e1",
@@ -42,6 +44,10 @@ const DARK_THEME = createTheme({
   palette: {
     ...SETTINGS.palette,
     mode: "dark",
+    primary: {
+      contrastText: "#B8BBC0",
+      main: "#3f50b5",
+    },
     background: {
       default: "#0A1929",
       paper: "#0A1929",

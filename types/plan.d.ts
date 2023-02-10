@@ -18,6 +18,8 @@ export type TDailyPlan = {
   courseName: string;
   totalUnit: number;
   practicalUnit: number;
+  professor: string;
+  description: string;
   time: { from: string; to: string };
 };
 export type TWeeklyPlan = { [day: string]: TDailyPlan[] };

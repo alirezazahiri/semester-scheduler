@@ -25,8 +25,28 @@ function ScheduleTable() {
     const week: TWeeklyPlan = {};
     for (const coursePlan of coursePlans) {
       for (const dayPlan of coursePlan) {
-        const { day, courseName, time, courseID, totalUnit, practicalUnit } = dayPlan;
-        week[day] = [...(week[day] || []), { courseID, courseName, time, practicalUnit, totalUnit }];
+        const {
+          day,
+          courseName,
+          time,
+          courseID,
+          totalUnit,
+          practicalUnit,
+          professor,
+          description,
+        } = dayPlan;
+        week[day] = [
+          ...(week[day] || []),
+          {
+            courseID,
+            courseName,
+            time,
+            practicalUnit,
+            totalUnit,
+            professor,
+            description,
+          },
+        ];
       }
     }
     setWeeklyPlan(week);
@@ -48,7 +68,7 @@ function ScheduleTable() {
           <Grid
             key={time}
             item
-            xs={(1 / (TABLE_HEADER_TIME_LIST.length)) * 12}
+            xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
             sx={{
               border:
                 idx !== 0 ? "0.1px solid var(--border-primary-color)" : "none",
@@ -58,6 +78,7 @@ function ScheduleTable() {
               component="p"
               variant="subtitle2"
               sx={{ textAlign: "center" }}
+              color="primary.contrastText"
             >
               {time.split("-")[0]}
               <br />
