@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -8,12 +8,11 @@ import { Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext/index";
 import sortedPlan from "@/utils/sortDailyPlan";
-import { isInterfering } from "../../../utils/calculateDayRow";
+import { isInterfering } from "@/utils/calculateDayRow";
 import showToast from "@/utils/showToast";
-import { SelectedCoursesContext } from '../../../context/SelectedCoursesContext/index';
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 import {
   WEEK_DAYS_DICTIONARY,
-  WEEK_DAYS_FA,
 } from "@/constants/index.constants";
 
 interface IProps {
@@ -26,7 +25,7 @@ function Item({ item, handleToggle, checked }: IProps) {
   const { weeklyPlan } = useContext(WeeklyPlanContext);
   const { selectedCourses } = useContext(SelectedCoursesContext);
   const toggleCaller = () => {
-    if (selectedCourses.find(c => c.courseID === item.courseID)) {
+    if (selectedCourses.find((c) => c.courseID === item.courseID)) {
       return handleToggle(item.courseID);
     }
     const days = Object.keys(weeklyPlan);
@@ -49,15 +48,21 @@ function Item({ item, handleToggle, checked }: IProps) {
             )
           ) {
             interferenceDays.push(day);
-            interferenceCourses.push(sorted[i].courseName);
-            interferenceCourses.push(item.courseName);
+            interferenceCourses.push(
+              `${sorted[i].courseName} (گروه ${
+                sorted[i].courseID.split("_")[1]
+              })`
+            );
+            interferenceCourses.push(
+              `${item.courseName} (گروه ${item.courseID.split("_")[1]})`
+            );
           }
         }
       }
     }
 
     if (interferenceDays.length > 0) {
-      const message = `تداخل درس های ${interferenceCourses.join(" و ")} در روز${
+      const message = `تداخل درس های ${[...new Set(interferenceCourses)].join(" و ")} در روز${
         interferenceDays.length >= 2 ? "های" : ""
       } ${interferenceDays
         .map(
@@ -75,10 +80,7 @@ function Item({ item, handleToggle, checked }: IProps) {
         )
         .join(" و ")}`;
       showToast(message, "error", 2500);
-    }
-
-    else
-      return handleToggle(item.courseID);
+    } else return handleToggle(item.courseID);
   };
   return (
     <ListItem
@@ -107,7 +109,10 @@ function Item({ item, handleToggle, checked }: IProps) {
               fontWeight: "700",
             }}
           />
-          <ListItemText id={item.courseID} primary={item.courseName} />
+          <ListItemText
+            id={item.courseID}
+            primary={`(${item.courseID.split("_")[1]} گروه) ${item.courseName}`}
+          />
         </ListItemButton>
       </Tooltip>
     </ListItem>

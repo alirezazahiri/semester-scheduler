@@ -1,7 +1,7 @@
 import { Box, IconButton, SelectChangeEvent, Typography } from "@mui/material";
 import React from "react";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import SelectContainer from "../Select";
+import SelectContainer from "@/components/common/Select";
 
 interface IProps {
   unitItems: {

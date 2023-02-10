@@ -2,8 +2,7 @@ import { AllCoursesContext } from "@/context/AllCoursesContext";
 import { TCourse } from "@/types/courses";
 import { useContext, useEffect } from "react";
 import ListContainer from "@/components/common/List";
-import Layout from "../layout";
-import { SelectedCoursesContext } from "../../context/SelectedCoursesContext/index";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 
 interface IProps {
   courses: TCourse[];

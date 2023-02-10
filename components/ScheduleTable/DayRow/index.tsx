@@ -1,9 +1,7 @@
 import { TABLE_HEADER_TIME_LIST } from "@/constants/index.constants";
 import type { TDailyPlan } from "@/types/plan";
 import calculateDayRow from "@/utils/calculateDayRow";
-import getTimeScale from "@/utils/getTimeScale";
-import sortedPlan from "@/utils/sortDailyPlan";
-import { Box, Grid, Tooltip, Typography } from "@mui/material";
+import { Grid, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { useContext } from "react";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
@@ -23,7 +21,7 @@ function DayRow({ name, plan }: IProps) {
   return (
     <Grid
       container
-      xs={12}
+      // xs={12}
       sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
     >
       <Grid item xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}>
@@ -60,9 +58,8 @@ function DayRow({ name, plan }: IProps) {
                 }}
               ></Grid>
             ) : (
-              <Tooltip title={description} arrow followCursor>
+              <Tooltip title={description} key={courseID} arrow followCursor>
                 <Grid
-                  key={courseID}
                   item
                   xs={(timeScale / (TABLE_HEADER_TIME_LIST.length - 1)) * 12}
                   sx={{
@@ -79,7 +76,7 @@ function DayRow({ name, plan }: IProps) {
                     variant="body1"
                     color="primary.contrastText"
                   >
-                    {courseName}
+                    {`${courseName} (گروه ${courseID.split("_")[1]})`}
                   </Typography>
                   <Typography
                     component="p"

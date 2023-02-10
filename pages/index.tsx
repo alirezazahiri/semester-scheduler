@@ -2,8 +2,8 @@ import SelectCourses from "@/components/SelectCourses";
 import { Box } from "@mui/material";
 import ScheduleTable from "@/components/ScheduleTable";
 import { useContext, useEffect } from "react";
-import { AllCoursesContext } from "../context/AllCoursesContext/index";
-import { SelectedCollegeContext } from "../context/SelectedCollegeContext/index";
+import { AllCoursesContext } from "@/context/AllCoursesContext/index";
+import { SelectedCollegeContext } from "@/context/SelectedCollegeContext/index";
 
 function Index() {
   const { selectedCollege } = useContext(SelectedCollegeContext);

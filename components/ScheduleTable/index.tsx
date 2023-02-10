@@ -6,7 +6,7 @@ import { getCourseWeeklyPlan } from "@/utils/selectedCourses.utils";
 import { useEffect } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
 import { TWeeklyPlan } from "@/types/plan";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import DayRow from "./DayRow";
 import {
   TABLE_HEADER_TIME_LIST,
@@ -61,9 +61,9 @@ function ScheduleTable() {
         ml: 30,
       }}
       container
-      xs={12}
+      // xs={12}
     >
-      <Grid container xs={12}>
+      <Grid container>
         {TABLE_HEADER_TIME_LIST.map((time, idx) => (
           <Grid
             key={time}

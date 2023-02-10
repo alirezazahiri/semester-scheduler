@@ -1,4 +1,4 @@
-import compareTime from "./compareTime";
+import compareTime from "@/utils/compareTime";
 import { TDailyPlan } from "@/types/plan";
 import sortedPlan from "@/utils/sortDailyPlan";
 import getTimeScale from "@/utils/getTimeScale";
