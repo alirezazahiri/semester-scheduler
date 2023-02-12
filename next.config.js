@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
+  env: {
+    NEXT_APP_DB_URI: process.env.DB_URI
+  }
 }
 
 module.exports = nextConfig

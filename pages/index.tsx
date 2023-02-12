@@ -11,7 +11,7 @@ function Index() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:8080/${selectedCollege}`);
+      const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${selectedCollege}`);
       const courses = await res.json();
       setAllCourses(courses);
     };
