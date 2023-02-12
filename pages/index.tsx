@@ -23,7 +23,7 @@ function Index() {
       <Box sx={{ width: "fit-content" }}>
         <SelectCourses courses={allCourses} />
       </Box>
-      <Box sx={{ ml: 46, mt: 9, mr: 1, height: "92vh", overflow: "auto" }}>
+      <Box sx={{ ml: 46, mt: 9, mr: 1, height: "92vh", overflow: "hidden", overFlowX: "scroll" }}>
         <ScheduleTable />
       </Box>
     </Box>
