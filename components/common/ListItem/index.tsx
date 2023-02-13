@@ -6,11 +6,11 @@ import Checkbox from "@mui/material/Checkbox";
 import { TCourse } from "@/types/courses";
 import { Tooltip } from "@mui/material";
 import { useContext } from "react";
-import { WeeklyPlanContext } from "@/context/WeeklyPlanContext/index";
+import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
 import sortedPlan from "@/utils/sortDailyPlan";
 import { isInterfering } from "@/utils/calculateDayRow";
 import showToast from "@/utils/showToast";
-import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import {
   WEEK_DAYS_DICTIONARY,
 } from "@/constants/index.constants";

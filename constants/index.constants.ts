@@ -26,7 +26,7 @@ export const WEEK_DAYS_DICTIONARY = {
   friday: "جمعه",
 };
 export const TABLE_HEADER_TIME_LIST = [
-  "-",
+  "روز / ساعت",
   "7:30-8:30",
   "8:30-9:30",
   "9:30-10:30",
@@ -53,4 +53,13 @@ export const COLLEGE_ITEMS = [
   { name: "مهندسي عمران", value: "14" },
   { name: "مهندسي شيمي", value: "15" },
   { name: "مهندسي مواد و صنايع", value: "21" },
+];
+
+export const UNIT_ITEMS = [
+  { name: "همه", value: 0 },
+  { name: "نیم واحدی", value: 0.5 },
+  { name: "یک واحدی", value: 1 },
+  { name: "دو واحدی", value: 2 },
+  { name: "سه واحدی", value: 3 },
+  { name: "چهار واحدی", value: 4 },
 ];

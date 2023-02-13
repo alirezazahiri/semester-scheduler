@@ -6,24 +6,19 @@ import Pagination from "@mui/material/Pagination";
 import { SelectChangeEvent, TextField } from "@mui/material";
 import Options from "@/components/common/Options";
 import { useContext } from "react";
-import { SelectedCollegeContext } from "@/context/SelectedCollegeContext/index";
+import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
 import Box from "@mui/material/Box";
-import { COLLEGE_ITEMS, COMMON_COLLEGES } from "@/constants/index.constants";
+import {
+  COLLEGE_ITEMS,
+  COMMON_COLLEGES,
+  UNIT_ITEMS,
+} from "@/constants/index.constants";
 
 interface IProps {
   items: TCourse[];
   selectedItems: TCourse[];
   setSelectedItems: (courseList?: TCourse[] | undefined) => void;
 }
-
-const UNIT_ITEMS = [
-  { name: "همه", value: 0 },
-  { name: "نیم واحدی", value: 0.5 },
-  { name: "یک واحدی", value: 1 },
-  { name: "دو واحدی", value: 2 },
-  { name: "سه واحدی", value: 3 },
-  { name: "چهار واحدی", value: 4 },
-];
 
 function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
@@ -53,6 +48,9 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
     }
   };
   const changeCollegeHandler = (e: SelectChangeEvent) => {
+    const controller = new AbortController();
+    controller.abort();
+    
     const { value } = e.target;
 
     if (unit !== Number(value)) {

@@ -4,7 +4,7 @@ import calculateDayRow from "@/utils/calculateDayRow";
 import { Grid, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { useContext } from "react";
-import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 
 interface IProps {
   name: string;
@@ -24,8 +24,23 @@ function DayRow({ name, plan }: IProps) {
       // xs={12}
       sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
     >
-      <Grid item xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}>
-        <Typography component="h1" variant="h5">
+      <Grid
+        item
+        xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
+        sx={{
+          border: "1px solid var(--border-primary-color)",
+          height: "100%",
+          pr: "2px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-around",
+        }}
+      >
+        <Typography
+          component="h1"
+          variant="subtitle1"
+          sx={{ textAlign: "right", fontSize: "17px" }}
+        >
           {name}
         </Typography>
       </Grid>

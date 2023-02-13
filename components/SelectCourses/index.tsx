@@ -1,31 +1,28 @@
 import { AllCoursesContext } from "@/context/AllCoursesContext";
-import { TCourse } from "@/types/courses";
-import { useContext, useEffect } from "react";
+import React, { Dispatch, SetStateAction, useContext } from "react";
 import ListContainer from "@/components/common/List";
-import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
+import ListContainerLoader from "@/components/common/List/Skeleton";
 
 interface IProps {
-  courses: TCourse[];
+  loading: boolean;
+  controller: AbortController;
+  setController: Dispatch<SetStateAction<AbortController>>;
 }
-function SelectCourses({ courses }: IProps) {
-  const { allCourses, setAllCourses } = useContext(AllCoursesContext);
+function SelectCourses({ loading, controller, setController }: IProps) {
+  const { allCourses } = useContext(AllCoursesContext);
   const { selectedCourses, setSelectedCourses } = useContext(
     SelectedCoursesContext
   );
-  useEffect(() => {
-    setAllCourses(courses);
-  }, []);
 
-  if (!allCourses.length) return <h1>loading...</h1>;
+  if (loading) return <ListContainerLoader controller={controller} setController={setController} />;
 
   return (
-    <>
-      <ListContainer
-        items={allCourses}
-        selectedItems={selectedCourses}
-        setSelectedItems={setSelectedCourses}
-      />
-    </>
+    <ListContainer
+      items={allCourses}
+      selectedItems={selectedCourses}
+      setSelectedItems={setSelectedCourses}
+    />
   );
 }
 export default SelectCourses;

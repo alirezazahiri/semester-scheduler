@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import Typography from "@mui/material/Typography";
 import { getCourseWeeklyPlan } from "@/utils/selectedCourses.utils";
 import { useEffect } from "react";
@@ -59,6 +59,8 @@ function ScheduleTable() {
         px: 0,
         py: 2,
         ml: 30,
+        width: 1140,
+        overflowX: "scroll",
       }}
       container
       // xs={12}
@@ -70,20 +72,34 @@ function ScheduleTable() {
             item
             xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
             sx={{
-              border:
-                idx !== 0 ? "0.1px solid var(--border-primary-color)" : "none",
+              border: "0.1px solid var(--border-primary-color)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
             }}
           >
-            <Typography
-              component="p"
-              variant="subtitle2"
-              sx={{ textAlign: "center" }}
-              color="primary.contrastText"
-            >
-              {time.split("-")[0]}
-              <br />
-              {time.split("-")[1]}
-            </Typography>
+            {idx !== 0 ? (
+              <Typography
+                component="p"
+                variant="subtitle2"
+                sx={{ textAlign: "center" }}
+                color="primary.contrastText"
+              >
+                {time.split("-")[0]}
+                <br />
+                {time.split("-")[1]}
+              </Typography>
+            ) : (
+              <Typography
+                component="p"
+                variant="subtitle2"
+                fontSize="14px"
+                sx={{}}
+                color="primary.contrastText"
+              >
+                {time}
+              </Typography>
+            )}
           </Grid>
         ))}
       </Grid>

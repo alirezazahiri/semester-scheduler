@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "@/context/ThemeContext/index";
+import { ThemeContext } from "@/context/ThemeContext";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
