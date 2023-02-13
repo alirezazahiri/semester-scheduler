@@ -14,7 +14,17 @@ import {
   WEEK_DAYS_FA,
 } from "@/constants/index.constants";
 
-function ScheduleTable() {
+interface IProps {
+  mx: number | string;
+  my: number | string;
+  mt: number | string;
+  mb: number | string;
+  mr: number | string;
+  m: number | string;
+  fullWidth: boolean;
+}
+
+function ScheduleTable({ m, mx, my, mt, mb, mr, fullWidth }: Partial<IProps>) {
   const { selectedCourses } = useContext(SelectedCoursesContext);
   const { weeklyPlan, setWeeklyPlan } = useContext(WeeklyPlanContext);
 
@@ -55,54 +65,56 @@ function ScheduleTable() {
   return (
     <Grid
       sx={{
+        m: m ? m : 0,
+        mx: mx ? mx : 0,
+        my: my ? my : 0,
+        mt: mt ? mt : 0,
+        mb: mb ? mb : 0,
+        mr: mr ? mr : 0,
         bgcolor: "background.paper",
         px: 0,
         py: 2,
-        ml: 30,
-        width: 1140,
+        ml: fullWidth ? 0 : 30,
+        width: fullWidth ? "100%" : 1140,
         overflowX: "scroll",
       }}
       container
-      // xs={12}
     >
-      <Grid container>
-        {TABLE_HEADER_TIME_LIST.map((time, idx) => (
-          <Grid
-            key={time}
-            item
-            xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
-            sx={{
-              border: "0.1px solid var(--border-primary-color)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-around",
-            }}
-          >
-            {idx !== 0 ? (
-              <Typography
-                component="p"
-                variant="subtitle2"
-                sx={{ textAlign: "center" }}
-                color="primary.contrastText"
-              >
-                {time.split("-")[0]}
-                <br />
-                {time.split("-")[1]}
-              </Typography>
-            ) : (
-              <Typography
-                component="p"
-                variant="subtitle2"
-                fontSize="14px"
-                sx={{}}
-                color="primary.contrastText"
-              >
-                {time}
-              </Typography>
-            )}
-          </Grid>
-        ))}
-      </Grid>
+      {TABLE_HEADER_TIME_LIST.map((time, idx) => (
+        <Grid
+          key={time}
+          item
+          xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
+          sx={{
+            border: "0.1px solid var(--border-primary-color)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        >
+          {idx !== 0 ? (
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ textAlign: "center" }}
+              color="primary.contrastText"
+            >
+              {time.split("-")[0]}
+              <br />
+              {time.split("-")[1]}
+            </Typography>
+          ) : (
+            <Typography
+              component="p"
+              variant="subtitle2"
+              fontSize="14px"
+              color="primary.contrastText"
+            >
+              {time}
+            </Typography>
+          )}
+        </Grid>
+      ))}
       {WEEK_DAYS_EN.map((day, index) => {
         return (
           <DayRow key={day} name={WEEK_DAYS_FA[index]} plan={weeklyPlan[day]} />

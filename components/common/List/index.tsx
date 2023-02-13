@@ -122,6 +122,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
             bottom: 1,
             left: 0,
             pl: 1,
+            zIndex: 2000,
           }}
         >
           <TextField
@@ -132,7 +133,6 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
             label="جستجو"
             sx={{
               width: 342,
-              zIndex: 2000,
               textAlign: "right",
               bgcolor: "background.default",
             }}
@@ -147,7 +147,6 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
             page={page}
             sx={{
               width: 342,
-              zIndex: 2000,
               pt: 1,
               bgcolor: "background.default",
             }}

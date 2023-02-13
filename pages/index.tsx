@@ -28,7 +28,13 @@ function Index() {
   }, [selectedCollege]);
 
   return (
-    <Box sx={{ bgcolor: "background.default", display: "flex" }}>
+    <Box
+      sx={{
+        bgcolor: "background.default",
+        display: "flex",
+        overflowX: "scroll",
+      }}
+    >
       <Box sx={{ overflow: "hidden", overFlowX: "scroll" }}>
         <SelectCourses
           loading={loading}
@@ -38,12 +44,12 @@ function Index() {
       </Box>
       <Box
         sx={{
-          ml: 46,
+          ml: 30,
           mt: 9,
           mr: 1,
           height: "92vh",
-          overflow: "hidden",
-          overFlowX: "scroll",
+          overflow: "auto",
+          overflowY: "hidden",
         }}
       >
         <ScheduleTable />
