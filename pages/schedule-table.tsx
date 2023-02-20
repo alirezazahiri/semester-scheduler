@@ -12,7 +12,7 @@ function ScheduleTablePage() {
           textAlign: "center",
         }}
       >
-        <ScheduleTable mt={8} mx="auto" fullWidth />
+        <ScheduleTable mt={8} fullWidth />
       </Box>
       <Button
         variant="outlined"

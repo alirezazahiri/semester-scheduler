@@ -24,12 +24,12 @@ interface IProps {
 function Item({ item, handleToggle, checked }: IProps) {
   const { weeklyPlan } = useContext(WeeklyPlanContext);
   const { selectedCourses } = useContext(SelectedCoursesContext);
+
   const toggleCaller = () => {
     if (selectedCourses.find((c) => c.courseID === item.courseID)) {
       return handleToggle(item.courseID);
     }
     const days = Object.keys(weeklyPlan);
-    // console.log(days, sortedPlans, item);
     let interferenceDays = [];
     let interferenceCourses = [];
     for (const day of days) {
@@ -87,7 +87,7 @@ function Item({ item, handleToggle, checked }: IProps) {
       secondaryAction={
         <Checkbox
           edge="end"
-          onChange={() => handleToggle(item.courseID)}
+          onChange={() => toggleCaller()}
           checked={checked}
           inputProps={{ "aria-labelledby": item.courseID }}
         />

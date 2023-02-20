@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Box from "@mui/material/Box";
-import Link from "next/link";
+import Navbar from '@/components/Navbar/index';
 
 function ThemeSwitch() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -24,8 +24,7 @@ function ThemeSwitch() {
         displayPrint: "none"
       }}
     >
-      <Link href="/">BACK TO MAIN PAGE</Link>
-      <Link href="/schedule-table">GO TO NEW PAGE</Link>
+      <Navbar />
       <IconButton onClick={toggleTheme}>
         {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
