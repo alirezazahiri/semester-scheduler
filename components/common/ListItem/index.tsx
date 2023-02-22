@@ -11,9 +11,7 @@ import sortedPlan from "@/utils/sortDailyPlan";
 import { isInterfering } from "@/utils/calculateDayRow";
 import showToast from "@/utils/showToast";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
-import {
-  WEEK_DAYS_DICTIONARY,
-} from "@/constants/index.constants";
+import { WEEK_DAYS_DICTIONARY } from "@/constants/index.constants";
 
 interface IProps {
   item: TCourse;
@@ -62,9 +60,9 @@ function Item({ item, handleToggle, checked }: IProps) {
     }
 
     if (interferenceDays.length > 0) {
-      const message = `تداخل درس های ${[...new Set(interferenceCourses)].join(" و ")} در روز${
-        interferenceDays.length >= 2 ? "های" : ""
-      } ${interferenceDays
+      const message = `تداخل درس های ${[...new Set(interferenceCourses)].join(
+        " و "
+      )} در روز${interferenceDays.length >= 2 ? "های" : ""} ${interferenceDays
         .map(
           (d) =>
             WEEK_DAYS_DICTIONARY[
@@ -87,7 +85,7 @@ function Item({ item, handleToggle, checked }: IProps) {
       secondaryAction={
         <Checkbox
           edge="end"
-          onChange={() => toggleCaller()}
+          onChange={() => {}}
           checked={checked}
           inputProps={{ "aria-labelledby": item.courseID }}
         />
