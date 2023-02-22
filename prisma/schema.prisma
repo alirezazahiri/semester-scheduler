@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:tawmc@localhost:9898/semester-scheduler-db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Student {
+  id        Int    @id @default(autoincrement())
+  sid       String @unique
+  email     String @unique
+  name      String
+  password  String
+  token     String? 
+}
