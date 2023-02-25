@@ -6,7 +6,7 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
   try {
     res
       .status(200)
-      .json({ message: "success", statusCode: 200 });
+      .json({ message: "success", statusCode: 200, userId: req.userId });
   } catch (err) {
     res.status(404).json({ message: "not-found", statusCode: 404 });
   } finally {

@@ -11,12 +11,12 @@ const loginHandler: NextApiHandler = async (req, res) => {
     return;
   }
 
-  const { sid, email, password } = req.body;
+  const { sid, password } = req.body;
 
   try {
     const user = await prisma.student.findFirst({
       where: {
-        OR: [{ email }, { sid }],
+        sid,
       },
     });
 
@@ -28,7 +28,7 @@ const loginHandler: NextApiHandler = async (req, res) => {
     if (!passwordMatches)
       return res.status(401).json({ message: "Invalid username or password" });
 
-    const token = tokenGenerator({ sid: user.sid, email: user.email });
+    const token = tokenGenerator({ sid: user.sid });
 
     await prisma.student.update({
       where: {
@@ -38,7 +38,7 @@ const loginHandler: NextApiHandler = async (req, res) => {
         token,
       },
     });
-    
+
     res.status(200).json({ message: "Login successful", token });
   } catch (error) {
     console.error(error);

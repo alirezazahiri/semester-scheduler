@@ -10,12 +10,12 @@ const createUserHandler: NextApiHandler = async (req, res) => {
     return;
   }
 
-  const { sid, name, email, password } = req.body;
+  const { sid, name, password } = req.body;
 
   try {
     const userExists = await prisma.student.findFirst({
       where: {
-        OR: [{ sid }, { email }],
+         sid ,
       },
     });
 
@@ -29,7 +29,6 @@ const createUserHandler: NextApiHandler = async (req, res) => {
     await prisma.student.create({
       data: {
         sid,
-        email,
         name,
         password: hashedPassword,
       },
@@ -40,8 +39,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
       message: "success",
       data: {
         sid,
-        name,
-        email,
+        name
       },
     });
   } catch (error) {

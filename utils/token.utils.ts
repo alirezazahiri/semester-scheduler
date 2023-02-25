@@ -2,10 +2,10 @@ import jwt from "jsonwebtoken";
 
 const { JWT_SECRET } = process.env;
 
-export const tokenGenerator = (payload: { sid: string; email: string }) => {
-  const { sid, email } = payload;
+export const tokenGenerator = (payload: { sid: string }) => {
+  const { sid } = payload;
 
-  const token = jwt.sign({ sid, email }, JWT_SECRET || "1234", {
+  const token = jwt.sign({ sid }, JWT_SECRET || "1234", {
     expiresIn: "7d",
   });
 

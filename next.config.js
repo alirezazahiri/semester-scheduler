@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: false,
   env: {
-    NEXT_APP_DB_URI: process.env.DB_URI
+    NEXT_APP_DB_URI: process.env.DB_URI,
+    JWT_SECRET: process.env.JWT_SECRET
   }
 }
 
