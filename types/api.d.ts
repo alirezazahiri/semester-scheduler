@@ -5,3 +5,4 @@ export interface IAuthenticatedRequest extends NextApiRequest {
   isLoggedIn?: boolean;
 }
 
+export type TUser = { fullname: string; password: string; sid: string }

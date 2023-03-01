@@ -2,12 +2,15 @@ import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
 import { PrismaClient } from "@prisma/client";
 import { tokenGenerator } from "@/utils/token.utils";
+import checkLoginMiddleware from "@/utils/checkLogin";
 
 const prisma = new PrismaClient();
 
 const loginHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
-    res.status(405).json({ message: "Method not allowed" });
+    res
+      .status(405)
+      .json({ statusCode: 405, success: false, message: "Method not allowed" });
     return;
   }
 
@@ -21,12 +24,20 @@ const loginHandler: NextApiHandler = async (req, res) => {
     });
 
     if (!user)
-      return res.status(401).json({ message: "Invalid username or password" });
+      return res.status(401).json({
+        statusCode: 401,
+        success: false,
+        message: "Invalid username or password",
+      });
 
     const passwordMatches = await bcrypt.compare(password, user.password);
 
     if (!passwordMatches)
-      return res.status(401).json({ message: "Invalid username or password" });
+      return res.status(401).json({
+        statusCode: 401,
+        success: false,
+        message: "Invalid username or password",
+      });
 
     const token = tokenGenerator({ sid: user.sid });
 
@@ -39,13 +50,20 @@ const loginHandler: NextApiHandler = async (req, res) => {
       },
     });
 
-    res.status(200).json({ message: "Login successful", token });
+    res.status(200).json({
+      statusCode: 200,
+      success: true,
+      message: "Login successful",
+      token,
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Server error" });
+    res
+      .status(500)
+      .json({ statusCode: 500, success: false, message: "Server error" });
   } finally {
     await prisma.$disconnect();
   }
 };
 
-export default loginHandler;
+export default checkLoginMiddleware(loginHandler);
