@@ -1,12 +1,15 @@
 import jwt from "jsonwebtoken";
+import { setCookie, getCookie } from "cookies-next";
+import { OptionsType } from "cookies-next/lib/types";
 
 const { JWT_SECRET } = process.env;
+const TOKEN_EXPIRES_IN = 60 * 60 * 24 * 7;
 
 export const tokenGenerator = (payload: { sid: string }) => {
   const { sid } = payload;
 
   const token = jwt.sign({ sid }, JWT_SECRET || "1234", {
-    expiresIn: "7d",
+    expiresIn: TOKEN_EXPIRES_IN,
   });
 
   return token;
@@ -25,3 +28,26 @@ export const verifyJWTToken = (token: string) => {
     };
   }
 };
+
+export function setTokenCookie(token: string, options?: Partial<OptionsType>) {
+  if (options?.req && options?.res)
+    setCookie("token", token, {
+      httpOnly: true,
+      maxAge: TOKEN_EXPIRES_IN,
+      sameSite: "strict",
+      ...options,
+    });
+  else
+    setCookie("token", token, {
+      httpOnly: true,
+      maxAge: TOKEN_EXPIRES_IN,
+      sameSite: "strict",
+      ...options,
+    });
+}
+
+export function getTokenCookie(options?: Partial<OptionsType>) {
+  return options?.req && options?.res
+    ? getCookie("token", { req: options?.req, res: options?.res })
+    : getCookie("token");
+}

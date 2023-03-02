@@ -2,7 +2,7 @@ import { FormControl, Typography } from "@mui/material";
 import React, { useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
-import { TUser } from "@/types/api";
+import { TCreateUser } from "@/types/api";
 import Link from "next/link";
 
 const SignupForm = () => {
@@ -40,20 +40,20 @@ const SignupForm = () => {
       return;
     }
 
-    let obj: TUser = {
+    let obj: TCreateUser = {
       fullname: "",
       password: "",
       sid: "",
     };
     for (const [key, value] of Object.entries(formValue))
       if (key.includes("password")) obj["password"] = value.content;
-      else obj[key as keyof TUser] = value.content;
+      else obj[key as keyof TCreateUser] = value.content;
 
     setLoading(true);
 
     const response = await fetch("http://localhost:3000/api/create-user", {
       method: "POST",
-      body: JSON.stringify(formValue),
+      body: JSON.stringify(obj),
       headers: {
         "Content-Type": "application/json",
       },
