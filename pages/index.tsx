@@ -4,6 +4,11 @@ import ScheduleTable from "@/components/ScheduleTable";
 import { useContext, useEffect, useState } from "react";
 import { AllCoursesContext } from "@/context/AllCoursesContext";
 import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
+import {
+  IRedirector,
+  UserAuthState,
+  autoRedirector,
+} from "@/utils/autoRedirector";
 
 function Index() {
   const { selectedCollege } = useContext(SelectedCollegeContext);
@@ -57,5 +62,13 @@ function Index() {
     </Box>
   );
 }
+
+export const getServerSideProps = ({ req, res }: IRedirector) =>
+  autoRedirector({
+    req,
+    res,
+    to: "/auth/login",
+    stayCondition: UserAuthState.AUTHORIZED,
+  });
 
 export default Index;

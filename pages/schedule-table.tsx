@@ -1,4 +1,9 @@
 import ScheduleTable from "@/components/ScheduleTable";
+import {
+  IRedirector,
+  UserAuthState,
+  autoRedirector,
+} from "@/utils/autoRedirector";
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 
@@ -10,6 +15,7 @@ function ScheduleTablePage() {
           height: "93vh",
           bgcolor: "background.default",
           textAlign: "center",
+          px: 4
         }}
       >
         <ScheduleTable mt={8} fullWidth />
@@ -37,5 +43,13 @@ function ScheduleTablePage() {
     </>
   );
 }
+
+export const getServerSideProps = ({ req, res }: IRedirector) =>
+  autoRedirector({
+    req,
+    res,
+    to: "/auth/login",
+    stayCondition: UserAuthState.AUTHORIZED,
+  });
 
 export default ScheduleTablePage;

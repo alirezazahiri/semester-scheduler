@@ -15,16 +15,11 @@ import {
 } from "@/constants/index.constants";
 
 interface IProps {
-  mx: number | string;
-  my: number | string;
   mt: number | string;
-  mb: number | string;
-  mr: number | string;
-  m: number | string;
   fullWidth: boolean;
 }
 
-function ScheduleTable({ m, mx, my, mt, mb, mr, fullWidth }: Partial<IProps>) {
+function ScheduleTable({ mt, fullWidth }: Partial<IProps>) {
   const { selectedCourses } = useContext(SelectedCoursesContext);
   const { weeklyPlan, setWeeklyPlan } = useContext(WeeklyPlanContext);
 
@@ -65,13 +60,10 @@ function ScheduleTable({ m, mx, my, mt, mb, mr, fullWidth }: Partial<IProps>) {
   return (
     <Grid
       sx={{
-        m: m ? m : 0,
-        mx: mx ? mx : 0,
-        my: my ? my : 0,
         mt: mt ? mt : 0,
-        mb: mb ? mb : 0,
-        mr: mr ? mr : 0,
         bgcolor: "background.paper",
+        display: "flex",
+        justifyContent: "space-around",
         px: 0,
         py: 2,
         ml: fullWidth ? 0 : 30,

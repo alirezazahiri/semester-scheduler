@@ -78,6 +78,8 @@ function DayRow({ name, plan }: IProps) {
                   xs={(timeScale / (TABLE_HEADER_TIME_LIST.length - 1)) * 12}
                   sx={{
                     border: "1px solid var(--border-primary-color)",
+                    borderBottom: "none",
+                    borderTop: "none",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-around",

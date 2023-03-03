@@ -3,12 +3,12 @@ import { setCookie, getCookie } from "cookies-next";
 import { OptionsType } from "cookies-next/lib/types";
 
 const { JWT_SECRET } = process.env;
-const TOKEN_EXPIRES_IN = 60 * 60 * 24 * 7;
+const TOKEN_EXPIRES_IN = 60 * 60 * 24 * 7; // 7 days
 
 export const tokenGenerator = (payload: { sid: string }) => {
   const { sid } = payload;
 
-  const token = jwt.sign({ sid }, JWT_SECRET || "1234", {
+  const token = jwt.sign({ sid }, JWT_SECRET as string, {
     expiresIn: TOKEN_EXPIRES_IN,
   });
 
@@ -17,7 +17,7 @@ export const tokenGenerator = (payload: { sid: string }) => {
 
 export const verifyJWTToken = (token: string) => {
   try {
-    const result = jwt.verify(token, JWT_SECRET || "1234");
+    const result = jwt.verify(token, JWT_SECRET as string);
 
     return result;
   } catch (_) {
@@ -30,24 +30,16 @@ export const verifyJWTToken = (token: string) => {
 };
 
 export function setTokenCookie(token: string, options?: Partial<OptionsType>) {
-  if (options?.req && options?.res)
-    setCookie("token", token, {
-      httpOnly: true,
-      maxAge: TOKEN_EXPIRES_IN,
-      sameSite: "strict",
-      ...options,
-    });
-  else
-    setCookie("token", token, {
-      httpOnly: true,
-      maxAge: TOKEN_EXPIRES_IN,
-      sameSite: "strict",
-      ...options,
-    });
+  setCookie("token", token, {
+    httpOnly: true,
+    maxAge: TOKEN_EXPIRES_IN,
+    sameSite: "strict",
+    ...options,
+  });
 }
 
 export function getTokenCookie(options?: Partial<OptionsType>) {
   return options?.req && options?.res
-    ? getCookie("token", { req: options?.req, res: options?.res })
+    ? getCookie("token", { req: options.req, res: options.res })
     : getCookie("token");
 }
