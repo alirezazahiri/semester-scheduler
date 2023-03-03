@@ -38,3 +38,11 @@ body {
   box-sizing: border-box;
   font-family: iranyekan !important;
 }
+
+.btn-dark a {
+  color: #3f50b5 !important;
+}
+
+.btn-light a {
+  color: #002884 !important;
+}

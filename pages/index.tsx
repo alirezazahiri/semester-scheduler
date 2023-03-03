@@ -9,9 +9,16 @@ import {
   UserAuthState,
   autoRedirector,
 } from "@/utils/autoRedirector";
+import Fab from "@mui/material/Fab";
+import SaveIcon from "@mui/icons-material/Save";
+import { getCourses, saveCourses } from "@/services/courses.service";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 
-function Index() {
+function Index({ sid }: { sid: string }) {
   const { selectedCollege } = useContext(SelectedCollegeContext);
+  const { selectedCourses, setSelectedCourses } = useContext(
+    SelectedCoursesContext
+  );
   const { setAllCourses } = useContext(AllCoursesContext);
   const [controller, setController] = useState(new AbortController());
   const [loading, setLoading] = useState(false);
@@ -27,6 +34,8 @@ function Index() {
       );
       const courses = await res.json();
       setAllCourses(courses);
+      const selectedCourses = await getCourses(courses);
+      setSelectedCourses(selectedCourses);
       setLoading(false);
     };
     fetchData();
@@ -59,6 +68,19 @@ function Index() {
       >
         <ScheduleTable />
       </Box>
+      <Fab
+        color="primary"
+        aria-label="save"
+        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        onClick={() =>
+          saveCourses(
+            selectedCourses.map((course) => course.courseID),
+            sid
+          )
+        }
+      >
+        <SaveIcon sx={{ color: "#B8BBC0" }} />
+      </Fab>
     </Box>
   );
 }

@@ -30,7 +30,9 @@ export const autoRedirector = ({ ...args }: IOptions) => {
     if (args.stayCondition === UserAuthState.AUTHORIZED)
       if (data?.sid)
         return {
-          props: {},
+          props: {
+            sid: data.sid,
+          },
         };
       else {
         return {
@@ -46,6 +48,9 @@ export const autoRedirector = ({ ...args }: IOptions) => {
           redirect: {
             destination: args.to,
             permanent: false,
+          },
+          props: {
+            sid: data.sid,
           },
         };
       else

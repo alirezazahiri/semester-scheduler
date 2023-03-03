@@ -4,9 +4,9 @@ import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import { useState } from "react";
 import Link from "next/link";
-import { getTokenCookie, setTokenCookie } from "@/utils/token.utils";
+import { setTokenCookie } from "@/utils/token.utils";
 import { useRouter } from "next/router";
-import { TLogin, TCreateUser } from "@/types/api";
+import { loginUser } from "@/services/student.service";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const LoginForm = () => {
     const { name, value } = e.target;
     setFormValue((prev) => ({
       ...prev,
-      [name]: { ...prev[name as "sid" | "password"], content: value },
+      [name]: { ...prev[name as keyof typeof formValue], content: value },
     }));
   };
 
@@ -29,23 +29,11 @@ const LoginForm = () => {
   > = async (e) => {
     e.preventDefault();
     setLoading(true);
-    let obj: TLogin = {
-      password: "",
-      sid: "",
-    };
-    for (const [key, value] of Object.entries(formValue))
-      obj[key as keyof TLogin] = value.content;
 
-    const response = await fetch("http://localhost:3000/api/login", {
-      method: "POST",
-      body: JSON.stringify(obj),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    if (data.success) {
-      setTokenCookie(data.token);
+    const result = await loginUser(formValue);
+
+    if (result.success) {
+      setTokenCookie(result.token);
       router.replace("/");
     } else {
       setFormValue((prev) => ({

@@ -13,4 +13,12 @@ model Student {
   name      String
   password  String
   token     String? 
+  courses   Course[]
+}
+
+model Course {
+  id     Int     @id @default(autoincrement())
+  courseId String
+  student   Student    @relation(fields: [sid], references: [sid])
+  sid String
 }

@@ -4,10 +4,18 @@ import {
   UserAuthState,
   autoRedirector,
 } from "@/utils/autoRedirector";
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
+import Fab from "@mui/material/Fab";
+import SaveIcon from "@mui/icons-material/Save";
+import PrintIcon from "@mui/icons-material/Print";
+import { saveCourses } from "@/services/courses.service";
+import { useContext } from "react";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 
-function ScheduleTablePage() {
+function ScheduleTablePage({ sid }: { sid: string }) {
+  const { selectedCourses } = useContext(SelectedCoursesContext);
+
   return (
     <>
       <Box
@@ -15,31 +23,44 @@ function ScheduleTablePage() {
           height: "93vh",
           bgcolor: "background.default",
           textAlign: "center",
-          px: 4
+          px: 4,
         }}
       >
         <ScheduleTable mt={8} fullWidth />
       </Box>
-      <Button
-        variant="outlined"
-        onClick={() => {
-          window.print();
-        }}
+      <Box
         sx={{
-          width: "100%",
-          borderRadius: 0,
-          displayPrint: "none",
+          display: "flex",
+          width: "fit-content",
           position: "fixed",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backdropFilter: "blur(15px)",
+          bottom: 16,
+          right: 16,
+          displayPrint: "none",
         }}
       >
-        <Typography component="h1" variant="button" fontSize="18px">
-          چاپ کن
-        </Typography>
-      </Button>
+        <Fab
+          color="primary"
+          aria-label="save"
+          onClick={() =>
+            saveCourses(
+              selectedCourses.map((course) => course.courseID),
+              sid
+            )
+          }
+        >
+          <SaveIcon sx={{ color: "#B8BBC0" }} />
+        </Fab>
+        <Fab
+          color="secondary"
+          aria-label="print"
+          onClick={() => {
+            window.print();
+          }}
+          sx={{ mr: 1 }}
+        >
+          <PrintIcon />
+        </Fab>
+      </Box>
     </>
   );
 }

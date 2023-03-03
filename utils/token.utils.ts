@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { setCookie, getCookie } from "cookies-next";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { OptionsType } from "cookies-next/lib/types";
 
 const { JWT_SECRET } = process.env;
@@ -24,7 +24,7 @@ export const verifyJWTToken = (token: string) => {
     throw {
       status: 401,
       success: false,
-      message: "Faild to login! try again!",
+      message: "Failed to login! try again!",
     };
   }
 };
@@ -42,4 +42,10 @@ export function getTokenCookie(options?: Partial<OptionsType>) {
   return options?.req && options?.res
     ? getCookie("token", { req: options.req, res: options.res })
     : getCookie("token");
+}
+
+export function deleteTokenCookie(options?: Partial<OptionsType>) {
+  return options?.req && options?.res
+    ? deleteCookie("token", { req: options.req, res: options.res })
+    : deleteCookie("token");
 }

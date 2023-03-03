@@ -13,7 +13,8 @@ const createUserHandler: NextApiHandler = async (req, res) => {
   }
 
   const { sid, name, password } = req.body;
-
+  console.log();
+  
   try {
     const userExists = await prisma.student.findFirst({
       where: {
@@ -42,7 +43,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
 
     res.status(201).json({
       statusCode: 201,
-      success: false,
+      success: true,
       message: "success",
       data: {
         sid,

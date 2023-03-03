@@ -63,3 +63,10 @@ export const UNIT_ITEMS = [
   { name: "سه واحدی", value: 3 },
   { name: "چهار واحدی", value: 4 },
 ];
+
+
+export const NAV_ITEMS = [
+  {href: "/", label: "صفحه اصلی"},
+  {href: "/schedule-table", label: "برنامه هفتگی"},
+  {href: null, label: "خروج"},
+]

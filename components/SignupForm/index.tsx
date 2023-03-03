@@ -2,25 +2,27 @@ import { FormControl, Typography } from "@mui/material";
 import React, { useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
-import { TCreateUser } from "@/types/api";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { setTokenCookie } from "@/utils/token.utils";
+import { loginUser, signUpUser } from "@/services/student.service";
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
-
   const [formValue, setFormValue] = useState({
     sid: { content: "", error: false },
-    fullname: { content: "", error: false },
+    name: { content: "", error: false },
     password1: { content: "", error: false },
     password2: { content: "", error: false },
   });
+  const router = useRouter();
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormValue((prev) => ({
       ...prev,
       [name]: {
-        ...prev[name as "sid" | "fullname" | "password1" | "password2"],
+        ...prev[name as keyof typeof formValue],
         content: value,
       },
     }));
@@ -30,7 +32,7 @@ const SignupForm = () => {
     HTMLButtonElement | HTMLFormElement
   > = async (e) => {
     e.preventDefault();
-    if (formValue.password1 !== formValue.password2) {
+    if (formValue.password1.content !== formValue.password2.content) {
       setLoading(false);
       setFormValue((prev) => ({
         ...prev,
@@ -40,27 +42,26 @@ const SignupForm = () => {
       return;
     }
 
-    let obj: TCreateUser = {
-      fullname: "",
-      password: "",
-      sid: "",
-    };
-    for (const [key, value] of Object.entries(formValue))
-      if (key.includes("password")) obj["password"] = value.content;
-      else obj[key as keyof TCreateUser] = value.content;
-
     setLoading(true);
 
-    const response = await fetch("http://localhost:3000/api/create-user", {
-      method: "POST",
-      body: JSON.stringify(obj),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    let result = await signUpUser({
+      sid: formValue.sid,
+      password: formValue.password1,
+      name: formValue.name,
     });
 
-    const data = await response.json();
-    console.log(data);
+    // login user after signup
+    if (result.success) {
+      result = await loginUser({
+        sid: formValue.sid,
+        password: formValue.password1,
+      });
+
+      if (result.success) {
+        setTokenCookie(result.token);
+        router.replace("/");
+      }
+    }
 
     setLoading(false);
   };
@@ -84,9 +85,9 @@ const SignupForm = () => {
       />
       <FormInput
         label="نام و نام خانوادگی"
-        name="fullname"
-        value={formValue.fullname.content}
-        error={formValue.fullname.error}
+        name="name"
+        value={formValue.name.content}
+        error={formValue.name.error}
         onChange={changeHandler}
       />
       <FormInput
@@ -123,7 +124,7 @@ const SignupForm = () => {
           href="/auth/login"
           style={{
             margin: "0 5px",
-            textDecoration: "none"
+            textDecoration: "none",
           }}
         >
           <Typography
