@@ -13,6 +13,7 @@ import {
   COMMON_COLLEGES,
   UNIT_ITEMS,
 } from "@/constants/index.constants";
+import { UserContext } from "@/context/UserContext";
 
 interface IProps {
   items: TCourse[];
@@ -27,6 +28,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const { selectedCollege, setSelectedCollege } = useContext(
     SelectedCollegeContext
   );
+  const { user } = useContext(UserContext);
 
   const handleToggle = (course: TCourse) => {
     if (selectedItems.findIndex((c) => c.courseID === course.courseID) !== -1)
@@ -48,15 +50,14 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
     }
   };
   const changeCollegeHandler = (e: SelectChangeEvent) => {
-    const controller = new AbortController();
-    controller.abort();
-    
-    const { value } = e.target;
+    // const controller = new AbortController();
+    // controller.abort();
 
-    if (unit !== Number(value)) {
-      setPage(1);
-      setSelectedCollege(value);
-    }
+    const { value } = e.target;
+    console.log(value, unit);
+
+    setPage(1);
+    setSelectedCollege(value);
   };
   const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = [...e.target.value]
@@ -66,9 +67,15 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
     setCriteria(value);
   };
 
+  const collegeFilteredItems =
+    selectedCollege === "00"
+      ? items
+      : items.filter(
+          (item) => [...item.courseID].slice(0, 2).join("") === selectedCollege
+        );
   const unitFilteredItems = unit
-    ? items.filter((item) => item.totalUnit === unit)
-    : items;
+    ? collegeFilteredItems.filter((item) => item.totalUnit === unit)
+    : collegeFilteredItems;
   const criteriaFilteredItems = criteria
     ? unitFilteredItems.filter(
         (item) =>
@@ -76,6 +83,18 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
       )
     : unitFilteredItems;
   const filteredItems = criteriaFilteredItems;
+  console.log([
+    ...COLLEGE_ITEMS.filter((item, idx) =>
+      idx == 0
+        ? true
+        : user
+        ? user.collegeId === "00"
+          ? true
+          : item.value === user.collegeId
+        : true
+    ),
+    ...COMMON_COLLEGES,
+  ]);
 
   return (
     <>
@@ -109,7 +128,18 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
       <>
         <Options
           unitItems={UNIT_ITEMS}
-          collegeItems={[...COMMON_COLLEGES, ...COLLEGE_ITEMS]}
+          collegeItems={[
+            ...COLLEGE_ITEMS.filter((item, idx) =>
+              idx == 0
+                ? true
+                : user
+                ? user.collegeId === "00"
+                  ? true
+                  : item.value === user.collegeId
+                : true
+            ),
+            ...COMMON_COLLEGES,
+          ]}
           unit={unit}
           college={selectedCollege}
           changeHandler={changeHandler}

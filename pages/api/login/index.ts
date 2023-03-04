@@ -1,8 +1,11 @@
 import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
 import { PrismaClient } from "@prisma/client";
-import { getTokenCookie, setTokenCookie, tokenGenerator } from "@/utils/token.utils";
-import checkLoginMiddleware from "@/utils/checkLogin";
+import {
+  deleteTokenCookie,
+  setTokenCookie,
+  tokenGenerator,
+} from "@/utils/token.utils";
 
 const prisma = new PrismaClient();
 
@@ -38,7 +41,7 @@ const loginHandler: NextApiHandler = async (req, res) => {
         success: false,
         message: "Invalid username or password",
       });
-
+    deleteTokenCookie({ req, res });
     const token = tokenGenerator({ sid: user.sid });
     setTokenCookie(token, { req, res });
     await prisma.student.update({
@@ -49,7 +52,7 @@ const loginHandler: NextApiHandler = async (req, res) => {
         token,
       },
     });
-    
+
     res.status(200).json({
       statusCode: 200,
       success: true,

@@ -19,7 +19,7 @@ interface IProps {
 
 function SelectContainer({ items, name, value, handleChange }: IProps) {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 140, maxWidth: 120 }}>
+    <FormControl variant="standard" sx={{ m: 1, minWidth: 140, maxWidth: 140 }}>
       <InputLabel id="select-standard-label">{name}</InputLabel>
       <Select
         labelId="select-standard-label"

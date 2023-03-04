@@ -12,10 +12,10 @@ import PrintIcon from "@mui/icons-material/Print";
 import { saveCourses } from "@/services/courses.service";
 import { useContext } from "react";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
+import useAllCourses from "hooks/useAllCourses";
 
 function ScheduleTablePage({ sid }: { sid: string }) {
-  const { selectedCourses } = useContext(SelectedCoursesContext);
-
+  const { selectedCourses } = useAllCourses()
   return (
     <>
       <Box

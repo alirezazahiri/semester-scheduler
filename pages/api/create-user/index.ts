@@ -12,24 +12,22 @@ const createUserHandler: NextApiHandler = async (req, res) => {
     return;
   }
 
-  const { sid, name, password } = req.body;
+  const { sid, name, password, collegeId } = req.body;
   console.log();
-  
+
   try {
-    const userExists = await prisma.student.findFirst({
+    const userExists = await prisma.student.findUnique({
       where: {
         sid,
       },
     });
 
     if (userExists)
-      return res
-        .status(500)
-        .json({
-          statusCode: 500,
-          success: false,
-          message: "user already exists",
-        });
+      return res.status(500).json({
+        statusCode: 500,
+        success: false,
+        message: "user already exists",
+      });
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -37,6 +35,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
       data: {
         sid,
         name,
+        collegeId,
         password: hashedPassword,
       },
     });
@@ -47,6 +46,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
       message: "success",
       data: {
         sid,
+        collegeId,
         name,
       },
     });

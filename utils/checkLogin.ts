@@ -1,8 +1,8 @@
-import { verifyJWTToken } from "@/utils/token.utils";
+import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import { PrismaClient } from "@prisma/client";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiHandler, NextApiResponse } from "next";
-import { IAuthenticatedRequest } from '@/types/api';
+import { IAuthenticatedRequest } from "@/types/api";
 
 const prisma = new PrismaClient();
 
@@ -13,14 +13,19 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
       req.isLoggedIn = false;
 
       const { headers } = req;
-      const token = headers?.authorization?.split(" ")[1] || null;
-
+      let token = headers?.authorization?.split(" ")[1] || null;
+      if (!token) {
+        token = getTokenCookie({ req, res }) as string;
+      }
       if (!token)
-        return res
-          .status(401)
-          .json({ message: "Please login to your account", statusCode: 401 });
+        return res.status(401).json({
+          success: false,
+          message: "Please login to your account",
+          statusCode: 401,
+        });
 
       const payload = verifyJWTToken(token);
+      console.log(payload);
 
       const user = await prisma.student.findFirst({
         where: {
@@ -32,9 +37,11 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
       });
 
       if (!user)
-        return res
-          .status(401)
-          .json({ message: "Please login to your account", statusCode: 401 });
+        return res.status(401).json({
+          success: false,
+          message: "Please login to your account",
+          statusCode: 401,
+        });
 
       req.userId = user.sid;
       req.isLoggedIn = true;
@@ -42,9 +49,11 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
       return handler(req, res);
     } catch (e) {
       console.error(e);
-      return res
-      .status(401)
-      .json({ message: "Please login to your account", statusCode: 401 });
+      return res.status(401).json({
+        success: false,
+        message: "Please login to your account",
+        statusCode: 401,
+      });
     }
   };
 };

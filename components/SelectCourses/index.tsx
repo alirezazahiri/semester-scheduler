@@ -6,16 +6,14 @@ import ListContainerLoader from "@/components/common/List/Skeleton";
 
 interface IProps {
   loading: boolean;
-  controller: AbortController;
-  setController: Dispatch<SetStateAction<AbortController>>;
 }
-function SelectCourses({ loading, controller, setController }: IProps) {
+function SelectCourses({ loading }: IProps) {
   const { allCourses } = useContext(AllCoursesContext);
   const { selectedCourses, setSelectedCourses } = useContext(
     SelectedCoursesContext
   );
 
-  if (loading) return <ListContainerLoader controller={controller} setController={setController} />;
+  if (loading) return <ListContainerLoader />;
 
   return (
     <ListContainer

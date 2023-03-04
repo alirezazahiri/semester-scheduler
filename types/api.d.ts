@@ -5,5 +5,10 @@ export interface IAuthenticatedRequest extends NextApiRequest {
   isLoggedIn?: boolean;
 }
 
-export type TCreateUser = { name: string; password: string; sid: string }
-export type TLogin = { password: string; sid: string }
+export type TCreateUser = {
+  name: string;
+  password: string;
+  sid: string;
+  collegeId: string;
+};
+export type TLogin = { password: string; sid: string };

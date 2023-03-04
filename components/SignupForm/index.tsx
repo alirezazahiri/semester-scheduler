@@ -1,24 +1,43 @@
-import { FormControl, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { FormControl, Typography, SelectChangeEvent } from "@mui/material";
+import React, { useContext, useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { MenuItem } from "@mui/material";
+import { Select } from "@mui/material";
 import { setTokenCookie } from "@/utils/token.utils";
 import { loginUser, signUpUser } from "@/services/student.service";
+import { COLLEGE_ITEMS } from "@/constants/index.constants";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const [formValue, setFormValue] = useState({
     sid: { content: "", error: false },
     name: { content: "", error: false },
+    collegeId: { content: "00", error: false },
     password1: { content: "", error: false },
     password2: { content: "", error: false },
   });
+  const { setSelectedCourses } = useContext(SelectedCoursesContext);
   const router = useRouter();
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: {
+        ...prev[name as keyof typeof formValue],
+        content: value,
+      },
+    }));
+  };
+
+  const selectChangeHandler = (e: SelectChangeEvent<string>) => {
+    const { value, name } = e.target;
+    console.log(name, value);
+
     setFormValue((prev) => ({
       ...prev,
       [name]: {
@@ -47,6 +66,7 @@ const SignupForm = () => {
     let result = await signUpUser({
       sid: formValue.sid,
       password: formValue.password1,
+      collegeId: formValue.collegeId,
       name: formValue.name,
     });
 
@@ -58,6 +78,7 @@ const SignupForm = () => {
       });
 
       if (result.success) {
+        setSelectedCourses([]);
         setTokenCookie(result.token);
         router.replace("/");
       }
@@ -90,6 +111,39 @@ const SignupForm = () => {
         error={formValue.name.error}
         onChange={changeHandler}
       />
+      {/* <Select
+        labelId="select-helper-label"
+        id="select-helper"
+        name="collegeId"
+        value={formValue.collegeId.content}
+        label="دانشکده"
+        onChange={selectChangeHandler}
+        sx={{ my: 1 }}
+      >
+        {[...COLLEGE_ITEMS].map((item) => (
+          <MenuItem value={item.value} key={item.value}>
+            {item.name}
+          </MenuItem>
+        ))}
+      </Select> */}
+      <Select
+        labelId="select-standard-label"
+        id="select-standard"
+        name="collegeId"
+        value={formValue.collegeId.content.toString()}
+        onChange={selectChangeHandler}
+        label={"دانشکده"}
+        sx={{
+          textAlign: "right",
+          my: 1,
+        }}
+      >
+        {[...COLLEGE_ITEMS].map((item) => (
+          <MenuItem key={item.name} value={item.value} dir="rtl">
+            {item.name}
+          </MenuItem>
+        ))}
+      </Select>
       <FormInput
         label="گذرواژه"
         name="password1"

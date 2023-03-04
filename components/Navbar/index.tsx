@@ -5,12 +5,12 @@ import { NAV_ITEMS } from "@/constants/index.constants";
 import { logoutUser } from "@/services/student.service";
 import showToast from "@/utils/showToast";
 import { useRouter } from "next/router";
-import {useContext} from 'react';
-import { ThemeContext } from '@/context/ThemeContext';
+import { useContext } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const Navbar = () => {
   const router = useRouter();
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   console.log(router.asPath);
 
   const logoutHandler = async () => {
@@ -32,26 +32,26 @@ const Navbar = () => {
         justifyContent: "space-evenly",
       }}
     >
-      {NAV_ITEMS.map((item) =>
-        item.href ? (
-          <Button
-            className={`btn-${theme}`}
-          >
-            <Link
-              href={item.href}
-              style={{ textDecoration: "none", color: "white" }}
-            >
+      {NAV_ITEMS.map((item) => (
+        <React.Fragment key={`${item.href}`}>
+          {item.href ? (
+            <Button className={`btn-${theme}`}>
+              <Link
+                href={item.href}
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {item.label}
+              </Link>
+            </Button>
+          ) : router.asPath.includes("auth") ? (
+            <></>
+          ) : (
+            <Button onClick={logoutHandler} color="secondary">
               {item.label}
-            </Link>
-          </Button>
-        ) : router.asPath.includes("auth") ? (
-          <></>
-        ) : (
-          <Button onClick={logoutHandler} color="secondary">
-            {item.label}
-          </Button>
-        )
-      )}
+            </Button>
+          )}
+        </React.Fragment>
+      ))}
     </Box>
   );
 };

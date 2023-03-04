@@ -48,6 +48,7 @@ export const COMMON_COLLEGES = [
   { name: "پرديس بين الملل", value: "19" },
 ];
 export const COLLEGE_ITEMS = [
+  { name: "همه دانشکده ها", value: "00" },
   { name: "مهندسي برق و كامپيوتر", value: "12" },
   { name: "مهندسي مكانيك", value: "13" },
   { name: "مهندسي عمران", value: "14" },

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { setTokenCookie } from "@/utils/token.utils";
 import { useRouter } from "next/router";
 import { loginUser } from "@/services/student.service";
+import { useContext } from "react";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +16,7 @@ const LoginForm = () => {
     sid: { content: "", error: false },
     password: { content: "", error: false },
   });
+  const { setSelectedCourses } = useContext(SelectedCoursesContext);
   const router = useRouter();
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +36,7 @@ const LoginForm = () => {
     const result = await loginUser(formValue);
 
     if (result.success) {
+      setSelectedCourses([]);
       setTokenCookie(result.token);
       router.replace("/");
     } else {

@@ -13,18 +13,12 @@ import {
 import ItemLoader from "@/components/common/ListItem/Skeleton";
 import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
 
-interface IProps {
-  controller: AbortController;
-  setController: Dispatch<SetStateAction<AbortController>>;
-}
 
-function ListContainerLoader({ controller, setController }: IProps) {
+function ListContainerLoader() {
   const { selectedCollege, setSelectedCollege } = useContext(
     SelectedCollegeContext
   );
   const changeCollegeHandler = (e: SelectChangeEvent) => {
-    controller.abort();
-    setController(new AbortController());
     const { value } = e.target;
     setSelectedCollege(value);
   };

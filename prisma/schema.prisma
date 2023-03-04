@@ -13,6 +13,7 @@ model Student {
   name      String
   password  String
   token     String? 
+  collegeId String @default("00")
   courses   Course[]
 }
 

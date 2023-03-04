@@ -23,7 +23,6 @@ const logoutHandler: NextApiHandler = async (req, res) => {
 
   const token = getTokenCookie({ req, res });
   const data = verifyJWTToken(token as string) as JwtPayload;
-  console.log(data);
 
   if (!data?.sid)
     return res.status(500).json({
