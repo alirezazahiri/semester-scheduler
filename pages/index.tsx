@@ -1,9 +1,6 @@
 import SelectCourses from "@/components/SelectCourses";
 import { Box } from "@mui/material";
 import ScheduleTable from "@/components/ScheduleTable";
-import { useContext, useEffect, useState } from "react";
-import { AllCoursesContext } from "@/context/AllCoursesContext";
-import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
 import {
   IRedirector,
   UserAuthState,
@@ -11,62 +8,10 @@ import {
 } from "@/utils/autoRedirector";
 import Fab from "@mui/material/Fab";
 import SaveIcon from "@mui/icons-material/Save";
-import { getCourses, saveCourses } from "@/services/courses.service";
-import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
-import { COLLEGE_ITEMS, COMMON_COLLEGES } from "@/constants/index.constants";
-import { TCourse } from "@/types/courses";
-import { UserContext } from "@/context/UserContext/index";
 import useAllCourses from "hooks/useAllCourses";
+import { saveCourses } from "@/services/courses.service";
 
 function Index({ sid }: { sid: string }) {
-  // const { selectedCourses, setSelectedCourses } = useContext(
-  //   SelectedCoursesContext
-  // );
-  // const { setAllCourses } = useContext(AllCoursesContext);
-  // const [loading, setLoading] = useState(false);
-  // const { user } = useContext(UserContext);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const fetchData = async () => {
-  //     const focusedColleges = [
-  //       ...COLLEGE_ITEMS.filter((item, idx) =>
-  //         idx == 0
-  //           ? true
-  //           : user
-  //           ? user.collegeId === "00"
-  //             ? true
-  //             : item.value === user.collegeId
-  //           : true
-  //       ),
-  //       ...COMMON_COLLEGES,
-  //     ];
-
-  //     let allCourses = focusedColleges.map<Promise<TCourse[]>>(
-  //       async ({ value }) => {
-  //         const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${value}`);
-
-  //         const data = await res.json();
-
-  //         return data;
-  //       }
-  //     );
-
-  //     const allCollegesCourses = await Promise.all(allCourses);
-
-  //     const allFocusedCourses = allCollegesCourses.flat(1);
-  //     allFocusedCourses.shift();
-
-  //     setAllCourses(allFocusedCourses);
-
-  //     const selectedCourses = await getCourses(allFocusedCourses);
-
-  //     setSelectedCourses(selectedCourses);
-
-  //     setLoading(false);
-  //   };
-  //   fetchData();
-  // }, []);
   const { selectedCourses, loading } = useAllCourses()
   return (
     <Box

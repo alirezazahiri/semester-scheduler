@@ -11,11 +11,11 @@ import { IncomingMessage, ServerResponse } from "http";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log(pageProps);
+  console.log({pageProps});
   
   
   return (
-    <UserContextProvider>
+    <UserContextProvider sid={pageProps.sid}>
       <SelectedCollegeContextProvider>
         <AllCoursesContextProvider>
           <SelectedCoursesContextProvider>

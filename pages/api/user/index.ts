@@ -2,8 +2,6 @@ import checkLoginMiddleware from "@/utils/checkLogin";
 import { NextApiResponse } from "next";
 import { IAuthenticatedRequest } from "@/types/api";
 import { PrismaClient } from "@prisma/client";
-import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
-import { JwtPayload } from "jsonwebtoken";
 
 const prisma = new PrismaClient();
 
@@ -16,6 +14,8 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
         message: "Method not allowed",
       });
 
+      console.log(req.userId);
+      
     const user = await prisma.student.findUnique({
       where: {
         sid: req.userId,
@@ -24,6 +24,7 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
         sid: true,
         name: true,
         collegeId: true,
+        token: true,
       },
     });
 

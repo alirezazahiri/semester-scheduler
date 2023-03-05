@@ -49,6 +49,7 @@ export const COMMON_COLLEGES = [
 ];
 export const COLLEGE_ITEMS = [
   { name: "همه دانشکده ها", value: "00" },
+  { name: "علوم پايه", value: "11" },
   { name: "مهندسي برق و كامپيوتر", value: "12" },
   { name: "مهندسي مكانيك", value: "13" },
   { name: "مهندسي عمران", value: "14" },

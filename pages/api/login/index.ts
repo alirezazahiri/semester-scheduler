@@ -6,10 +6,14 @@ import {
   setTokenCookie,
   tokenGenerator,
 } from "@/utils/token.utils";
+import { IAuthenticatedRequest } from "@/types/api";
 
 const prisma = new PrismaClient();
 
-const loginHandler: NextApiHandler = async (req, res) => {
+const loginHandler: NextApiHandler = async (
+  req: IAuthenticatedRequest,
+  res
+) => {
   if (req.method !== "POST") {
     res
       .status(405)
@@ -43,6 +47,7 @@ const loginHandler: NextApiHandler = async (req, res) => {
       });
     deleteTokenCookie({ req, res });
     const token = tokenGenerator({ sid: user.sid });
+
     setTokenCookie(token, { req, res });
     await prisma.student.update({
       where: {

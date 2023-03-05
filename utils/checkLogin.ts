@@ -9,14 +9,17 @@ const prisma = new PrismaClient();
 const checkLoginMiddleware = (handler: NextApiHandler) => {
   return async (req: IAuthenticatedRequest, res: NextApiResponse) => {
     try {
+      console.log(req.userId, req.isLoggedIn);
+
       req.userId = "";
       req.isLoggedIn = false;
 
-      const { headers } = req;
-      let token = headers?.authorization?.split(" ")[1] || null;
-      if (!token) {
-        token = getTokenCookie({ req, res }) as string;
-      }
+      let token: string | null;
+      // const { headers } = req;
+      // token = headers?.authorization?.split(" ")[1] || null;
+      token = getTokenCookie({ req, res }) as string;
+      console.log(token);
+
       if (!token)
         return res.status(401).json({
           success: false,

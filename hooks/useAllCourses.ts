@@ -3,8 +3,11 @@ import { AllCoursesContext } from "@/context/AllCoursesContext";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { UserContext } from "@/context/UserContext";
 import { getCourses } from "@/services/courses.service";
+import { fetchUser } from "@/services/student.service";
 import { TCourse } from "@/types/courses";
 import { useContext, useEffect, useState } from "react";
+import { TOmitPasswordUser } from "../context/UserContext/index";
+import removeDuplicates from "@/utils/removeDuplicates";
 
 const useAllCourses = () => {
   const { selectedCourses, setSelectedCourses } = useContext(
@@ -15,11 +18,17 @@ const useAllCourses = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    if (selectedCourses.length) return;
+    console.log(user);
     
+    if (selectedCourses.length) return;
+
     setLoading(true);
+
     const fetchData = async () => {
-      const focusedColleges = [
+      const focusedColleges = removeDuplicates<{
+        name: string;
+        value: string;
+      }>([
         ...COLLEGE_ITEMS.filter((item, idx) =>
           idx == 0
             ? false
@@ -30,7 +39,9 @@ const useAllCourses = () => {
             : true
         ),
         ...COMMON_COLLEGES,
-      ];
+      ]);
+
+      console.log({ focusedColleges });
 
       let allCourses = focusedColleges.map<Promise<TCourse[]>>(
         async ({ value }) => {
@@ -48,6 +59,7 @@ const useAllCourses = () => {
       allFocusedCourses.shift();
 
       setAllCourses(allFocusedCourses);
+      console.log(allFocusedCourses);
 
       const selectedCourses = await getCourses(allFocusedCourses);
 
@@ -56,7 +68,7 @@ const useAllCourses = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [user]);
 
   return { loading, selectedCourses };
 };

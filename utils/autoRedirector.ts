@@ -27,15 +27,14 @@ export const autoRedirector = ({ ...args }: IOptions) => {
     } catch (e) {
       data = null;
     }
-    console.log(data);
     
     if (args.stayCondition === UserAuthState.AUTHORIZED)
-      if (data?.sid)
+      if (data?.sid){
         return {
           props: {
             sid: data.sid,
           },
-        };
+        };}
       else {
         return {
           redirect: {
