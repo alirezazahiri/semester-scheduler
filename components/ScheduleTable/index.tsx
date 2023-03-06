@@ -68,7 +68,6 @@ function ScheduleTable({ mt, fullWidth }: Partial<IProps>) {
         py: 2,
         ml: fullWidth ? 0 : 30,
         width: fullWidth ? "100%" : 1140,
-        overflowX: "scroll",
       }}
       container
     >

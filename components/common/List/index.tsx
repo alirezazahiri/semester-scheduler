@@ -50,12 +50,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
     }
   };
   const changeCollegeHandler = (e: SelectChangeEvent) => {
-    // const controller = new AbortController();
-    // controller.abort();
-
     const { value } = e.target;
-    console.log(value, unit);
-
     setPage(1);
     setSelectedCollege(value);
   };
@@ -65,6 +60,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
       .map((char) => (char === "ک" ? "ك" : char))
       .join("");
     setCriteria(value);
+    if (page !== 1) setPage(1);
   };
 
   const collegeFilteredItems =
@@ -79,22 +75,13 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   const criteriaFilteredItems = criteria
     ? unitFilteredItems.filter(
         (item) =>
-          item.courseName.includes(criteria) || item.courseID.includes(criteria)
+          item.courseName.includes(criteria) ||
+          item.courseID.includes(criteria) ||
+          item.professor.includes(criteria)
       )
     : unitFilteredItems;
   const filteredItems = criteriaFilteredItems;
-  console.log([
-    ...COLLEGE_ITEMS.filter((item, idx) =>
-      idx == 0
-        ? true
-        : user
-        ? user.collegeId === "00"
-          ? true
-          : item.value === user.collegeId
-        : true
-    ),
-    ...COMMON_COLLEGES,
-  ]);
+  console.log();
 
   return (
     <>

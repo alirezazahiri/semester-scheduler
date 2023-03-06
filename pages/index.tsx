@@ -18,23 +18,21 @@ function Index({ sid }: { sid: string }) {
       sx={{
         bgcolor: "background.default",
         display: "flex",
-        overflowX: "scroll",
       }}
     >
-      <Box sx={{ overflow: "hidden", overFlowX: "scroll" }}>
+      <Box sx={{ }}>
         <SelectCourses loading={loading} />
       </Box>
       <Box
         sx={{
           ml: 30,
-          mt: 9,
           mr: 1,
-          height: "92vh",
+          minHeight: "100vh",
           overflow: "auto",
-          overflowY: "hidden",
+          // overflowY: "hidden",
         }}
       >
-        <ScheduleTable />
+        <ScheduleTable mt={9}/>
       </Box>
       <Fab
         color="primary"

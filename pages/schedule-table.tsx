@@ -13,18 +13,18 @@ import { saveCourses } from "@/services/courses.service";
 import useAllCourses from "hooks/useAllCourses";
 
 function ScheduleTablePage({ sid }: { sid: string }) {
-  const { selectedCourses } = useAllCourses()
+  const { selectedCourses } = useAllCourses();
   return (
     <>
       <Box
         sx={{
-          height: "93vh",
+          height: "100vh",
           bgcolor: "background.default",
-          textAlign: "center",
           px: 4,
+          pt: 8,
         }}
       >
-        <ScheduleTable mt={8} fullWidth />
+        <ScheduleTable fullWidth />
       </Box>
       <Box
         sx={{

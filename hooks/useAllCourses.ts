@@ -18,8 +18,6 @@ const useAllCourses = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(user);
-    
     if (selectedCourses.length) return;
 
     setLoading(true);
@@ -41,8 +39,6 @@ const useAllCourses = () => {
         ...COMMON_COLLEGES,
       ]);
 
-      console.log({ focusedColleges });
-
       let allCourses = focusedColleges.map<Promise<TCourse[]>>(
         async ({ value }) => {
           const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${value}`);
@@ -56,10 +52,8 @@ const useAllCourses = () => {
       const allCollegesCourses = await Promise.all(allCourses);
 
       const allFocusedCourses = allCollegesCourses.flat(1);
-      allFocusedCourses.shift();
 
       setAllCourses(allFocusedCourses);
-      console.log(allFocusedCourses);
 
       const selectedCourses = await getCourses(allFocusedCourses);
 
