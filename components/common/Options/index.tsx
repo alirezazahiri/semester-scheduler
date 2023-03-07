@@ -2,6 +2,7 @@ import { Box, IconButton, SelectChangeEvent, Typography } from "@mui/material";
 import React from "react";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import SelectContainer from "@/components/common/Select";
+import removeDuplicates from "@/utils/removeDuplicates";
 
 interface IProps {
   unitItems: {
@@ -10,7 +11,7 @@ interface IProps {
   }[];
   collegeItems: {
     name: string;
-    value: string | number;
+    value: string;
   }[];
   unit: string | number;
   college: string | number;
@@ -63,7 +64,10 @@ function Options({
         handleChange={changeHandler}
       />
       <SelectContainer
-        items={collegeItems}
+        items={removeDuplicates<{
+          name: string;
+          value: string;
+        }>(collegeItems)}
         name={"دانشکده"}
         value={college}
         handleChange={changeCollegeHandler}

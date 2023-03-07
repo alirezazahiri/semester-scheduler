@@ -48,6 +48,8 @@ export const COMMON_COLLEGES = [
   { name: "پرديس بين الملل", value: "19" },
 ];
 export const COLLEGE_ITEMS = [
+  { name: "همه دانشکده ها", value: "00" },
+  { name: "علوم پايه", value: "11" },
   { name: "مهندسي برق و كامپيوتر", value: "12" },
   { name: "مهندسي مكانيك", value: "13" },
   { name: "مهندسي عمران", value: "14" },
@@ -63,3 +65,10 @@ export const UNIT_ITEMS = [
   { name: "سه واحدی", value: 3 },
   { name: "چهار واحدی", value: 4 },
 ];
+
+
+export const NAV_ITEMS = [
+  {href: "/", label: "صفحه اصلی"},
+  {href: "/schedule-table", label: "برنامه هفتگی"},
+  {href: null, label: "خروج"},
+]

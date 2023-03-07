@@ -14,7 +14,7 @@ export const SelectedCollegeContext = createContext<ContextProps>({
 });
 
 const SelectedCollegeContextProvider: React.FC<IProps> = ({ children }) => {
-  const [selectedCollege, setSelectedCollege] = useState<string>("11");
+  const [selectedCollege, setSelectedCollege] = useState<string>("00");
 
   const setCollege_ = (college: string = "") => {
     setSelectedCollege(college);

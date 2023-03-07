@@ -9,9 +9,12 @@ interface IProps {
 function Layout({ children }: IProps) {
   return (
     <>
-      <Toaster position="top-center"  />
+      <Toaster position="top-center" />
       <ThemeSwitch />
+
       <main dir="rtl">{children}</main>
+
+      
     </>
   );
 }

@@ -21,7 +21,6 @@ function DayRow({ name, plan }: IProps) {
   return (
     <Grid
       container
-      // xs={12}
       sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
     >
       <Grid
@@ -46,13 +45,13 @@ function DayRow({ name, plan }: IProps) {
       </Grid>
 
       <Grid
-        container
+        item
         xs={
           ((TABLE_HEADER_TIME_LIST.length - 1) /
             TABLE_HEADER_TIME_LIST.length) *
           12
         }
-        sx={{ minHeight: 90, border: "1px solid var(--border-primary-color)" }}
+        sx={{ minHeight: 90, border: "1px solid var(--border-primary-color)", display: "flex" }}
       >
         {calculateDayRow(plan, name)?.map(
           ({
@@ -79,6 +78,8 @@ function DayRow({ name, plan }: IProps) {
                   xs={(timeScale / (TABLE_HEADER_TIME_LIST.length - 1)) * 12}
                   sx={{
                     border: "1px solid var(--border-primary-color)",
+                    borderBottom: "none",
+                    borderTop: "none",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-around",

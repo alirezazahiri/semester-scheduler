@@ -1,6 +1,8 @@
 export type TCourse = {
-  college: string;
-  group: string;
+  collegeID: string;
+  collegeName: string;
+  groupName: string;
+  groupID: string;
   courseID: string;
   courseName: string;
   totalUnit: number;

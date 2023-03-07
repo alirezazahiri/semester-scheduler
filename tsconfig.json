@@ -10,7 +10,8 @@
       "@/types/*": ["types/*"],
       "@/styles/*": ["styles/*"],
       "@/fonts/*": ["fonts/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/services/*": ["services/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
