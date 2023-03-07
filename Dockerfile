@@ -1,15 +1,31 @@
-FROM node:16-alpine
+FROM node:18-alpine AS dependencies
 
-WORKDIR /app
+WORKDIR /scheduler-app
+COPY package.json ./
+RUN yarn
 
-COPY package*.json ./
+FROM node:18-alpine AS build
 
-RUN npm install
-
+WORKDIR /scheduler-app
+COPY --from=dependencies /scheduler-app/node_modules ./node_modules
 COPY . .
 
 RUN npx prisma generate
+RUN yarn build
+
+FROM node:18-alpine AS deploy
+
+WORKDIR /scheduler-app
+
+ENV NODE_ENV production
+
+COPY --from=build /scheduler-app/public ./public
+COPY --from=build /scheduler-app/package.json ./package.json
+COPY --from=build /scheduler-app/.next/standalone ./
+COPY --from=build /scheduler-app/.next/static ./.next/static
 
 EXPOSE 3000
 
-CMD npm run dev
+ENV PORT 3000
+
+CMD ["node", "server.js"]

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app: 
+    image: next-prisma-docker 
+    build: 
+      context: . 
+      dockerfile: Dockerfile 
+      target: deploy 
+    ports:
+      - 3000:3000
