@@ -29,15 +29,11 @@ const UserContextProvider: React.FC<IProps> = ({ children, sid }) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchUser();
-      console.log(data);
-
       if (data?.success) setUser(data.user);
       else return;
     };
     fetchData();
   }, [sid]);
-  console.log(user);
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

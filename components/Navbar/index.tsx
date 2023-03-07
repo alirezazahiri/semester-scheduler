@@ -12,7 +12,6 @@ import { UserContext } from '../../context/UserContext/index';
 const Navbar = () => {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
-  console.log(router.asPath);
 
   const logoutHandler = async () => {
     const result = await logoutUser();

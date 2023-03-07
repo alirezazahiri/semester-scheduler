@@ -11,9 +11,6 @@ import { IncomingMessage, ServerResponse } from "http";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log({pageProps});
-  
-  
   return (
     <UserContextProvider sid={pageProps.sid}>
       <SelectedCollegeContextProvider>

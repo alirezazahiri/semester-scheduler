@@ -9,8 +9,6 @@ function removeDuplicates<T>(items: T[]) {
       output.push(obj);
     }
   }
-  console.log(output);
-  
   return output;
 }
 
