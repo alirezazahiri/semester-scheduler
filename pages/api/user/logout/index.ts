@@ -4,11 +4,8 @@ import { PrismaClient } from "@prisma/client";
 import {
   deleteTokenCookie,
   getTokenCookie,
-  setTokenCookie,
-  tokenGenerator,
 } from "@/utils/token.utils";
-import checkLoginMiddleware from "@/utils/checkLogin";
-import { verifyJWTToken } from "../../../utils/token.utils";
+import { verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 
 const prisma = new PrismaClient();

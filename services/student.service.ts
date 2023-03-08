@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "@/constants/services.constants";
 import { TOmitPasswordUser } from "@/context/UserContext";
 import { TCreateUser, TLogin } from "@/types/api";
 
@@ -11,8 +12,9 @@ export const loginUser = async (formValue: {
   };
   for (const [key, value] of Object.entries(formValue))
     obj[key as keyof TLogin] = value.content;
-
-  const response = await fetch("http://localhost:3000/api/login", {
+  console.log(obj);
+  
+  const response = await fetch(`${API_BASE_URL}/user/login`, {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
@@ -40,7 +42,7 @@ export const signUpUser = async (formValue: {
     if (key.includes("password")) obj["password"] = value.content;
     else obj[key as keyof TCreateUser] = value.content;
 
-  const response = await fetch("http://localhost:3000/api/create-user", {
+  const response = await fetch(`${API_BASE_URL}/user/create-user`, {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
@@ -54,7 +56,7 @@ export const signUpUser = async (formValue: {
 };
 
 export const logoutUser = async () => {
-  const response = await fetch("http://localhost:3000/api/logout", {
+  const response = await fetch(`${API_BASE_URL}/user/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +74,7 @@ export const fetchUser: () => Promise<{
   message: string;
   user: TOmitPasswordUser & { token: string };
 }> = async () => {
-  const response = await fetch("http://localhost:3000/api/user", {
+  const response = await fetch(`${API_BASE_URL}/user`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

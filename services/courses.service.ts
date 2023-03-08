@@ -1,8 +1,9 @@
 import showToast from "@/utils/showToast";
-import { TCourse } from "../types/courses";
+import { TCourse } from "@/types/courses";
+import { API_BASE_URL } from "@/constants/services.constants";
 
 export const saveCourses = async (courses: string[], sid: string) => {
-  const response = await fetch("http://localhost:3000/api/courses/save", {
+  const response = await fetch(`${API_BASE_URL}/courses/save`, {
     method: "POST",
     body: JSON.stringify({ courses, sid }),
     headers: {
@@ -16,7 +17,7 @@ export const saveCourses = async (courses: string[], sid: string) => {
 };
 
 export const getCourses = async (allCourses: TCourse[]) => {
-  const response = await fetch("http://localhost:3000/api/courses/get", {
+  const response = await fetch(`${API_BASE_URL}/courses/get`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
