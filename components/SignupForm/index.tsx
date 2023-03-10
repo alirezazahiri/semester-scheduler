@@ -36,7 +36,6 @@ const SignupForm = () => {
 
   const selectChangeHandler = (e: SelectChangeEvent<string>) => {
     const { value, name } = e.target;
-    console.log(name, value);
 
     setFormValue((prev) => ({
       ...prev,

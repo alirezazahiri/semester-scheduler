@@ -81,7 +81,6 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
       )
     : unitFilteredItems;
   const filteredItems = criteriaFilteredItems;
-  console.log();
 
   return (
     <>

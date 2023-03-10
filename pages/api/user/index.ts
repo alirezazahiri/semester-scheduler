@@ -13,8 +13,6 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
         success: false,
         message: "Method not allowed",
       });
-
-      console.log(req.userId);
       
     const user = await prisma.student.findUnique({
       where: {

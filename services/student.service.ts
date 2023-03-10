@@ -12,7 +12,6 @@ export const loginUser = async (formValue: {
   };
   for (const [key, value] of Object.entries(formValue))
     obj[key as keyof TLogin] = value.content;
-  console.log(obj);
   
   const response = await fetch(`${API_BASE_URL}/user/login`, {
     method: "POST",

@@ -26,7 +26,6 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
         });
 
       const payload = verifyJWTToken(token);
-      console.log(payload);
 
       const user = await prisma.student.findFirst({
         where: {
