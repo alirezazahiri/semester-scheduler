@@ -7,10 +7,10 @@ import UserContextProvider from "@/context/UserContext";
 import WeeklyPlanContextProvider from "@/context/WeeklyPlanContext";
 import "@/styles/globals.css";
 import { CssBaseline } from "@mui/material";
-import { IncomingMessage, ServerResponse } from "http";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
+  console.log(process.env.DATABASE_URL)
   return (
     <SelectedCollegeContextProvider>
       <AllCoursesContextProvider>

@@ -20,6 +20,6 @@ model Student {
 model Course {
   id     Int     @id @default(autoincrement())
   courseId String
-  student   Student    @relation(fields: [sid], references: [sid])
+  student   Student    @relation(fields: [sid], references: [sid], onDelete: Cascade)
   sid String
 }
