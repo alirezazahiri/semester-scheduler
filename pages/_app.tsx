@@ -10,7 +10,13 @@ import { CssBaseline } from "@mui/material";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log(process.env.DATABASE_URL)
+  console.log({
+    DB_URI: process.env.NEXT_APP_DB_URI,
+    JWT_SECRET: process.env.JWT_SECRET,
+    DATABASE_URL: process.env.DATABASE_URL,
+    API_BASE_URL: process.env.API_BASE_URL,
+  });
+
   return (
     <SelectedCollegeContextProvider>
       <AllCoursesContextProvider>
