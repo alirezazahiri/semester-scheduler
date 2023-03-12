@@ -1,30 +1,15 @@
 import { TextField, IconButton } from "@mui/material";
 import React, { FC, useState } from "react";
-import { InputAdornment } from "@mui/material";
+import { InputAdornment, TextFieldProps } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Controller, useFormContext } from "react-hook-form";
 
-interface IProps {
+type IProps = {
   name: string;
-  label: string;
-  description?: string;
-  error?: boolean;
-  required?: boolean;
-  value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  textAlign?: "left" | "right" | "center";
-}
+} & TextFieldProps;
 
-const FormInput: FC<IProps> = ({
-  name,
-  label,
-  description,
-  error,
-  required,
-  value,
-  onChange,
-  textAlign,
-}) => {
+const FormInput: FC<IProps> = ({ name, ...otherProps }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -34,42 +19,53 @@ const FormInput: FC<IProps> = ({
   ) => {
     event.preventDefault();
   };
+
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+  console.log(errors);
+  
   return (
-    <TextField
-      dir={textAlign === "left" ? "ltr" : "rtl"}
-      variant="outlined"
-      label={label}
+    <Controller
+      control={control}
       name={name}
-      margin="dense"
-      sx={{ width: "100%", textAlign: textAlign || "right" }}
-      value={value}
-      onChange={onChange}
-      error={error}
-      helperText={description}
-      required={required}
-      type={
-        name.includes("password")
-          ? showPassword
-            ? "text"
-            : "password"
-          : "text"
-      }
-      InputProps={{
-        endAdornment: name.includes("password") ? (
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
-              edge="end"
-            >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
-          </InputAdornment>
-        ) : (
-          <></>
-        ),
-      }}
+      defaultValue=""
+      render={({ field }) => (
+        <TextField
+          {...otherProps}
+          {...field}
+          error={!!errors[name]}
+          helperText={(errors[name] ? errors[name]?.message : '') as React.ReactNode}
+          variant="outlined"
+          name={name}
+          margin="dense"
+          sx={{ width: "100%" }}
+          type={
+            name.includes("password")
+              ? showPassword
+                ? "text"
+                : "password"
+              : "text"
+          }
+          InputProps={{
+            endAdornment: name.includes("password") ? (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ) : (
+              <></>
+            )
+          }}
+        />
+      )}
     />
   );
 };

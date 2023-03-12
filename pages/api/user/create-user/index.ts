@@ -22,8 +22,8 @@ const createUserHandler: NextApiHandler = async (req, res) => {
     });
 
     if (userExists)
-      return res.status(500).json({
-        statusCode: 500,
+      return res.status(403).json({
+        statusCode: 403,
         success: false,
         message: "user already exists",
       });

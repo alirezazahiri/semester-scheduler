@@ -1,18 +1,15 @@
 import { API_BASE_URL } from "@/constants/services.constants";
 import { TOmitPasswordUser } from "@/context/UserContext";
-import { TCreateUser, TLogin } from "@/types/api";
+import { TCreateUser, TLogin, TCreateUserFormValue, TLoginUserFormValue } from "@/types/api";
 
-export const loginUser = async (formValue: {
-  sid: { content: string; error: boolean };
-  password: { content: string; error: boolean };
-}) => {
+export const loginUser = async (formValue: TLoginUserFormValue) => {
   let obj: TLogin = {
     password: "",
     sid: "",
   };
   for (const [key, value] of Object.entries(formValue))
-    obj[key as keyof TLogin] = value.content;
-  
+    obj[key as keyof TLogin] = value;
+
   const response = await fetch(`${API_BASE_URL}/user/login`, {
     method: "POST",
     body: JSON.stringify(obj),
@@ -25,12 +22,7 @@ export const loginUser = async (formValue: {
   return result;
 };
 
-export const signUpUser = async (formValue: {
-  name: { content: string; error: boolean };
-  collegeId: { content: string; error: boolean };
-  sid: { content: string; error: boolean };
-  password: { content: string; error: boolean };
-}) => {
+export const signUpUser = async (formValue: TCreateUserFormValue) => {
   let obj: TCreateUser = {
     name: "",
     collegeId: "",
@@ -38,8 +30,8 @@ export const signUpUser = async (formValue: {
     sid: "",
   };
   for (const [key, value] of Object.entries(formValue))
-    if (key.includes("password")) obj["password"] = value.content;
-    else obj[key as keyof TCreateUser] = value.content;
+    if (key.includes("password")) obj["password"] = value;
+    else obj[key as keyof TCreateUser] = value;
 
   const response = await fetch(`${API_BASE_URL}/user/create-user`, {
     method: "POST",

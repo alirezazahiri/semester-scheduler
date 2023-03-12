@@ -12,3 +12,15 @@ export type TCreateUser = {
   collegeId: string;
 };
 export type TLogin = { password: string; sid: string };
+
+export type TCreateUserFormValue = {
+  name: string;
+  collegeId: string;
+  sid: string;
+  password: string;
+};
+
+export type TLoginUserFormValue = {
+  sid: string;
+  password: string;
+};
