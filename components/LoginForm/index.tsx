@@ -13,10 +13,13 @@ import { TLoginUserSchema } from "@/utils/validator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { loginUserSchema } from "@/utils/validator";
+import { useTheme } from "@mui/material/styles";
+import showToast from "@/utils/showToast";
+import TradeMark from "@/components/common/TradeMark";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
-
+  const theme = useTheme();
   const methods = useForm<TLoginUserSchema>({
     resolver: zodResolver(loginUserSchema),
   });
@@ -38,18 +41,19 @@ const LoginForm = () => {
     }
   }, [isSubmitSuccessful]);
 
-  const onSubmitHandler: SubmitHandler<TLoginUserSchema> = async (values) => {
+  const onSubmitHandler: SubmitHandler<TLoginUserSchema> = async () => {
     setLoading(true);
+    showToast("درحال ورود به حساب کاربری", "loading", 2500, true);
     const { sid, password } = getValues();
-    setLoading(true);
 
     const result = await loginUser({ sid, password });
 
     if (result.success) {
+      showToast("با موفقیت وارد شدید", "success", 2500, true);
       setSelectedCourses([]);
       setTokenCookie(result.token);
       router.replace("/");
-    }
+    } else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
 
     setLoading(false);
   };
@@ -57,7 +61,13 @@ const LoginForm = () => {
   return (
     <FormProvider {...methods}>
       <FormControl
-        sx={{ width: "50%", mx: "auto" }}
+        sx={{
+          width: "80%",
+          [theme.breakpoints.up("md")]: {
+            width: "50%",
+          },
+          mx: "auto",
+        }}
         component={"form"}
         onSubmit={handleSubmit(onSubmitHandler)}
       >
@@ -110,6 +120,7 @@ const LoginForm = () => {
           </Link>
         </Typography>
       </FormControl>
+      <TradeMark />
     </FormProvider>
   );
 };

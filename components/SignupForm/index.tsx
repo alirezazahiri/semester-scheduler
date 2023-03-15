@@ -14,9 +14,13 @@ import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createUserSchema, TCreateUserSchema } from "@/utils/validator";
 import { useEffect } from "react";
+import { useTheme } from "@mui/material/styles";
+import showToast from "@/utils/showToast";
+import TradeMark from "@/components/common/TradeMark";
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
+  const theme = useTheme();
   const methods = useForm<TCreateUserSchema>({
     resolver: zodResolver(createUserSchema),
   });
@@ -37,7 +41,7 @@ const SignupForm = () => {
     }
   }, [isSubmitSuccessful]);
 
-  const onSubmitHandler: SubmitHandler<TCreateUserSchema> = async (values) => {
+  const onSubmitHandler: SubmitHandler<TCreateUserSchema> = async () => {
     setLoading(true);
     const { collegeId, name, sid, password1: password } = getValues();
     let result = await signUpUser({
@@ -49,24 +53,32 @@ const SignupForm = () => {
 
     // login user after signup
     if (result.success) {
+      showToast("درحال ورود به حساب کاربری", "loading", 2500, true);
       result = await loginUser({
         sid,
         password,
       });
 
       if (result.success) {
+        showToast("با موفقیت وارد شدید", "success", 2500, true);
         setSelectedCourses([]);
         setTokenCookie(result.token);
         router.replace("/");
-      }
+      } else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
     }
     setLoading(false);
   };
 
   return (
-    <FormProvider {...methods} >
+    <FormProvider {...methods}>
       <FormControl
-        sx={{ width: "50%", mx: "auto" }}
+        sx={{
+          width: "80%",
+          [theme.breakpoints.up("md")]: {
+            width: "50%",
+          },
+          mx: "auto",
+        }}
         component={"form"}
         onSubmit={handleSubmit(onSubmitHandler)}
       >
@@ -91,7 +103,11 @@ const SignupForm = () => {
           sx={{ pt: 2 }}
         />
         <FormControl sx={{ my: 1, mb: 0.5 }}>
-          <InputLabel htmlFor="college-id-select" id="college-id-label" required>
+          <InputLabel
+            htmlFor="college-id-select"
+            id="college-id-label"
+            required
+          >
             دانشکده
           </InputLabel>
           <Select
@@ -153,6 +169,7 @@ const SignupForm = () => {
           </Link>
         </Typography>
       </FormControl>
+      <TradeMark />
     </FormProvider>
   );
 };

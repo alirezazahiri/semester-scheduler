@@ -7,13 +7,10 @@ import {
 import { Box } from "@mui/material";
 import React from "react";
 import Fab from "@mui/material/Fab";
-import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
-import { saveCourses } from "@/services/courses.service";
-import useAllCourses from "hooks/useAllCourses";
+import SaveFab from "@/components/SaveFab";
 
 function ScheduleTablePage({ sid }: { sid: string }) {
-  const { selectedCourses } = useAllCourses();
   return (
     <>
       <Box
@@ -36,28 +33,21 @@ function ScheduleTablePage({ sid }: { sid: string }) {
           displayPrint: "none",
         }}
       >
-        <Fab
-          color="primary"
-          aria-label="save"
-          onClick={() =>
-            saveCourses(
-              selectedCourses.map((course) => course.courseID),
-              sid
-            )
+        <SaveFab
+          sid={sid}
+          nextFab={
+            <Fab
+              color="secondary"
+              aria-label="print"
+              onClick={() => {
+                window.print();
+              }}
+              sx={{ mr: 1 }}
+            >
+              <PrintIcon />
+            </Fab>
           }
-        >
-          <SaveIcon sx={{ color: "#B8BBC0" }} />
-        </Fab>
-        <Fab
-          color="secondary"
-          aria-label="print"
-          onClick={() => {
-            window.print();
-          }}
-          sx={{ mr: 1 }}
-        >
-          <PrintIcon />
-        </Fab>
+        />
       </Box>
     </>
   );

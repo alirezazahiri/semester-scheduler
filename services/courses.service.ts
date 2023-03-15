@@ -12,8 +12,8 @@ export const saveCourses = async (courses: string[], sid: string) => {
   });
   const result = await response.json();
   if (result.success)
-    showToast("دروس انتخاب شده با موفقیت ثبت شد", "success", 2500);
-  else showToast("ثبت دروس با خطا مواجه شد", "error", 2500);
+    showToast("دروس انتخاب شده با موفقیت ثبت شد", "success", 2500, true);
+  else showToast("ثبت دروس با خطا مواجه شد", "error", 2500, true);
 };
 
 export const getCourses = async (allCourses: TCourse[]) => {

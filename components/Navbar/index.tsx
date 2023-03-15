@@ -13,13 +13,19 @@ const Navbar = () => {
   const { theme } = useContext(ThemeContext);
 
   const logoutHandler = async () => {
+    showToast("در حال خروج از حساب کاربری", "loading", 2500, true);
     const result = await logoutUser();
     if (result.success) {
       router.replace("/auth/login");
-      showToast("شما با موفقیت از حساب کاربری خود خارج شدید", "success", 2500);
+      showToast(
+        "شما با موفقیت از حساب کاربری خود خارج شدید",
+        "success",
+        2500,
+        true
+      );
     } else {
       router.replace("/auth/login");
-      showToast("لطفاً وارد حساب کاربری خود شوید", "error", 2500);
+      showToast("لطفاً وارد حساب کاربری خود شوید", "error", 2500, true);
     }
   };
 

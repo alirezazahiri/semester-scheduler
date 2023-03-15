@@ -6,13 +6,11 @@ import {
   UserAuthState,
   autoRedirector,
 } from "@/utils/autoRedirector";
-import Fab from "@mui/material/Fab";
-import SaveIcon from "@mui/icons-material/Save";
 import useAllCourses from "hooks/useAllCourses";
-import { saveCourses } from "@/services/courses.service";
+import SaveFab from "@/components/SaveFab";
 
 function Index({ sid }: { sid: string }) {
-  const { selectedCourses, loading } = useAllCourses()
+  const { loading } = useAllCourses();
   return (
     <Box
       sx={{
@@ -20,7 +18,7 @@ function Index({ sid }: { sid: string }) {
         display: "flex",
       }}
     >
-      <Box sx={{ }}>
+      <Box sx={{}}>
         <SelectCourses loading={loading} />
       </Box>
       <Box
@@ -29,24 +27,11 @@ function Index({ sid }: { sid: string }) {
           mr: 1,
           minHeight: "100vh",
           overflow: "auto",
-          // overflowY: "hidden",
         }}
       >
-        <ScheduleTable mt={9}/>
+        <ScheduleTable mt={9} />
       </Box>
-      <Fab
-        color="primary"
-        aria-label="save"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
-        onClick={() =>
-          saveCourses(
-            selectedCourses.map((course) => course.courseID),
-            sid
-          )
-        }
-      >
-        <SaveIcon sx={{ color: "#B8BBC0" }} />
-      </Fab>
+      <SaveFab sid={sid} />
     </Box>
   );
 }
