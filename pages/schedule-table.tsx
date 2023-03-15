@@ -9,10 +9,15 @@ import React from "react";
 import Fab from "@mui/material/Fab";
 import PrintIcon from "@mui/icons-material/Print";
 import SaveFab from "@/components/SaveFab";
+import Head from "next/head";
 
 function ScheduleTablePage({ sid }: { sid: string }) {
   return (
     <>
+      <Head>
+        <title>مشاهده برنامه دروس اخذ شده | دانشگاه صنعتی نوشیروانی بابل</title>
+        <meta name="description" content="در این صفحه میتوانید دروس انتخاب شده را مشاهده کنید و آن را چاپ کنید" />
+      </Head>
       <Box
         sx={{
           height: "100vh",

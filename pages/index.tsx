@@ -8,10 +8,17 @@ import {
 } from "@/utils/autoRedirector";
 import useAllCourses from "hooks/useAllCourses";
 import SaveFab from "@/components/SaveFab";
+import Head from "next/head";
 
 function Index({ sid }: { sid: string }) {
   const { loading } = useAllCourses();
   return (
+    
+    <>
+    <Head>
+      <title>انتخاب دروس نیمسال | دانشگاه صنعتی نوشیروانی بابل</title>
+      <meta name='description' content='در این صفحه میتوانید دروس مورد نظرتان برای گذراندن در ترم آتی انتخاب کرده و برنامه زمانی آنها را مشاهده کنید' />
+    </Head>
     <Box
       sx={{
         bgcolor: "background.default",
@@ -33,6 +40,7 @@ function Index({ sid }: { sid: string }) {
       </Box>
       <SaveFab sid={sid} />
     </Box>
+    </>
   );
 }
 
