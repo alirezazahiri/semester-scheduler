@@ -1,5 +1,5 @@
 import List from "@mui/material/List";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import Pagination from "@mui/material/Pagination";
 import { SelectChangeEvent, TextField } from "@mui/material";
 import Options from "@/components/common/Options";
@@ -10,11 +10,10 @@ import {
   COMMON_COLLEGES,
   UNIT_ITEMS,
 } from "@/constants/index.constants";
-import ItemLoader from "@/components/common/ListItem/Skeleton";
+import CourseListItemLoader from "@/components/CourseListItem/Skeleton";
 import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
 
-
-function ListContainerLoader() {
+function CourseListLoader() {
   const { selectedCollege, setSelectedCollege } = useContext(
     SelectedCollegeContext
   );
@@ -22,6 +21,7 @@ function ListContainerLoader() {
     const { value } = e.target;
     setSelectedCollege(value);
   };
+
   return (
     <>
       <List
@@ -42,7 +42,7 @@ function ListContainerLoader() {
         {[
           1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
         ].map((item) => (
-          <ItemLoader key={item} />
+          <CourseListItemLoader key={item} />
         ))}
       </List>
       <>
@@ -98,4 +98,4 @@ function ListContainerLoader() {
   );
 }
 
-export default ListContainerLoader;
+export default CourseListLoader;

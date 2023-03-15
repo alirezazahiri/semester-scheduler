@@ -1,11 +1,11 @@
-import { FormControl, Typography, SelectChangeEvent } from "@mui/material";
+import { FormControl, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { MenuItem } from "@mui/material";
-import { Select } from "@mui/material";
+import { Select, InputLabel } from "@mui/material";
 import { setTokenCookie } from "@/utils/token.utils";
 import { loginUser, signUpUser } from "@/services/student.service";
 import { COLLEGE_ITEMS } from "@/constants/index.constants";
@@ -38,7 +38,6 @@ const SignupForm = () => {
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<TCreateUserSchema> = async (values) => {
-    console.log(values);
     setLoading(true);
     const { collegeId, name, sid, password1: password } = getValues();
     let result = await signUpUser({
@@ -47,7 +46,6 @@ const SignupForm = () => {
       collegeId,
       name,
     });
-    console.log(result);
 
     // login user after signup
     if (result.success) {
@@ -66,7 +64,7 @@ const SignupForm = () => {
   };
 
   return (
-    <FormProvider {...methods}>
+    <FormProvider {...methods} >
       <FormControl
         sx={{ width: "50%", mx: "auto" }}
         component={"form"}
@@ -90,23 +88,30 @@ const SignupForm = () => {
           label="نام و نام خانوادگی"
           required
           {...register("name")}
+          sx={{ pt: 2 }}
         />
-        <Select
-          defaultValue={"00"}
-          label={"دانشکده"}
-          sx={{
-            textAlign: "right",
-            my: 1,
-          }}
-          {...register("collegeId")}
-          required
-        >
-          {[...COLLEGE_ITEMS].map((item) => (
-            <MenuItem key={item.name} value={item.value} dir="rtl">
-              {item.name}
-            </MenuItem>
-          ))}
-        </Select>
+        <FormControl sx={{ my: 1, mb: 0.5 }}>
+          <InputLabel htmlFor="college-id-select" id="college-id-label" required>
+            دانشکده
+          </InputLabel>
+          <Select
+            labelId="college-id-label"
+            id="college-id-select"
+            label="دانشکده"
+            defaultValue="00"
+            sx={{
+              textAlign: "right",
+            }}
+            {...register("collegeId")}
+            required
+          >
+            {[...COLLEGE_ITEMS].map((item) => (
+              <MenuItem key={item.name} value={item.value} dir="rtl">
+                {item.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <FormInput
           label="گذرواژه"
           dir="ltr"

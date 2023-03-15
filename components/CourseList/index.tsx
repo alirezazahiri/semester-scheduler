@@ -1,7 +1,7 @@
 import List from "@mui/material/List";
 import React, { useState } from "react";
 import { TCourse } from "@/types/courses";
-import Item from "@/components/common/ListItem";
+import CourseListItem from "@/components/CourseListItem";
 import Pagination from "@mui/material/Pagination";
 import { SelectChangeEvent, TextField } from "@mui/material";
 import Options from "@/components/common/Options";
@@ -21,7 +21,7 @@ interface IProps {
   setSelectedItems: (courseList?: TCourse[] | undefined) => void;
 }
 
-function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
+function CourseList({ items, selectedItems, setSelectedItems }: IProps) {
   const [page, setPage] = useState(1);
   const [unit, setUnit] = useState(0);
   const [criteria, setCriteria] = useState<string>("");
@@ -100,7 +100,7 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
         }}
       >
         {filteredItems.slice((page - 1) * 20, page * 20).map((item) => (
-          <Item
+          <CourseListItem
             key={item.courseID}
             item={item}
             checked={
@@ -174,4 +174,4 @@ function ListContainer({ items, selectedItems, setSelectedItems }: IProps) {
   );
 }
 
-export default ListContainer;
+export default CourseList;

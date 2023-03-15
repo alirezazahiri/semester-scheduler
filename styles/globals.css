@@ -30,6 +30,10 @@ body {
   background-color: inherit;
 }
 
+legend {
+  z-index: 9999;
+}
+
 *,
 *::before,
 *::after {

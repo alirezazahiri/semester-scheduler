@@ -7,7 +7,6 @@ import showToast from "@/utils/showToast";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
-import { UserContext } from '../../context/UserContext/index';
 
 const Navbar = () => {
   const router = useRouter();

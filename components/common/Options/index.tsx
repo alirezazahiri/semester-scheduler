@@ -40,13 +40,13 @@ function Options({
         position: "fixed",
         top: 0,
         left: 0,
+        zIndex: 3
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          zIndex: 1,
           pr: 1,
         }}
       >

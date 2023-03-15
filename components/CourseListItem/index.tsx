@@ -19,7 +19,7 @@ interface IProps {
   checked: boolean;
 }
 
-function Item({ item, handleToggle, checked }: IProps) {
+function CourseListItem({ item, handleToggle, checked }: IProps) {
   const { weeklyPlan } = useContext(WeeklyPlanContext);
   const { selectedCourses } = useContext(SelectedCoursesContext);
 
@@ -117,4 +117,4 @@ function Item({ item, handleToggle, checked }: IProps) {
   );
 }
 
-export default Item;
+export default CourseListItem;

@@ -9,7 +9,7 @@ type IProps = {
   name: string;
 } & TextFieldProps;
 
-const FormInput: FC<IProps> = ({ name, ...otherProps }) => {
+const FormInput: FC<IProps> = React.forwardRef(({ name, ...otherProps }, ref) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -24,7 +24,6 @@ const FormInput: FC<IProps> = ({ name, ...otherProps }) => {
     control,
     formState: { errors },
   } = useFormContext();
-  console.log(errors);
   
   return (
     <Controller
@@ -48,6 +47,7 @@ const FormInput: FC<IProps> = ({ name, ...otherProps }) => {
                 : "password"
               : "text"
           }
+          ref={ref}
           InputProps={{
             endAdornment: name.includes("password") ? (
               <InputAdornment position="end">
@@ -68,6 +68,6 @@ const FormInput: FC<IProps> = ({ name, ...otherProps }) => {
       )}
     />
   );
-};
+});
 
 export default FormInput;

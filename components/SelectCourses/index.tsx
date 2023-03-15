@@ -1,8 +1,8 @@
 import { AllCoursesContext } from "@/context/AllCoursesContext";
 import React, { Dispatch, SetStateAction, useContext } from "react";
-import ListContainer from "@/components/common/List";
+import CourseList from "@/components/CourseList";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
-import ListContainerLoader from "@/components/common/List/Skeleton";
+import CourseListLoader from "@/components/CourseList/Skeleton";
 
 interface IProps {
   loading: boolean;
@@ -13,10 +13,10 @@ function SelectCourses({ loading }: IProps) {
     SelectedCoursesContext
   );
 
-  if (loading) return <ListContainerLoader />;
+  if (loading) return <CourseListLoader />;
 
   return (
-    <ListContainer
+    <CourseList
       items={allCourses}
       selectedItems={selectedCourses}
       setSelectedItems={setSelectedCourses}

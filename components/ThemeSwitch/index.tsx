@@ -21,7 +21,8 @@ function ThemeSwitch() {
         top: 0,
         left: 0,
         right: 0,
-        displayPrint: "none"
+        displayPrint: "none",
+        zIndex: 2,
       }}
     >
       <Navbar />

@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Tooltip, Skeleton } from "@mui/material";
 
-function ItemLoader() {
+function CourseListItemLoader() {
   return (
     <ListItem disablePadding sx={{height: 50}}>
       <Tooltip title={"loading..."} arrow followCursor>
@@ -17,4 +17,4 @@ function ItemLoader() {
   );
 }
 
-export default ItemLoader;
+export default CourseListItemLoader;
