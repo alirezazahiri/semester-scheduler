@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { LoadingButton } from "@mui/lab";
+import { SxProps, Theme } from "@mui/material";
 
 interface IProps {
   label: string;
@@ -7,6 +8,18 @@ interface IProps {
   loading: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit?: React.FormEventHandler<HTMLButtonElement>;
+  color:
+    | "inherit"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "info"
+    | "warning";
+  variant: "text" | "outlined" | "contained";
+  size: "small" | "medium" | "large";
+  textColor?: string;
+  sx?: SxProps<Theme>;
 }
 
 function LoadingButtonElement({
@@ -15,13 +28,23 @@ function LoadingButtonElement({
   onClick,
   onSubmit,
   loading,
+  color,
+  variant,
+  size,
+  textColor,
+  sx
 }: IProps) {
   return (
     <LoadingButton
-      variant="contained"
-      size="large"
-      color="primary"
-      sx={{ mt: 1, width: 100, color: "background.default" }}
+      variant={variant}
+      size={size}
+      color={color}
+      sx={{
+        mt: 1,
+        width: 100,
+        color: textColor || "background.default",
+        ...sx,
+      }}
       loading={loading}
       loadingPosition="center"
       type={type}

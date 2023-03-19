@@ -21,11 +21,7 @@ export const verifyJWTToken = (token: string) => {
 
     return result;
   } catch (_) {
-    throw {
-      status: 401,
-      success: false,
-      message: "Failed to login! try again!",
-    };
+    return false;
   }
 };
 

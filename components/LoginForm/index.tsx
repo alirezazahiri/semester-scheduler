@@ -43,7 +43,7 @@ const LoginForm = () => {
 
   const onSubmitHandler: SubmitHandler<TLoginUserSchema> = async () => {
     setLoading(true);
-    showToast("درحال ورود به حساب کاربری", "loading", 2500, true);
+    showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
     const { sid, password } = getValues();
 
     const result = await loginUser({ sid, password });
@@ -91,7 +91,14 @@ const LoginForm = () => {
           required
           {...register("password")}
         />
-        <LoadingButtonElement label="ورود" loading={loading} type="submit" />
+        <LoadingButtonElement
+          label="ورود"
+          loading={loading}
+          type="submit"
+          color="primary"
+          variant="contained"
+          size="large"
+        />
         <Typography
           component="div"
           variant="caption"

@@ -53,7 +53,7 @@ const SignupForm = () => {
 
     // login user after signup
     if (result.success) {
-      showToast("درحال ورود به حساب کاربری", "loading", 2500, true);
+      showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
       result = await loginUser({
         sid,
         password,
@@ -140,7 +140,14 @@ const SignupForm = () => {
           required
           {...register("password2")}
         />
-        <LoadingButtonElement label="ثبت نام" loading={loading} type="submit" />
+        <LoadingButtonElement
+          label="ثبت نام"
+          loading={loading}
+          type="submit"
+          color="primary"
+          variant="contained"
+          size="large"
+        />
         <Typography
           component="div"
           variant="caption"

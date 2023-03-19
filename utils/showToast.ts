@@ -13,10 +13,7 @@ const showToast = (
   duration: number = 1000,
   dismissPrevious: boolean = false
 ): void => {
-  if (dismissPrevious) {
-    console.log("here");
-    toast.dismiss();
-  }
+  if (dismissPrevious) toast.dismiss();
   toast[type](message, { duration });
 };
 

@@ -16,6 +16,16 @@ const SaveFab: FC<IProps> = ({ sid, nextFab }) => {
   const [isSaving, setIsSaving] = useState(false);
   const { selectedCourses } = useAllCourses();
 
+  const saveCoursesHandler = async () => {
+    setIsSaving(true);
+    showToast("درحال ثبت دروس انتخاب شده", "loading", 10000, true);
+    await saveCourses(
+      selectedCourses.map((course) => course.courseID),
+      sid
+    );
+    setIsSaving(false);
+  };
+
   return (
     <Box
       sx={{
@@ -30,15 +40,7 @@ const SaveFab: FC<IProps> = ({ sid, nextFab }) => {
       <Fab
         color="primary"
         aria-label="save"
-        onClick={async () => {
-          setIsSaving(true);
-          showToast("درحال ثبت دروس انتخاب شده", "loading", 2500, true);
-          await saveCourses(
-            selectedCourses.map((course) => course.courseID),
-            sid
-          );
-          setIsSaving(false);
-        }}
+        onClick={saveCoursesHandler}
         disabled={isSaving}
       >
         <SaveIcon sx={{ color: "#B8BBC0" }} />

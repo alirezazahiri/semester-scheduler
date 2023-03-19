@@ -9,7 +9,6 @@ const prisma = new PrismaClient();
 const checkLoginMiddleware = (handler: NextApiHandler) => {
   return async (req: IAuthenticatedRequest, res: NextApiResponse) => {
     try {
-
       req.userId = "";
       req.isLoggedIn = false;
 
@@ -27,6 +26,10 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
 
       const payload = verifyJWTToken(token);
 
+      if (!payload)
+        return res
+          .status(401)
+          .json({ statusCode: 401, success: false, message: "Unauthorized" });
       const user = await prisma.student.findFirst({
         where: {
           sid: (payload as JwtPayload).sid,

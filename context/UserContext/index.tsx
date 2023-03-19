@@ -19,9 +19,9 @@ export const UserContext = createContext<ContextProps>({
 });
 
 const initialState: TOmitPasswordUser = {
-  collegeId: "00",
-  name: "unknown",
-  sid: "000000000",
+  collegeId: "",
+  name: "",
+  sid: "",
 };
 const UserContextProvider: React.FC<IProps> = ({ children, sid }) => {
   const [user, setUser] = useState<TOmitPasswordUser>(initialState);

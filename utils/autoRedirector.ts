@@ -17,58 +17,25 @@ interface IOptions extends IRedirector {
   stayCondition: UserAuthState.AUTHORIZED | UserAuthState.UNAUTHORIZED;
 }
 
-export const autoRedirector = ({ ...args }: IOptions) => {
-  const { req, res } = args;
+/**
+ * Redirects the user based on their authentication state
+ * @param options An object containing the request, response, and redirect options
+ * @returns An object with either the props or redirect destination
+ */
+export const autoRedirector = ({ ...options }: IOptions) => {
+  const { req, res } = options;
   const token = getTokenCookie({ req, res }) || null;
-  if (token) {
-    let data: JwtPayload | null;
-    try {
-      data = verifyJWTToken(token as string) as JwtPayload;
-    } catch (e) {
-      data = null;
-    }
-    
-    if (args.stayCondition === UserAuthState.AUTHORIZED)
-      if (data?.sid){
-        return {
-          props: {
-            sid: data.sid,
-          },
-        };}
-      else {
-        return {
-          redirect: {
-            destination: args.to,
-            permanent: false,
-          },
-        };
-      }
-    else if (args.stayCondition === UserAuthState.UNAUTHORIZED)
-      if (data?.sid)
-        return {
-          redirect: {
-            destination: args.to,
-            permanent: false,
-          },
-          props: {
-            sid: data.sid,
-          },
-        };
-      else
-        return {
-          props: {},
-        };
+  let data = token ? (verifyJWTToken(token as string) as JwtPayload) : null;
+
+  if (options.stayCondition === UserAuthState.AUTHORIZED) {
+    if (data?.sid) return { props: { sid: data.sid } };
+    else return { redirect: { destination: options.to, permanent: false } };
+  } else {
+    if (data?.sid)
+      return {
+        redirect: { destination: options.to, permanent: false },
+        props: { sid: data.sid },
+      };
+    else return { props: {} };
   }
-
-  if (args.stayCondition === UserAuthState.AUTHORIZED)
-    return {
-      redirect: {
-        destination: args.to,
-        permanent: false,
-      },
-    };
-
-  return {
-    props: {},
-  };
 };

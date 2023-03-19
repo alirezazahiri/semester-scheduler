@@ -1,9 +1,8 @@
 import showToast from "@/utils/showToast";
 import { TCourse } from "@/types/courses";
-import { API_BASE_URL } from "@/constants/services.constants";
 
 export const saveCourses = async (courses: string[], sid: string) => {
-  const response = await fetch(`${API_BASE_URL}/courses/save`, {
+  const response = await fetch(`/api/courses/save`, {
     method: "POST",
     body: JSON.stringify({ courses, sid }),
     headers: {
@@ -17,7 +16,7 @@ export const saveCourses = async (courses: string[], sid: string) => {
 };
 
 export const getCourses = async (allCourses: TCourse[]) => {
-  const response = await fetch(`${API_BASE_URL}/courses/get`, {
+  const response = await fetch(`/api/courses/get`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -25,6 +24,12 @@ export const getCourses = async (allCourses: TCourse[]) => {
   });
 
   const result = await response.json();
-
-  return allCourses.filter(course => result.data.includes(course.courseID))
+  if (result.success)
+    return allCourses.filter((course) => result.data.includes(course.courseID));
+  showToast(
+    "خطا هنگام دریافت دروس انتخاب شده، لطفا دوباره تلاش کنید",
+    "error",
+    3000,
+    true
+  );
 };

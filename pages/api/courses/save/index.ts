@@ -17,7 +17,10 @@ const saveCoursesHandler: NextApiHandler = async (req, res) => {
   const { courses, sid } = req.body;
   const token = getTokenCookie({ req, res });
   const data = verifyJWTToken(token as string) as JwtPayload;
-
+  if (!data)
+  return res
+    .status(401)
+    .json({ statusCode: 401, success: false, message: "Unauthorized" });
   if (data?.sid !== sid)
     return res.status(401).json({
       statusCode: 401,

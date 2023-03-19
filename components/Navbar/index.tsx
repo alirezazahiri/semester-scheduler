@@ -1,19 +1,33 @@
 import Link from "next/link";
-import React from "react";
-import { Box, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import { NAV_ITEMS } from "@/constants/index.constants";
 import { logoutUser } from "@/services/student.service";
 import showToast from "@/utils/showToast";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
+import { UserContext } from "@/context/UserContext";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 const Navbar = () => {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
   const logoutHandler = async () => {
-    showToast("در حال خروج از حساب کاربری", "loading", 2500, true);
+    setLoading(true);
+    showToast("در حال خروج از حساب کاربری", "loading", 10000, true);
     const result = await logoutUser();
     if (result.success) {
       router.replace("/auth/login");
@@ -27,8 +41,16 @@ const Navbar = () => {
       router.replace("/auth/login");
       showToast("لطفاً وارد حساب کاربری خود شوید", "error", 2500, true);
     }
+    setLoading(false);
   };
 
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const closeHandler = () => {
+    setAnchorEl(null);
+  };
   return (
     <Box
       sx={{
@@ -37,26 +59,66 @@ const Navbar = () => {
         justifyContent: "space-evenly",
       }}
     >
-      {NAV_ITEMS.map((item) => (
-        <React.Fragment key={`${item.href}`}>
-          {item.href ? (
-            <Button className={`btn-${theme}`}>
-              <Link
-                href={item.href}
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                {item.label}
-              </Link>
-            </Button>
-          ) : router.asPath.includes("auth") ? (
-            <></>
-          ) : (
-            <Button onClick={logoutHandler} color="secondary">
-              {item.label}
-            </Button>
-          )}
-        </React.Fragment>
-      ))}
+      {user?.name !== "" ? (
+        <>
+          <Button
+            onClick={user?.name ? clickHandler : () => {}}
+            disabled={!user?.name || user?.name === ""}
+            sx={{ fontSize: "13px" }}
+          >
+            {user?.name}
+            {!open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+          </Button>
+          <Menu
+            id="navbar-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={closeHandler}
+            dir="rtl"
+          >
+            {NAV_ITEMS.map((item) => (
+              <div key={`${item.href}`}>
+                {item.href ? (
+                  <MenuItem
+                    key={`${item.href}`}
+                    className={`nav-btn-${theme}`}
+                    onClick={closeHandler}
+                    sx={{ textAlign: "center" }}
+                  >
+                    <Link
+                      href={item.href}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      {item.label}
+                    </Link>
+                  </MenuItem>
+                ) : router.asPath.includes("auth") ? (
+                  <></>
+                ) : (
+                  <MenuItem
+                    key={`${item.href}`}
+                    className={`nav-btn-${theme}`}
+                    onClick={() => {
+                      logoutHandler();
+                      closeHandler();
+                    }}
+                    disabled={loading}
+                    sx={{ textAlign: "center", color: "secondary.main" }}
+                  >
+                    {loading ? (
+                      <CircularProgress color="secondary" size={18} />
+                    ) : (
+                      item.label
+                    )}
+                  </MenuItem>
+                )}
+              </div>
+            ))}
+          </Menu>
+        </>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };

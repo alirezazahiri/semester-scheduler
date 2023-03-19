@@ -77,7 +77,7 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
             ]
         )
         .join(" و ")}`;
-      showToast(message, "error", 2500);
+      showToast(message, "error", 3000);
     } else return handleToggle(item.courseID);
   };
   return (
