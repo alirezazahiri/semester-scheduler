@@ -5,7 +5,6 @@ import showToast from "@/utils/showToast";
 import { saveCourses } from "@/services/courses.service";
 import SaveIcon from "@mui/icons-material/Save";
 import useAllCourses from "hooks/useAllCourses";
-import { Box } from "@mui/material";
 
 interface IProps {
   sid: string;
@@ -27,16 +26,6 @@ const SaveFab: FC<IProps> = ({ sid, nextFab }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "fit-content",
-        position: "fixed",
-        bottom: 16,
-        right: 16,
-        displayPrint: "none",
-      }}
-    >
       <Fab
         color="primary"
         aria-label="save"
@@ -45,8 +34,6 @@ const SaveFab: FC<IProps> = ({ sid, nextFab }) => {
       >
         <SaveIcon sx={{ color: "#B8BBC0" }} />
       </Fab>
-      <React.Fragment>{nextFab}</React.Fragment>
-    </Box>
   );
 };
 

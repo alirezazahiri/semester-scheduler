@@ -1,12 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Box, Button, CircularProgress, Menu, MenuItem } from "@mui/material";
 import { NAV_ITEMS } from "@/constants/index.constants";
 import { logoutUser } from "@/services/student.service";
 import showToast from "@/utils/showToast";
@@ -20,7 +14,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 const Navbar = () => {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -30,6 +24,11 @@ const Navbar = () => {
     showToast("در حال خروج از حساب کاربری", "loading", 10000, true);
     const result = await logoutUser();
     if (result.success) {
+      setUser({
+        collegeId: "",
+        name: "",
+        sid: "",
+      });
       router.replace("/auth/login");
       showToast(
         "شما با موفقیت از حساب کاربری خود خارج شدید",

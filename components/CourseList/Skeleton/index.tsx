@@ -26,16 +26,13 @@ function CourseListLoader() {
     <>
       <List
         sx={{
-          width: 360,
+          width: 350,
           bgcolor: "background.paper",
           borderRight: "1px solid var(--border-primary-color)",
           height: "100%",
-          pb: 20,
+          pt: 8,
+          pb: 12,
           overflow: "auto",
-          position: "fixed",
-          top: 70,
-          outline: 0,
-          left: 0,
           direction: "ltr",
         }}
       >
@@ -70,8 +67,8 @@ function CourseListLoader() {
             onChange={() => {}}
             label="جستجو"
             sx={{
-              width: 342,
-              zIndex: 2000,
+              width: 350,
+              zIndex: 3,
               textAlign: "right",
               bgcolor: "background.default",
             }}
@@ -85,8 +82,8 @@ function CourseListLoader() {
             size="medium"
             page={5}
             sx={{
-              width: 342,
-              zIndex: 2000,
+              width: 350,
+              zIndex: 3,
               pt: 1,
               bgcolor: "background.default",
             }}

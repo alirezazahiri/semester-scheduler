@@ -14,28 +14,30 @@ import {
   UNIT_ITEMS,
 } from "@/constants/index.constants";
 import { UserContext } from "@/context/UserContext";
+import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 
 interface IProps {
   items: TCourse[];
-  selectedItems: TCourse[];
-  setSelectedItems: (courseList?: TCourse[] | undefined) => void;
 }
 
-function CourseList({ items, selectedItems, setSelectedItems }: IProps) {
+function CourseList({ items }: IProps) {
   const [page, setPage] = useState(1);
   const [unit, setUnit] = useState(0);
   const [criteria, setCriteria] = useState<string>("");
   const { selectedCollege, setSelectedCollege } = useContext(
     SelectedCollegeContext
   );
+  const { selectedCourses, setSelectedCourses } = useContext(
+    SelectedCoursesContext
+  );
   const { user } = useContext(UserContext);
 
   const handleToggle = (course: TCourse) => {
-    if (selectedItems.findIndex((c) => c.courseID === course.courseID) !== -1)
-      setSelectedItems(
-        selectedItems.filter((item) => item.courseID !== course.courseID)
+    if (selectedCourses.findIndex((c) => c.courseID === course.courseID) !== -1)
+      setSelectedCourses(
+        selectedCourses.filter((item) => item.courseID !== course.courseID)
       );
-    else setSelectedItems([...selectedItems, course]);
+    else setSelectedCourses([...selectedCourses, course]);
   };
 
   const paginateHandler = (_: any, p: number) => {
@@ -84,18 +86,35 @@ function CourseList({ items, selectedItems, setSelectedItems }: IProps) {
 
   return (
     <>
+      <Options
+        unitItems={UNIT_ITEMS}
+        collegeItems={[
+          ...COLLEGE_ITEMS.filter((item, idx) =>
+            idx == 0
+              ? true
+              : user
+              ? user.collegeId === "00"
+                ? true
+                : item.value === user.collegeId
+              : true
+          ),
+          ...COMMON_COLLEGES,
+        ]}
+        unit={unit}
+        college={selectedCollege}
+        changeHandler={changeHandler}
+        changeCollegeHandler={changeCollegeHandler}
+        setSelectedItems={setSelectedCourses}
+      />
       <List
         sx={{
-          width: 360,
+          width: 350,
           bgcolor: "background.paper",
           borderRight: "1px solid var(--border-primary-color)",
-          height: "100%",
-          pb: 20,
+          pt: 8,
+          pb: 12,
           overflow: "auto",
-          position: "fixed",
-          top: 70,
           outline: 0,
-          left: 0,
           direction: "ltr",
         }}
       >
@@ -104,72 +123,42 @@ function CourseList({ items, selectedItems, setSelectedItems }: IProps) {
             key={item.courseID}
             item={item}
             checked={
-              selectedItems.findIndex((c) => c.courseID === item.courseID) !==
+              selectedCourses.findIndex((c) => c.courseID === item.courseID) !==
               -1
             }
             handleToggle={() => handleToggle(item)}
           />
         ))}
       </List>
-      <>
-        <Options
-          unitItems={UNIT_ITEMS}
-          collegeItems={[
-            ...COLLEGE_ITEMS.filter((item, idx) =>
-              idx == 0
-                ? true
-                : user
-                ? user.collegeId === "00"
-                  ? true
-                  : item.value === user.collegeId
-                : true
-            ),
-            ...COMMON_COLLEGES,
-          ]}
-          unit={unit}
-          college={selectedCollege}
-          changeHandler={changeHandler}
-          changeCollegeHandler={changeCollegeHandler}
-          setSelectedItems={setSelectedItems}
-        />
-        <Box
+      <Box sx={{ position: "fixed", bottom: 0, width: 350 }}>
+        <TextField
+          variant="outlined"
+          size="small"
+          value={criteria}
+          onChange={searchHandler}
+          label="جستجو"
           sx={{
-            position: "fixed",
-            bottom: 1,
-            left: 0,
-            pl: 1,
-            zIndex: 2000,
+            width: "100%",
+            textAlign: "right",
+            bgcolor: "background.default",
           }}
-        >
-          <TextField
-            variant="outlined"
-            size="small"
-            value={criteria}
-            onChange={searchHandler}
-            label="جستجو"
-            sx={{
-              width: 342,
-              textAlign: "right",
-              bgcolor: "background.default",
-            }}
-            dir="rtl"
-          />
-          <Pagination
-            count={Math.ceil(filteredItems.length / 20)}
-            color="primary"
-            variant="outlined"
-            onChange={paginateHandler}
-            size="medium"
-            page={page}
-            sx={{
-              width: 342,
-              pt: 1,
-              bgcolor: "background.default",
-            }}
-            dir="ltr"
-          />
-        </Box>
-      </>
+          dir="rtl"
+        />
+        <Pagination
+          count={Math.ceil(filteredItems.length / 20)}
+          color="primary"
+          variant="outlined"
+          onChange={paginateHandler}
+          size="medium"
+          page={page}
+          sx={{
+            width: "100%",
+            py: 1,
+            bgcolor: "background.default",
+          }}
+          dir="ltr"
+        />
+      </Box>
     </>
   );
 }

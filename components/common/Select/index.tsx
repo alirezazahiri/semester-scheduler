@@ -15,11 +15,12 @@ interface IProps {
   name: string;
   value: string | number;
   handleChange: (e: SelectChangeEvent) => void;
+  width: string | number;
 }
 
-function SelectContainer({ items, name, value, handleChange }: IProps) {
+function SelectContainer({ items, name, value, handleChange, width }: IProps) {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 140, maxWidth: 140 }}>
+    <FormControl variant="standard" sx={{ m: 1, width, flex: "1 1 0" }}>
       <InputLabel id="select-standard-label">{name}</InputLabel>
       <Select
         labelId="select-standard-label"

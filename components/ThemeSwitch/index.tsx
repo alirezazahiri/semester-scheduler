@@ -4,16 +4,22 @@ import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Box from "@mui/material/Box";
-import Navbar from '@/components/Navbar/index';
+import Navbar from "@/components/Navbar/index";
+import SwipeableCourseList from "@/components/SwipeableCourseList/index";
+import { useRouter } from "next/router";
+import { UserContext } from "@/context/UserContext/index";
 
 function ThemeSwitch() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const router = useRouter();
+  const { user } = useContext(UserContext);
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: "row-reverse",
         alignItems: "center",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         bgcolor: "background.default",
         p: 2,
         borderBottom: "1px solid var(--border-primary-color)",
@@ -25,10 +31,19 @@ function ThemeSwitch() {
         zIndex: 2,
       }}
     >
-      <Navbar />
-      <IconButton onClick={toggleTheme}>
-        {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Navbar />
+        <IconButton onClick={toggleTheme}>
+          {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </Box>
+      {user && router.asPath === "/" && <SwipeableCourseList />}
     </Box>
   );
 }

@@ -69,6 +69,6 @@ export const UNIT_ITEMS = [
 
 export const NAV_ITEMS = [
   {href: "/", label: "صفحه اصلی"},
-  {href: "/schedule-table", label: "برنامه هفتگی"},
+  {href: "/chosen-courses", label: "دروس انتخاب شده"},
   {href: null, label: "خروج"},
 ]
