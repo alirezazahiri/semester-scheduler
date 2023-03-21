@@ -11,6 +11,7 @@ export const createUserSchema = object({
     .min(2, " نام و نام خانوادگی باید حداقل دارای 2 حرف باشد")
     .max(100, "نام و نام خانوادگی باید کوتاه تر از 100 کاراکتر باشد"),
   collegeId: string().nonempty("دانشکده الزامی است").default("00"),
+  gender: string().nonempty("جنسیت الزامی است").default("0"),
   password1: string()
     .nonempty("گذرواژه الزامی است")
     .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")

@@ -27,6 +27,7 @@ export const signUpUser = async (formValue: TCreateUserFormValue) => {
     collegeId: "",
     password: "",
     sid: "",
+    gender: ""
   };
   for (const [key, value] of Object.entries(formValue))
     if (key.includes("password")) obj["password"] = value;

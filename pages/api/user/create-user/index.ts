@@ -12,7 +12,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
     return;
   }
 
-  const { sid, name, password, collegeId } = req.body;
+  const { sid, name, password, collegeId, gender } = req.body;
 
   try {
     const userExists = await prisma.student.findUnique({
@@ -36,6 +36,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
         name,
         collegeId,
         password: hashedPassword,
+        gender,
       },
     });
 
@@ -47,6 +48,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
         sid,
         collegeId,
         name,
+        gender
       },
     });
   } catch (error) {

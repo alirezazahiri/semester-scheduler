@@ -26,7 +26,7 @@ function CourseListLoader() {
     <>
       <List
         sx={{
-          width: 350,
+          width: 360,
           bgcolor: "background.paper",
           borderRight: "1px solid var(--border-primary-color)",
           height: "100%",

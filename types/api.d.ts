@@ -10,7 +10,9 @@ export type TCreateUser = {
   password: string;
   sid: string;
   collegeId: string;
+  gender: string;
 };
+
 export type TLogin = { password: string; sid: string };
 
 export type TCreateUserFormValue = {
@@ -18,6 +20,7 @@ export type TCreateUserFormValue = {
   collegeId: string;
   sid: string;
   password: string;
+  gender: string;
 };
 
 export type TLoginUserFormValue = {

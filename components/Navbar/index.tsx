@@ -81,7 +81,10 @@ const Navbar = () => {
                   <MenuItem
                     key={`${item.href}`}
                     className={`nav-btn-${theme}`}
-                    onClick={closeHandler}
+                    onClick={() => {
+                      router.push(item.href);
+                      closeHandler();
+                    }}
                     sx={{ textAlign: "center" }}
                   >
                     <Link

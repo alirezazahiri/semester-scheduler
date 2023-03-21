@@ -66,6 +66,17 @@ export const UNIT_ITEMS = [
   { name: "چهار واحدی", value: 4 },
 ];
 
+export const GENDER_ITEMS = [
+  { name: "نامشخص", value: "0" },
+  { name: "مرد", value: "1" },
+  { name: "زن", value: "2" },
+];
+
+export const GENDER_DICTIONARY = {
+  "0": "all",
+  "1": "مرد",
+  "2": "زن",
+}
 
 export const NAV_ITEMS = [
   {href: "/", label: "صفحه اصلی"},

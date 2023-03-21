@@ -22,6 +22,7 @@ const initialState: TOmitPasswordUser = {
   collegeId: "",
   name: "",
   sid: "",
+  gender: "",
 };
 const UserContextProvider: React.FC<IProps> = ({ children, sid }) => {
   const [user, setUser] = useState<TOmitPasswordUser>(initialState);

@@ -4,11 +4,9 @@ import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { MenuItem } from "@mui/material";
-import { Select, InputLabel } from "@mui/material";
 import { setTokenCookie } from "@/utils/token.utils";
 import { loginUser, signUpUser } from "@/services/student.service";
-import { COLLEGE_ITEMS } from "@/constants/index.constants";
+import { COLLEGE_ITEMS, GENDER_ITEMS } from "@/constants/index.constants";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +15,7 @@ import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import showToast from "@/utils/showToast";
 import TradeMark from "@/components/common/TradeMark";
+import FormSelect from "../common/FormSelect";
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
@@ -43,12 +42,13 @@ const SignupForm = () => {
 
   const onSubmitHandler: SubmitHandler<TCreateUserSchema> = async () => {
     setLoading(true);
-    const { collegeId, name, sid, password1: password } = getValues();
+    const { collegeId, name, sid, password1: password, gender } = getValues();
     let result = await signUpUser({
       sid,
       password,
       collegeId,
       name,
+      gender
     });
 
     // login user after signup
@@ -102,32 +102,20 @@ const SignupForm = () => {
           {...register("name")}
           sx={{ pt: 2 }}
         />
-        <FormControl sx={{ my: 1, mb: 0.5 }}>
-          <InputLabel
-            htmlFor="college-id-select"
-            id="college-id-label"
-            required
-          >
-            دانشکده
-          </InputLabel>
-          <Select
-            labelId="college-id-label"
-            id="college-id-select"
-            label="دانشکده"
-            defaultValue="00"
-            sx={{
-              textAlign: "right",
-            }}
-            {...register("collegeId")}
-            required
-          >
-            {[...COLLEGE_ITEMS].map((item) => (
-              <MenuItem key={item.name} value={item.value} dir="rtl">
-                {item.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <FormSelect
+          label="دانشکده"
+          labelName="collegeId"
+          defaultValue="00"
+          items={COLLEGE_ITEMS}
+          {...register("collegeId")}
+          />
+        <FormSelect
+          label="جنسیت"
+          labelName="gender"
+          defaultValue="0"
+          items={GENDER_ITEMS}
+          {...register("gender")}
+        />
         <FormInput
           label="گذرواژه"
           dir="ltr"

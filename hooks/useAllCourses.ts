@@ -3,11 +3,10 @@ import { AllCoursesContext } from "@/context/AllCoursesContext";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { UserContext } from "@/context/UserContext";
 import { getCourses } from "@/services/courses.service";
-import { fetchUser } from "@/services/student.service";
 import { TCourse } from "@/types/courses";
 import { useContext, useEffect, useState } from "react";
-import { TOmitPasswordUser } from "../context/UserContext/index";
 import removeDuplicates from "@/utils/removeDuplicates";
+import { GENDER_DICTIONARY } from "../constants/index.constants";
 
 const useAllCourses = () => {
   const { selectedCourses, setSelectedCourses } = useContext(
@@ -18,7 +17,7 @@ const useAllCourses = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    if (selectedCourses.length) return;
+    if (selectedCourses.length || !user) return;
 
     setLoading(true);
 
@@ -53,9 +52,20 @@ const useAllCourses = () => {
 
       const allFocusedCourses = allCollegesCourses.flat(1);
 
-      setAllCourses(allFocusedCourses);
+      const allGenderRelatedCourses =
+        !user?.gender || user?.gender === "0"
+          ? allFocusedCourses
+          : allFocusedCourses.filter(
+              ({ gender }) =>
+                gender ===
+                  GENDER_DICTIONARY[
+                    user.gender as keyof typeof GENDER_DICTIONARY
+                  ] || gender === "مختلط"
+            );
 
-      const selectedCourses = await getCourses(allFocusedCourses);
+      setAllCourses(allGenderRelatedCourses);
+
+      const selectedCourses = await getCourses(allGenderRelatedCourses);
 
       setSelectedCourses(selectedCourses);
 

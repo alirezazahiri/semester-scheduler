@@ -23,6 +23,7 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
         name: true,
         collegeId: true,
         token: true,
+        gender: true,
       },
     });
 
