@@ -76,7 +76,7 @@ const Navbar = () => {
             dir="rtl"
           >
             {NAV_ITEMS.map((item) => (
-              <div key={`${item.href}`}>
+              <Box key={`${item.href}`}>
                 {item.href ? (
                   <MenuItem
                     key={`${item.href}`}
@@ -111,7 +111,7 @@ const Navbar = () => {
                     )}
                   </MenuItem>
                 )}
-              </div>
+              </Box>
             ))}
           </Menu>
         </>

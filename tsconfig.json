@@ -28,6 +28,6 @@
     "incremental": true,
     "downlevelIteration": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/ChosenCoursesTable/index.tsx"],
   "exclude": ["node_modules"]
 }
