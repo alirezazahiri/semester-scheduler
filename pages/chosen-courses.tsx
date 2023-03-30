@@ -1,11 +1,11 @@
 import ChosenCoursesTable from "@/components/ChosenCoursesTable";
 import useAllCourses from "@/hooks/useAllCourses";
-import { Box } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import Head from "next/head";
 import React from "react";
 
 function ChosenCoursesPage() {
-    useAllCourses()
+  const { loading } = useAllCourses();
   return (
     <>
       <Head>
@@ -19,11 +19,23 @@ function ChosenCoursesPage() {
         sx={{
           height: "100vh",
           bgcolor: "background.default",
-        //   px: 4,
           pt: 8,
         }}
       >
-        <ChosenCoursesTable />
+        {loading ? (
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        ) : (
+          <ChosenCoursesTable />
+        )}
       </Box>
     </>
   );

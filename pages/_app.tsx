@@ -11,23 +11,23 @@ import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <SelectedCollegeContextProvider>
-      <AllCoursesContextProvider>
-        <SelectedCoursesContextProvider>
-          <WeeklyPlanContextProvider>
-            <ThemeContextProvider>
-              <UserContextProvider sid={pageProps.sid}>
+    <UserContextProvider sid={pageProps.sid}>
+      <SelectedCollegeContextProvider>
+        <AllCoursesContextProvider>
+          <SelectedCoursesContextProvider>
+            <WeeklyPlanContextProvider>
+              <ThemeContextProvider>
                 <Layout>
                   <>
                     <CssBaseline />
                     <Component {...pageProps} />
                   </>
                 </Layout>
-              </UserContextProvider>
-            </ThemeContextProvider>
-          </WeeklyPlanContextProvider>
-        </SelectedCoursesContextProvider>
-      </AllCoursesContextProvider>
-    </SelectedCollegeContextProvider>
+              </ThemeContextProvider>
+            </WeeklyPlanContextProvider>
+          </SelectedCoursesContextProvider>
+        </AllCoursesContextProvider>
+      </SelectedCollegeContextProvider>
+    </UserContextProvider>
   );
 }

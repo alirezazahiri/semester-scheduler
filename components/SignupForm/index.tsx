@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import showToast from "@/utils/showToast";
 import TradeMark from "@/components/common/TradeMark";
-import FormSelect from "../common/FormSelect";
+import FormSelect from "@/components/common/FormSelect";
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
@@ -48,7 +48,7 @@ const SignupForm = () => {
       password,
       collegeId,
       name,
-      gender
+      gender,
     });
 
     // login user after signup
@@ -108,7 +108,7 @@ const SignupForm = () => {
           defaultValue="00"
           items={COLLEGE_ITEMS}
           {...register("collegeId")}
-          />
+        />
         <FormSelect
           label="جنسیت"
           labelName="gender"

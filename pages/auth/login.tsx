@@ -2,7 +2,7 @@ import LoginForm from "@/components/LoginForm";
 import { Grid } from "@mui/material";
 import React from "react";
 import { autoRedirector } from "@/utils/autoRedirector";
-import { IRedirector, UserAuthState } from '../../utils/autoRedirector';
+import { IRedirector, UserAuthState } from '@/utils/autoRedirector';
 import Head from "next/head";
 
 const LoginPage = () => {

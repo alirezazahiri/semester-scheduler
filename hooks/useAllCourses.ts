@@ -6,7 +6,7 @@ import { getCourses } from "@/services/courses.service";
 import { TCourse } from "@/types/courses";
 import { useContext, useEffect, useState } from "react";
 import removeDuplicates from "@/utils/removeDuplicates";
-import { GENDER_DICTIONARY } from "../constants/index.constants";
+import { GENDER_DICTIONARY } from "@/constants/index.constants";
 
 const useAllCourses = () => {
   const { selectedCourses, setSelectedCourses } = useContext(

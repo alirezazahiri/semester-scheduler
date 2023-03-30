@@ -1,4 +1,4 @@
-import { Box, Fab } from "@mui/material";
+import { Box, Fab, CircularProgress } from "@mui/material";
 import ScheduleTable from "@/components/ScheduleTable";
 import {
   IRedirector,
@@ -8,8 +8,10 @@ import {
 import SaveFab from "@/components/SaveFab";
 import Head from "next/head";
 import PrintIcon from "@mui/icons-material/Print";
+import useAllCourses from "@/hooks/useAllCourses";
 
 function Index({ sid }: { sid: string }) {
+  const { loading } = useAllCourses();
   return (
     <>
       <Head>
@@ -27,7 +29,20 @@ function Index({ sid }: { sid: string }) {
           pt: 8,
         }}
       >
-        <ScheduleTable />
+        {loading ? (
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        ) : (
+          <ScheduleTable />
+        )}
       </Box>
       <Box
         sx={{
