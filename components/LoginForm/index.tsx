@@ -53,7 +53,11 @@ const LoginForm = () => {
       setSelectedCourses([]);
       setTokenCookie(result.token);
       router.replace("/");
-    } else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+    } else {
+      if (result.statusCode === 401)
+        showToast("گذرواژه یا نام کاربری اشتباه است", "error", 2500, true);
+      else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+    }
 
     setLoading(false);
   };

@@ -29,7 +29,7 @@ const loginHandler: NextApiHandler = async (
         sid,
       },
     });
-
+    
     if (!user)
       return res.status(401).json({
         statusCode: 401,
