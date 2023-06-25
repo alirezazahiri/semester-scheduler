@@ -1,5 +1,11 @@
 import { TOmitPasswordUser } from "@/context/UserContext";
-import { TCreateUser, TLogin, TCreateUserFormValue, TLoginUserFormValue } from "@/types/api";
+import {
+  TCreateUser,
+  TLogin,
+  TCreateUserFormValue,
+  TLoginUserFormValue,
+} from "@/types/api";
+import { TChangePasswordSchema } from "@/utils/validator";
 
 export const loginUser = async (formValue: TLoginUserFormValue) => {
   let obj: TLogin = {
@@ -27,7 +33,7 @@ export const signUpUser = async (formValue: TCreateUserFormValue) => {
     collegeId: "",
     password: "",
     sid: "",
-    gender: ""
+    gender: "",
   };
   for (const [key, value] of Object.entries(formValue))
     if (key.includes("password")) obj["password"] = value;
@@ -67,6 +73,25 @@ export const fetchUser: () => Promise<{
 }> = async () => {
   const response = await fetch("/api/user", {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+
+  return result;
+};
+
+export const changePassword: (
+  formValue: Omit<TChangePasswordSchema, "confirmNewPassword">
+) => Promise<{
+  statusCode: number;
+  success: boolean;
+  message: string;
+}> = async (formValue) => {
+  const response = await fetch("/api/user/change-password", {
+    method: "POST",
+    body: JSON.stringify(formValue),
     headers: {
       "Content-Type": "application/json",
     },

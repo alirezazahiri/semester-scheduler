@@ -44,7 +44,7 @@ const FormInput: FC<IProps> = React.forwardRef(
             margin="dense"
             sx={{ width: "100%" }}
             type={
-              name.includes("password")
+              name.toLowerCase().includes("password")
                 ? showPassword
                   ? "text"
                   : "password"
@@ -52,7 +52,7 @@ const FormInput: FC<IProps> = React.forwardRef(
             }
             ref={ref}
             InputProps={{
-              endAdornment: name.includes("password") ? (
+              endAdornment: name.toLowerCase().includes("password") ? (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"

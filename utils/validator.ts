@@ -34,7 +34,26 @@ export const loginUserSchema = object({
     .nonempty("گذرواژه الزامی است")
     .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
     .max(32, "گذرواژه حداکثر باید دارای 32 کاراکتر باشد"),
-})
+});
 
 export type TLoginUserSchema = TypeOf<typeof loginUserSchema>;
 
+export const changePasswordSchema = object({
+  currentPassword: string()
+    .nonempty("وارد کردن گذرواژه کنونی الزامی است")
+    .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
+    .max(32, "گذرواژه باید حداکثر دارای 32 کاراکتر باشد"),
+  newPassword: string()
+    .nonempty("وارد کردن گذرواژه جدید الزامی است")
+    .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
+    .max(32, "گذرواژه باید حداکثر دارای 32 کاراکتر باشد"),
+  confirmNewPassword: string()
+    .nonempty("تایید گذرواژه جدید الزامی است")
+    .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
+    .max(32, "گذرواژه باید حداکثر دارای 32 کاراکتر باشد"),
+}).refine((data) => data.newPassword === data.confirmNewPassword, {
+  path: ["confirmNewPassword"],
+  message: "تایید گذرواژه نادرست است",
+});
+
+export type TChangePasswordSchema = TypeOf<typeof changePasswordSchema>

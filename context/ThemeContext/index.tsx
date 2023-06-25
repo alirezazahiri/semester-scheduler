@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const SETTINGS: Partial<ThemeOptions> = {
-  direction: "ltr",
+  direction: "rtl",
   typography: {
     fontSize: 12,
   },
@@ -59,6 +59,7 @@ export const ThemeContext = React.createContext({
   theme: "dark",
   toggleTheme: () => {},
 });
+
 
 const ThemeContextProvider: React.FC<IProps> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">("dark");

@@ -28,6 +28,6 @@
     "incremental": true,
     "downlevelIteration": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/ChosenCoursesTable/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/ChosenCoursesTable/index.tsx", "components/common/PhoneNumberInput/index.jsx"],
   "exclude": ["node_modules"]
 }

@@ -16,7 +16,7 @@ const TradeMark = () => (
       fontSize: 14,
     }}
   >
-    All rights reserved by Alireza Zahiri &copy;
+    &copy; تمامی حقوق سایت متعلق به علیرضا ظهیری میباشد
   </Typography>
 );
 
