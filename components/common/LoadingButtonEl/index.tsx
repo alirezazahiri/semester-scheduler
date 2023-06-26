@@ -20,6 +20,7 @@ interface IProps {
   size: "small" | "medium" | "large";
   textColor?: string;
   sx?: SxProps<Theme>;
+  disabled?: boolean;
 }
 
 function LoadingButtonElement({
@@ -32,7 +33,8 @@ function LoadingButtonElement({
   variant,
   size,
   textColor,
-  sx
+  sx,
+  disabled,
 }: IProps) {
   return (
     <LoadingButton
@@ -50,6 +52,7 @@ function LoadingButtonElement({
       type={type}
       onSubmit={onSubmit}
       onClick={onClick}
+      disabled={disabled}
     >
       {label}
     </LoadingButton>

@@ -17,10 +17,16 @@ const PhoneNumberInput = ({ value, onChange }) => {
         {() => (
           <TextField
             inputRef={inputRef}
-            label="شماره تلفن"
+            label="شماره تلفن همراه"
             variant="outlined"
             dir="ltr"
-            inputProps={{ style: { fontSize: 24, textAlign: "center" } }}
+            inputProps={{
+              style: {
+                fontSize: 16,
+                textAlign: "center",
+              },
+            }}
+            fullWidth
           />
         )}
       </InputMask>

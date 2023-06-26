@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const SETTINGS: Partial<ThemeOptions> = {
-  direction: "rtl",
+  direction: "ltr",
   typography: {
     fontSize: 12,
   },

@@ -12,35 +12,36 @@
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@hookform/resolvers": "^2.9.11",
+    "@hookform/resolvers": "2.9.11",
     "@mui/icons-material": "5.11.0",
     "@mui/lab": "5.0.0-alpha.121",
     "@mui/material": "5.11.7",
     "@next/font": "13.1.6",
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "4.11.0",
     "@types/node": "18.11.19",
     "@types/pg": "8.6.6",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@types/react-input-mask": "^3.0.2",
+    "@types/react-input-mask": "3.0.2",
     "bcrypt": "5.1.0",
-    "cookies-next": "^2.1.1",
+    "cookies-next": "2.1.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "json-server": "0.17.1",
     "jsonwebtoken": "9.0.0",
+    "mui-one-time-password-input": "^1.1.1",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.43.5",
+    "react-hook-form": "7.43.5",
     "react-hot-toast": "2.4.0",
-    "react-input-mask": "^2.0.4",
+    "react-input-mask": "2.0.4",
     "typescript": "4.9.5",
-    "zod": "^3.21.4"
+    "zod": "3.21.4"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
     "@types/jsonwebtoken": "9.0.1",
-    "prisma": "^4.11.0"
+    "prisma": "4.11.0"
   }
 }
