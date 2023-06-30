@@ -5,10 +5,10 @@ import { OptionsType } from "cookies-next/lib/types";
 const { JWT_SECRET } = process.env;
 const TOKEN_EXPIRES_IN = 60 * 60 * 24 * 7; // 7 days
 
-export const tokenGenerator = (payload: { sid: string }) => {
-  const { sid } = payload;
+export const tokenGenerator = (payload: { sid: string, phoneNumber: string }) => {
+  const { sid, phoneNumber } = payload;
 
-  const token = jwt.sign({ sid }, JWT_SECRET as string, {
+  const token = jwt.sign({ sid, phoneNumber }, JWT_SECRET as string, {
     expiresIn: TOKEN_EXPIRES_IN,
   });
 

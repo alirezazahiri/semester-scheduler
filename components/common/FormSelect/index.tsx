@@ -9,13 +9,14 @@ interface IProps {
   rest?: any;
 }
 
-function FormSelect({
-  label,
-  labelName,
-  items,
-  defaultValue,
-  ...rest
-}: IProps) {
+const FormSelect = React.forwardRef((props: IProps, ref) => {
+  const {
+    label,
+    labelName,
+    items,
+    defaultValue,
+    ...rest
+  } = props
   return (
     <FormControl sx={{ my: 1, mb: 0.5 }}>
       <InputLabel
@@ -34,6 +35,7 @@ function FormSelect({
           textAlign: "right",
         }}
         {...rest}
+        ref={ref}
         required
       >
         {[...items].map((item) => (
@@ -44,6 +46,8 @@ function FormSelect({
       </Select>
     </FormControl>
   );
-}
+})
+
+FormSelect.displayName = "FormSelect"
 
 export default FormSelect;

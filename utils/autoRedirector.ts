@@ -1,10 +1,12 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
+import { GetServerSideProps } from "next";
 
 export interface IRedirector {
   req: IncomingMessage;
   res: ServerResponse;
+  resolvedUrl?: string;
 }
 
 export enum UserAuthState {
@@ -28,8 +30,18 @@ export const autoRedirector = ({ ...options }: IOptions) => {
   let data = token ? (verifyJWTToken(token as string) as JwtPayload) : null;
 
   if (options.stayCondition === UserAuthState.AUTHORIZED) {
-    if (data?.sid) return { props: { sid: data.sid } };
-    else return { redirect: { destination: options.to, permanent: false } };
+    if (data?.sid) {
+      if (!data?.phoneNumber)
+        if (options.resolvedUrl !== "/auth/confirm-phone-number")
+          return {
+            redirect: {
+              destination: "/auth/confirm-phone-number",
+              permanent: false,
+            },
+          };
+      return { props: { sid: data.sid } };
+    }
+    return { redirect: { destination: options.to, permanent: false } };
   } else {
     if (data?.sid)
       return {

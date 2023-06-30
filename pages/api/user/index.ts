@@ -24,6 +24,7 @@ const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
         collegeId: true,
         token: true,
         gender: true,
+        phoneNumber: true,
       },
     });
 

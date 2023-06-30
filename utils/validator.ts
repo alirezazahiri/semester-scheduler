@@ -56,4 +56,20 @@ export const changePasswordSchema = object({
   message: "تایید گذرواژه نادرست است",
 });
 
-export type TChangePasswordSchema = TypeOf<typeof changePasswordSchema>
+export type TChangePasswordSchema = TypeOf<typeof changePasswordSchema>;
+
+export const recoverPasswordSchema = object({
+  newPassword: string()
+    .nonempty("وارد کردن گذرواژه جدید الزامی است")
+    .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
+    .max(32, "گذرواژه باید حداکثر دارای 32 کاراکتر باشد"),
+  confirmNewPassword: string()
+    .nonempty("تایید گذرواژه جدید الزامی است")
+    .min(8, "گذرواژه باید حداقل دارای 8 کاراکتر باشد")
+    .max(32, "گذرواژه باید حداکثر دارای 32 کاراکتر باشد"),
+}).refine((data) => data.newPassword === data.confirmNewPassword, {
+  path: ["confirmNewPassword"],
+  message: "تایید گذرواژه نادرست است",
+});
+
+export type TRecoverPasswordSchema = TypeOf<typeof recoverPasswordSchema>;

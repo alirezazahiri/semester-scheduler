@@ -46,7 +46,7 @@ const loginHandler: NextApiHandler = async (
         message: "Invalid username or password",
       });
     deleteTokenCookie({ req, res });
-    const token = tokenGenerator({ sid: user.sid });
+    const token = tokenGenerator({ sid: user.sid, phoneNumber: user.phoneNumber ?? "" });
 
     setTokenCookie(token, { req, res });
     await prisma.student.update({

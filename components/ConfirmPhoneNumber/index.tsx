@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import {
   FormControl,
@@ -11,24 +11,30 @@ import {
   Button,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import PhoneNumberStep from "@/components/PasswordRecovery/PhoneNumberStep";
+import PhoneNumberStep from "@/components/ConfirmPhoneNumber/PhoneNumberStep";
 import OTPCheckStep from "@/components/PasswordRecovery/OTPCheckStep";
-import RecoverPasswordStep from "@/components/PasswordRecovery/RecoverPasswordStep";
-import { checkOTPService, setOtpService } from "@/services/student.service";
+import {
+  checkOTPService,
+  setOtpService,
+  setConfirmationCodeService,
+  setPhoneNumberService,
+} from "@/services/student.service";
 import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
 import showToast from "@/utils/showToast";
+import { UserContext } from "@/context/UserContext";
+import { useRouter } from "next/router";
+import { setTokenCookie } from "@/utils/token.utils";
 
-const STEPS = [
-  "وارد کردن شماره تلفن همراه",
-  "بررسی کد تایید ارسال شده",
-  "تغییر گذرواژه",
-];
+const STEPS = ["وارد کردن شماره تلفن همراه", "بررسی کد تایید ارسال شده"];
 
-function PasswordRecovery() {
+function ConfirmPhoneNumber() {
   const theme = useTheme();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [activeStep, setActiveStep] = useState(0);
+  const {setUser, user} = useContext(UserContext)
+
+  const router = useRouter()
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -39,6 +45,8 @@ function PasswordRecovery() {
   };
 
   const handleReset = () => {
+    setOtp("");
+    setPhoneNumber("");
     setActiveStep(0);
   };
 
@@ -46,18 +54,41 @@ function PasswordRecovery() {
     setPhoneNumber(value);
     // set a random code for user with the given phoneNumber
     const cleanedPhoneNumber = cleanPhoneNumber(value);
-    const res = await setOtpService(cleanedPhoneNumber);
-    if (res.success) handleNext();
-    else showToast("ارسال کد تایید با خطا مواجه شد", "error", 2500, true);
+    // TODO: register phone number
+    const setConfirmationCodeResult = await setConfirmationCodeService(
+      cleanedPhoneNumber
+    );
+        
+    if (setConfirmationCodeResult.success) {
+      handleNext();
+    } else {
+      if (setConfirmationCodeResult.statusCode === 400)
+        showToast(
+          "حساب کاربری دیگری با شماره تلفن وارد شده وجود دارد، لطفا شماره تلفن دیگری را امتحان کنید.",
+          "error",
+          5000,
+          true
+        );
+      else showToast("ثبت شماره تلفن با خطا مواجه شد", "error", 2500, true);
+    }
   };
 
   const OTPSubmitHandler = async (value: string) => {
     setOtp(value);
+    const cleanedPhoneNumber = cleanPhoneNumber(phoneNumber);
     const checkOTPResult = await checkOTPService({
       code: value,
-      phoneNumber: cleanPhoneNumber(phoneNumber),
+      phoneNumber: cleanedPhoneNumber,
     });
-    if (checkOTPResult.success) handleNext();
+    if (checkOTPResult.success) {
+        const setPhoneNumberResult = await setPhoneNumberService(cleanedPhoneNumber);
+        
+        if (setPhoneNumberResult.success) {
+            handleNext();
+            router.replace("/");
+        }
+        else showToast("ثبت شماره تلفن با خطا مواجه شد", "error", 2500, true);
+    }
     else showToast("کد تایید نادرست می باشد", "error", 2500, true);
   };
 
@@ -91,18 +122,16 @@ function PasswordRecovery() {
                     currentValue={otp}
                   />
                 )}
-                {activeStep === 2 && (
-                  <RecoverPasswordStep phoneNumber={phoneNumber} />
-                )}
               </Box>
               {activeStep === 1 && (
-                <Button
-                  color="inherit"
-                  onClick={handleBack}
-                  sx={{ mr: 1 }}
-                >
-                  مرحله قبل
-                </Button>
+                <>
+                  <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
+                    مرحله قبل
+                  </Button>
+                  <Button color="primary" onClick={handleReset} sx={{ mr: 1 }}>
+                    بازنشانی
+                  </Button>
+                </>
               )}
             </StepContent>
           </Step>
@@ -116,4 +145,4 @@ function PasswordRecovery() {
 
 //   <PhoneNumberStep onSubmit={phoneNumberSubmitHandler} />
 // </>
-export default PasswordRecovery;
+export default ConfirmPhoneNumber;

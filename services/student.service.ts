@@ -5,7 +5,10 @@ import {
   TCreateUserFormValue,
   TLoginUserFormValue,
 } from "@/types/api";
-import { TChangePasswordSchema } from "@/utils/validator";
+import {
+  TChangePasswordSchema,
+  TRecoverPasswordSchema,
+} from "@/utils/validator";
 
 export const loginUser = async (formValue: TLoginUserFormValue) => {
   let obj: TLogin = {
@@ -98,5 +101,80 @@ export const changePassword: (
   });
   const result = await response.json();
 
+  return result;
+};
+
+export const recoverPassword: (
+  formValue: Omit<TRecoverPasswordSchema, "confirmNewPassword"> & {
+    phoneNumber: string;
+  }
+) => Promise<{
+  statusCode: number;
+  success: boolean;
+  message: string;
+}> = async (formValue) => {
+  const response = await fetch("/api/user/recover-password", {
+    method: "POST",
+    body: JSON.stringify(formValue),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+
+  return result;
+};
+
+export const setConfirmationCodeService = async (phoneNumber: string) => {
+  const response = await fetch("/api/user/set-confirmation-code", {
+    method: "POST",
+    body: JSON.stringify({ phoneNumber }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result;
+};
+
+export const setOtpService = async (phoneNumber: string) => {
+  const response = await fetch("/api/user/set-otp", {
+    method: "PATCH",
+    body: JSON.stringify({ phoneNumber }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result;
+};
+
+export const setPhoneNumberService = async (phoneNumber: string) => {
+  const response = await fetch("/api/user/set-phone-number", {
+    method: "PATCH",
+    body: JSON.stringify({ phoneNumber }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result;
+};
+
+export const checkOTPService = async ({
+  code,
+  phoneNumber,
+}: {
+  code: string;
+  phoneNumber: string;
+}) => {
+  const response = await fetch("/api/user/check-otp-code", {
+    method: "POST",
+    body: JSON.stringify({ code, phoneNumber }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
   return result;
 };

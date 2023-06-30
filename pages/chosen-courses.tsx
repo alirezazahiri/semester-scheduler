@@ -1,5 +1,6 @@
 import ChosenCoursesTable from "@/components/ChosenCoursesTable";
 import useAllCourses from "@/hooks/useAllCourses";
+import { IRedirector, UserAuthState, autoRedirector } from "@/utils/autoRedirector";
 import { Box, CircularProgress } from "@mui/material";
 import Head from "next/head";
 import React from "react";
@@ -40,5 +41,13 @@ function ChosenCoursesPage() {
     </>
   );
 }
+
+export const getServerSideProps = ({ req, res }: IRedirector) =>
+  autoRedirector({
+    req,
+    res,
+    to: "/auth/login",
+    stayCondition: UserAuthState.AUTHORIZED,
+  });
 
 export default ChosenCoursesPage;

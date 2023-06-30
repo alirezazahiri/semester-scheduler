@@ -30,7 +30,8 @@ const OTPCheckStep: FC<IProps> = ({
     return matchIsNumeric(char);
   };
 
-  const submitHandler = () => {
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault()
     // check otp code with api
     onSubmit(otp);
   };
@@ -77,7 +78,6 @@ const OTPCheckStep: FC<IProps> = ({
         TextFieldsProps={{ size: "medium" }}
         validateChar={validate}
       />
-
       <LoadingButtonElement
         label="تایید"
         loading={loading}

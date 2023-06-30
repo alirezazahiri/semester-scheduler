@@ -94,8 +94,6 @@ const Navbar = () => {
                       {item.label}
                     </Link>
                   </MenuItem>
-                ) : router.asPath.includes("auth") ? (
-                  <></>
                 ) : (
                   <MenuItem
                     key={`${item.href}`}
