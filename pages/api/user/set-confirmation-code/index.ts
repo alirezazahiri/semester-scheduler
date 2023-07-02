@@ -4,6 +4,7 @@ import { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import { generateOTP } from "@/utils/otp.utils";
 import { sendMessage } from "@/services/textMessage.service";
+import { PHONE_NUMBER_REGEX } from "@/utils/phoneNumber.utils";
 
 const prisma = new PrismaClient();
 
@@ -35,6 +36,14 @@ export default async function setConfirmationCodeHandler(
       });
 
     const { phoneNumber } = req.body;
+    
+
+    if (!PHONE_NUMBER_REGEX.test(phoneNumber))
+      return res.status(400).json({
+        statusCode: 400,
+        message: "Phone Number is invalid",
+        success: false,
+      });
 
     const user = await prisma.student.findFirst({
       where: {
@@ -49,8 +58,24 @@ export default async function setConfirmationCodeHandler(
         success: false,
       });
     }
-    const generatedOTP = generateOTP(4);
 
+    const currentOtp = await prisma.tempOtp.findFirst({
+      where: {
+        phoneNumber,
+      },
+    });
+
+    if (Number(currentOtp?.expiresIn) >= Date.now())
+      return res.status(403).json({
+        message: "current otp code hasn't expired yet.",
+        statusCode: 403,
+        success: false,
+        otp: {
+          expiresIn: currentOtp?.expiresIn,
+        },
+      });
+
+    const generatedOTP = generateOTP(4);
 
     try {
       await prisma.tempOtp.upsert({
@@ -71,6 +96,7 @@ export default async function setConfirmationCodeHandler(
     } catch (err) {
       return res.status(304).json({
         statusCode: 304,
+        message: "failed to create otp code!",
         success: false,
       });
     }
@@ -81,6 +107,9 @@ export default async function setConfirmationCodeHandler(
       message: "success",
       success: true,
       statusCode: 201,
+      otp: {
+        expiresIn: generatedOTP.expiresIn,
+      },
     });
   } catch (err) {
     res.status(500).json({

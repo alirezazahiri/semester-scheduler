@@ -1,15 +1,20 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { MuiOtpInput } from "mui-one-time-password-input";
 import { Typography, FormControl } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { matchIsNumeric } from "@/utils/otp.utils";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
+import CountdownTimer from "@/components/common/CountdownTimer";
+import { getOtpService } from "@/services/student.service";
+import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
 
 interface IProps {
   length: number;
   phoneNumber: string;
   onSubmit: (otp: string) => void;
   currentValue: string;
+  timerSeconds: number
+  onTimerFinished?: Function;
 }
 
 const OTPCheckStep: FC<IProps> = ({
@@ -17,6 +22,8 @@ const OTPCheckStep: FC<IProps> = ({
   phoneNumber,
   onSubmit,
   currentValue = "",
+  onTimerFinished,
+  timerSeconds
 }) => {
   const theme = useTheme();
   const [otp, setOtp] = useState(currentValue);
@@ -31,9 +38,11 @@ const OTPCheckStep: FC<IProps> = ({
   };
 
   const submitHandler = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
+    setLoading(true);
     // check otp code with api
     onSubmit(otp);
+    setLoading(false);
   };
 
   return (
@@ -78,6 +87,13 @@ const OTPCheckStep: FC<IProps> = ({
         TextFieldsProps={{ size: "medium" }}
         validateChar={validate}
       />
+      <CountdownTimer
+        seconds={timerSeconds}
+        py={1}
+        onFinished={() => {
+          if (onTimerFinished) onTimerFinished();
+        }}
+      />
       <LoadingButtonElement
         label="تایید"
         loading={loading}
@@ -88,7 +104,7 @@ const OTPCheckStep: FC<IProps> = ({
         disabled={otp.length !== length}
         sx={{
           width: "100%",
-          mt: 2,
+          mt: 0,
           mx: "auto",
           color: "background.default",
           fontSize: 16,

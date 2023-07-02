@@ -178,3 +178,15 @@ export const checkOTPService = async ({
   const result = await response.json();
   return result;
 };
+
+export const getOtpService = async (phoneNumber: string) => {
+  const response = await fetch("/api/user/get-otp", {
+    method: "POST",
+    body: JSON.stringify({ phoneNumber }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result;
+};

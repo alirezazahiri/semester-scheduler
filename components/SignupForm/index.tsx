@@ -65,6 +65,14 @@ const SignupForm = () => {
         setTokenCookie(result.token);
         router.replace("/");
       } else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+    } else {
+      if (result.statusCode === 403)
+        showToast(
+          "حساب کاربری با شماره دانشجویی وارد شده وجود دارد",
+          "error",
+          2500,
+          true
+        );
     }
     setLoading(false);
   };

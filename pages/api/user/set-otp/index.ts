@@ -25,7 +25,6 @@ export default async function setOtpHandler(
     const token = getTokenCookie({ req, res });
     const data = verifyJWTToken(token as string) as JwtPayload;
 
-
     if (data) {
       if (phoneNumber !== data.phoneNumber)
         return res.status(400).json({
@@ -47,6 +46,19 @@ export default async function setOtpHandler(
         success: false,
       });
     }
+
+    const currentOtp = await prisma.oTP.findFirst({
+      where: {
+        phoneNumber,
+      },
+    });
+
+    if (Number(currentOtp?.expiresIn) >= Date.now())
+      return res.status(402).json({
+        message: "current otp code hasn't expired yet.",
+        statusCode: 402,
+        success: false,
+      });
 
     const { otp: code, expiresIn } = generateOTP(4);
 

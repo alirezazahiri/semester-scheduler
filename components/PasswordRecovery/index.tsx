@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import {
   FormControl,
@@ -14,7 +14,11 @@ import { useTheme } from "@mui/material/styles";
 import PhoneNumberStep from "@/components/PasswordRecovery/PhoneNumberStep";
 import OTPCheckStep from "@/components/PasswordRecovery/OTPCheckStep";
 import RecoverPasswordStep from "@/components/PasswordRecovery/RecoverPasswordStep";
-import { checkOTPService, setOtpService } from "@/services/student.service";
+import {
+  checkOTPService,
+  getOtpService,
+  setOtpService,
+} from "@/services/student.service";
 import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
 import showToast from "@/utils/showToast";
 
@@ -29,13 +33,10 @@ function PasswordRecovery() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [activeStep, setActiveStep] = useState(0);
+  const [timerSeconds, setTimerSeconds] = useState(120);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
@@ -47,8 +48,18 @@ function PasswordRecovery() {
     // set a random code for user with the given phoneNumber
     const cleanedPhoneNumber = cleanPhoneNumber(value);
     const res = await setOtpService(cleanedPhoneNumber);
+
     if (res.success) handleNext();
-    else showToast("ارسال کد تایید با خطا مواجه شد", "error", 2500, true);
+    else if (res.statusCode === 402) {
+      const res = await getOtpService(cleanedPhoneNumber);
+      if (res.success) {
+        const { expiresIn } = res.otp;
+        setTimerSeconds(
+          Math.floor((Number(new Date(expiresIn)) - Date.now()) / 1000)
+        );
+        handleNext();
+      } else showToast("خطای سرور، لطفا مجددا تلاش کنید", "error", 2500, true);
+    } else showToast("ارسال کد تایید با خطا مواجه شد", "error", 2500, true);
   };
 
   const OTPSubmitHandler = async (value: string) => {
@@ -59,6 +70,13 @@ function PasswordRecovery() {
     });
     if (checkOTPResult.success) handleNext();
     else showToast("کد تایید نادرست می باشد", "error", 2500, true);
+  };
+
+  const handleOtpTimerFinished = () => {
+    showToast("کد تایید منقضی شده است", "error", 2500, true);
+    setTimeout(() => {
+      handleReset();
+    }, 3000);
   };
 
   return (
@@ -89,21 +107,14 @@ function PasswordRecovery() {
                     phoneNumber={phoneNumber}
                     onSubmit={OTPSubmitHandler}
                     currentValue={otp}
+                    timerSeconds={timerSeconds}
+                    onTimerFinished={handleOtpTimerFinished}
                   />
                 )}
                 {activeStep === 2 && (
                   <RecoverPasswordStep phoneNumber={phoneNumber} />
                 )}
               </Box>
-              {activeStep === 1 && (
-                <Button
-                  color="inherit"
-                  onClick={handleBack}
-                  sx={{ mr: 1 }}
-                >
-                  مرحله قبل
-                </Button>
-              )}
             </StepContent>
           </Step>
         ))}
@@ -112,8 +123,4 @@ function PasswordRecovery() {
   );
 }
 
-// <>
-
-//   <PhoneNumberStep onSubmit={phoneNumberSubmitHandler} />
-// </>
 export default PasswordRecovery;

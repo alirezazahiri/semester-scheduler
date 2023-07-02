@@ -7,13 +7,11 @@ import { FormControl, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
 import React, { FC, useEffect, useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
-import Link from "next/link";
-import TradeMark from "@/components/common/TradeMark";
 import showToast from "@/utils/showToast";
-import { changePassword, recoverPassword } from "@/services/student.service";
+import { recoverPassword } from "@/services/student.service";
 import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
 
 interface IProps {
@@ -31,8 +29,8 @@ const RecoverPasswordStep: FC<IProps> = ({ phoneNumber }) => {
     register,
     formState: { isSubmitSuccessful },
     reset,
-    handleSubmit,
     getValues,
+    setError,
   } = methods;
 
   const router = useRouter();
@@ -43,34 +41,26 @@ const RecoverPasswordStep: FC<IProps> = ({ phoneNumber }) => {
     }
   }, [isSubmitSuccessful]);
 
-  const onSubmitHandler: SubmitHandler<TRecoverPasswordSchema> = async () => {
-    setLoading(true);
-    showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
-    const { newPassword } = getValues();
-    const result = await recoverPassword({ newPassword, phoneNumber });
-    if (result.success) {
-      showToast("گذرواژه با موفقیت تغییر پیدا کرد", "success", 2500, true);
-      router.replace("/");
-    } else {
-      showToast("بازیابی گذرواژه با خطا مواجه شد", "error", 2500, true);
-    }
-    setLoading(false);
-  };
-
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
-    const { newPassword } = getValues();
-    const result = await recoverPassword({
-      newPassword,
-      phoneNumber: cleanPhoneNumber(phoneNumber),
-    });
-    if (result.success) {
-      showToast("گذرواژه با موفقیت تغییر پیدا کرد", "success", 2500, true);
-      router.replace("/");
+    const { newPassword, confirmNewPassword } = getValues();
+    if (newPassword !== confirmNewPassword) {
+      setError("confirmNewPassword", {
+        message: "تایید گذرواژه نادرست است",
+      });
     } else {
-      showToast("بازیابی گذرواژه با خطا مواجه شد", "error", 2500, true);
+      showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
+      const result = await recoverPassword({
+        newPassword,
+        phoneNumber: cleanPhoneNumber(phoneNumber),
+      });
+      if (result.success) {
+        showToast("گذرواژه با موفقیت تغییر پیدا کرد", "success", 2500, true);
+        router.replace("/");
+      } else {
+        showToast("بازیابی گذرواژه با خطا مواجه شد", "error", 2500, true);
+      }
     }
     setLoading(false);
   };
