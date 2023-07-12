@@ -1,6 +1,7 @@
 import {
   TRecoverPasswordSchema,
   changePasswordSchema,
+  recoverPasswordSchema,
 } from "@/utils/validator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormControl, Typography } from "@mui/material";
@@ -13,6 +14,7 @@ import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import showToast from "@/utils/showToast";
 import { recoverPassword } from "@/services/student.service";
 import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
+import { ZodError } from "zod";
 
 interface IProps {
   phoneNumber: string;
@@ -31,6 +33,7 @@ const RecoverPasswordStep: FC<IProps> = ({ phoneNumber }) => {
     reset,
     getValues,
     setError,
+    clearErrors,
   } = methods;
 
   const router = useRouter();
@@ -45,11 +48,9 @@ const RecoverPasswordStep: FC<IProps> = ({ phoneNumber }) => {
     e.preventDefault();
     setLoading(true);
     const { newPassword, confirmNewPassword } = getValues();
-    if (newPassword !== confirmNewPassword) {
-      setError("confirmNewPassword", {
-        message: "تایید گذرواژه نادرست است",
-      });
-    } else {
+    clearErrors();
+    try {
+      recoverPasswordSchema.parse({ newPassword, confirmNewPassword });
       showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
       const result = await recoverPassword({
         newPassword,
@@ -60,6 +61,13 @@ const RecoverPasswordStep: FC<IProps> = ({ phoneNumber }) => {
         router.replace("/");
       } else {
         showToast("بازیابی گذرواژه با خطا مواجه شد", "error", 2500, true);
+      }
+    } catch (err) {
+      const { errors } = err as ZodError;
+      for (const error of errors) {
+        setError(error.path[0] as "newPassword" | "confirmNewPassword", {
+          message: error.message,
+        });
       }
     }
     setLoading(false);
