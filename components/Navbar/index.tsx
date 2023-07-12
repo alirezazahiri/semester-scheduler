@@ -47,6 +47,8 @@ const Navbar = () => {
     setAnchorEl(event.currentTarget);
   };
 
+  console.log(router.asPath);
+
   const closeHandler = () => {
     setAnchorEl(null);
   };
@@ -116,8 +118,17 @@ const Navbar = () => {
             ))}
           </Menu>
         </>
-      ) : (
+      ) : router.asPath.startsWith("/auth") ? (
         <></>
+      ) : (
+        <Button
+          onClick={() => {
+            router.push("/auth/login");
+          }}
+          sx={{ fontSize: "13px" }}
+        >
+          ورود
+        </Button>
       )}
     </Box>
   );
