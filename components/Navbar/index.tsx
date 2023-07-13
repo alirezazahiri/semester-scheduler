@@ -47,8 +47,6 @@ const Navbar = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  console.log(router.asPath);
-
   const closeHandler = () => {
     setAnchorEl(null);
   };
