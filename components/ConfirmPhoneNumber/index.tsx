@@ -5,6 +5,7 @@ import {
   Stepper,
   Box,
   StepContent,
+  Button,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PhoneNumberStep from "@/components/ConfirmPhoneNumber/PhoneNumberStep";
@@ -28,6 +29,12 @@ function ConfirmPhoneNumber() {
 
   const router = useRouter();
 
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+  const handlePrev = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -40,7 +47,7 @@ function ConfirmPhoneNumber() {
     const setConfirmationCodeResult = await setConfirmationCodeService(
       cleanedPhoneNumber
     );
-      
+
     if (setConfirmationCodeResult.success) {
       const { expiresIn } = setConfirmationCodeResult.otp;
       setTimerSeconds(
@@ -84,6 +91,13 @@ function ConfirmPhoneNumber() {
     } else showToast("کد تایید نادرست می باشد", "error", 2500, true);
   };
 
+  const handleOtpTimerFinished = () => {
+    showToast("کد تایید منقضی شده است", "error", 2500, true);
+    setTimeout(() => {
+      handleReset();
+    }, 3000);
+  };
+
   return (
     <Box
       sx={{
@@ -113,9 +127,13 @@ function ConfirmPhoneNumber() {
                     onSubmit={OTPSubmitHandler}
                     currentValue={otp}
                     timerSeconds={timerSeconds}
+                    onTimerFinished={handleOtpTimerFinished}
                   />
                 )}
               </Box>
+            {activeStep === 1 && (
+              <Button onClick={handlePrev}>مرحلۀ قبل</Button>
+            )}
             </StepContent>
           </Step>
         ))}

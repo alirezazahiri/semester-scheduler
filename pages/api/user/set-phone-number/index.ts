@@ -28,7 +28,7 @@ export default async function setPhoneNumberHandler(
 
     if (!PHONE_NUMBER_REGEX.test(phoneNumber))
       return res.status(400).json({
-        message: "phone number is invalid!",
+        message: `phone number: ${phoneNumber} is invalid!`,
         statusCode: 400,
         success: false,
       });

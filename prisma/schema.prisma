@@ -1,43 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model Student {
-  id        Int    @id @default(autoincrement())
-  sid       String @unique
-  phoneNumber String? @unique
-  name      String
-  password  String
-  token     String? 
-  gender    String? 
-  collegeId String @default("00")
-  courses   Course[]
-  otp       OTP?
+  id          Int      @id @default(autoincrement())
+  sid         String   @unique
+  name        String
+  password    String
+  token       String?
+  collegeId   String   @default("00")
+  gender      String?
+  phoneNumber String?  @unique
+  courses     Course[]
+  otp         OTP?
 }
 
 model OTP {
-  id        Int @id @default(autoincrement())
-  value     String? 
-  expiresIn DateTime
-  student   Student?   @relation(fields: [phoneNumber], references: [phoneNumber], onDelete: Cascade)
-  phoneNumber String  @unique
+  id          Int      @id @default(autoincrement())
+  value       String?
+  expiresIn   DateTime
+  phoneNumber String   @unique
+  student     Student  @relation(fields: [phoneNumber], references: [phoneNumber], onDelete: Cascade)
 }
 
 model TempOtp {
-  id Int @id @default(autoincrement())
-  value String
-  expiresIn DateTime
-  phoneNumber String @unique
+  id          Int      @id @default(autoincrement())
+  value       String
+  expiresIn   DateTime
+  phoneNumber String   @unique
 }
 
 model Course {
-  id     Int     @id @default(autoincrement())
+  id       Int     @id @default(autoincrement())
   courseId String
-  student   Student    @relation(fields: [sid], references: [sid], onDelete: Cascade)
-  sid String
+  sid      String
+  student  Student @relation(fields: [sid], references: [sid], onDelete: Cascade)
 }
