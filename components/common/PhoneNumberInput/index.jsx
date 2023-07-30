@@ -14,7 +14,7 @@ const PhoneNumberInput = ({ value, onChange, ...rest }) => {
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <InputMask mask="+\98 999 999 9999" value={value} onChange={onChange} inputMode="tel" pattern="\d+">
+      <InputMask mask="+\98 999 999 9999" value={value} onChange={onChange}>
         {() => (
           <TextField
             inputRef={inputRef}
@@ -26,6 +26,7 @@ const PhoneNumberInput = ({ value, onChange, ...rest }) => {
               ...styles,
             }}
             inputProps={{
+              inputMode: "tel",
               style: {
                 fontSize: fontSize || 16,
                 textAlign: textAlign || "center",

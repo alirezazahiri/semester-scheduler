@@ -13,7 +13,7 @@ interface IProps {
   phoneNumber: string;
   onSubmit: (otp: string) => void;
   currentValue: string;
-  timerSeconds: number
+  timerSeconds: number;
   onTimerFinished?: Function;
 }
 
@@ -23,7 +23,7 @@ const OTPCheckStep: FC<IProps> = ({
   onSubmit,
   currentValue = "",
   onTimerFinished,
-  timerSeconds
+  timerSeconds,
 }) => {
   const theme = useTheme();
   const [otp, setOtp] = useState(currentValue);
@@ -84,8 +84,12 @@ const OTPCheckStep: FC<IProps> = ({
         value={otp}
         onChange={handleChange}
         length={length}
-        TextFieldsProps={{ size: "medium" }}
-        inputMode="tel"
+        TextFieldsProps={{
+          size: "medium",
+          nputProps: {
+            inputMode: "numeric",
+          },
+        }}
         validateChar={validate}
       />
       <CountdownTimer
