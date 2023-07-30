@@ -86,7 +86,7 @@ const OTPCheckStep: FC<IProps> = ({
         length={length}
         TextFieldsProps={{
           size: "medium",
-          nputProps: {
+          inputProps: {
             inputMode: "numeric",
           },
         }}
