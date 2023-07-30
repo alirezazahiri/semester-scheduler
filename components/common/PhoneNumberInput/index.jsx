@@ -7,10 +7,10 @@ const PhoneNumberInput = ({ value, onChange, ...rest }) => {
   const { required, fontSize, textAlign, ...styles } = rest;
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef?.current?.focus();
+    if (inputRef?.current) {
+      inputRef.current.focus();
     }
-  }, [value]);
+  }, []);
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
