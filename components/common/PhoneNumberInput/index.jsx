@@ -14,7 +14,7 @@ const PhoneNumberInput = ({ value, onChange, ...rest }) => {
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <InputMask mask="+\98 999 999 9999" value={value} onChange={onChange}>
+      <InputMask mask="+\98 999 999 9999" value={value} onChange={onChange} >
         {() => (
           <TextField
             inputRef={inputRef}
