@@ -108,6 +108,10 @@ const LoginForm = () => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-around",
+            [theme.breakpoints.down("md")]: {
+              flexDirection: "column",
+              alignItems: "center",
+            },
           }}
         >
           <Typography
@@ -118,6 +122,12 @@ const LoginForm = () => {
             mt={3}
             display="flex"
             alignItems="center"
+            sx={{
+              [theme.breakpoints.down("md")]: {
+                flexDirection: "column",
+                alignItems: "center",
+              },
+            }}
           >
             حساب کاربری ندارید ؟
             <Link
@@ -146,6 +156,12 @@ const LoginForm = () => {
             mt={3}
             display="flex"
             alignItems="center"
+            sx={{
+              [theme.breakpoints.down("md")]: {
+                flexDirection: "column",
+                alignItems: "center",
+              },
+            }}
           >
             گذرواژه ام را فراموش کرده ام
             <Link

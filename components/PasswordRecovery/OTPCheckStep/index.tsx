@@ -85,7 +85,7 @@ const OTPCheckStep: FC<IProps> = ({
         onChange={handleChange}
         length={length}
         TextFieldsProps={{ size: "medium" }}
-        inputMode="numeric"
+        inputMode="tel"
         validateChar={validate}
       />
       <CountdownTimer

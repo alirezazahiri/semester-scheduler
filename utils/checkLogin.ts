@@ -1,4 +1,8 @@
-import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
+import {
+  deleteTokenCookie,
+  getTokenCookie,
+  verifyJWTToken,
+} from "@/utils/token.utils";
 import { PrismaClient } from "@prisma/client";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiHandler, NextApiResponse } from "next";
@@ -36,6 +40,7 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
         },
         select: {
           sid: true,
+          token: true,
         },
       });
 
@@ -45,6 +50,17 @@ const checkLoginMiddleware = (handler: NextApiHandler) => {
           message: "Please login to your account",
           statusCode: 401,
         });
+
+      if (user.token) {
+        if (user.token !== token) {
+          deleteTokenCookie({ req, res });
+          return res.status(403).json({
+            success: false,
+            message: "Another device is currently active in your account",
+            statusCode: 403,
+          });
+        }
+      }
 
       req.userId = user.sid;
       req.isLoggedIn = true;
