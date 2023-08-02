@@ -14,9 +14,10 @@ const TradeMark = () => (
       bottom: 5,
       textAlign: "center",
       fontSize: 14,
+      opacity: 0.6
     }}
   >
-    &copy; تمامی حقوق سایت محفوظ می باشد
+    &copy; تمامی حقوق وبسایت محفوظ می باشد
   </Typography>
 );
 
