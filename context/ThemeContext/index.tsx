@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material/styles";
 
 interface IProps {
@@ -60,13 +60,25 @@ export const ThemeContext = React.createContext({
   toggleTheme: () => {},
 });
 
-
 const ThemeContextProvider: React.FC<IProps> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   const toggleTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
+    window.localStorage.setItem("theme", theme === "light" ? "dark" : "light");
   };
+
+  useEffect(() => {
+    const storageTheme = window.localStorage.getItem("theme") as
+      | "dark"
+      | "light"
+      | null;
+    if (storageTheme) {
+      setTheme(storageTheme);
+    } else {
+      setTheme("dark");
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
