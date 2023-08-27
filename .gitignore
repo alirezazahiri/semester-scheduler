@@ -39,4 +39,5 @@ db.json
 
 .env
 
+# prisma migrations
 prisma/migrations
