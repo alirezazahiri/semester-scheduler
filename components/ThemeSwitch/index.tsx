@@ -9,7 +9,7 @@ import SwipeableCourseList from "@/components/SwipeableCourseList/index";
 import { useRouter } from "next/router";
 import { UserContext } from "@/context/UserContext/index";
 
-function ThemeSwitch() {
+function ThemeSwitch({ children }: { children: React.ReactNode }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const router = useRouter();
   const { user } = useContext(UserContext);
@@ -38,7 +38,7 @@ function ThemeSwitch() {
           justifyContent: "flex-end",
         }}
       >
-        <Navbar />
+        {children}
         <IconButton onClick={toggleTheme}>
           {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>

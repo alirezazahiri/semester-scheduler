@@ -12,6 +12,7 @@ import { isInterfering } from "@/utils/calculateDayRow";
 import showToast from "@/utils/showToast";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { WEEK_DAYS_DICTIONARY } from "@/constants/index.constants";
+import { Days } from "@types";
 
 interface IProps {
   item: TCourse;
@@ -63,19 +64,7 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
       const message = `تداخل درس های ${[...new Set(interferenceCourses)].join(
         " و "
       )} در روز${interferenceDays.length >= 2 ? "های" : ""} ${interferenceDays
-        .map(
-          (d) =>
-            WEEK_DAYS_DICTIONARY[
-              d as
-                | "saturday"
-                | "sunday"
-                | "monday"
-                | "tuesday"
-                | "wednesday"
-                | "thursday"
-                | "friday"
-            ]
-        )
+        .map((d) => WEEK_DAYS_DICTIONARY[d as Days])
         .join(" و ")}`;
       showToast(message, "error", 3000);
     } else return handleToggle(item.courseID);
