@@ -50,7 +50,7 @@ function Index({ sid }: { sid: string }) {
           width: "fit-content",
           position: "fixed",
           bottom: 16,
-          right: 16,
+          left: 16,
           displayPrint: "none",
         }}
       >
