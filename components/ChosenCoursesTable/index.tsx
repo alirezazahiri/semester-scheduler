@@ -10,7 +10,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 import { Toaster } from "react-hot-toast";
 import showToast from "@/utils/showToast";
-import { Tooltip } from '@mui/material';
+import { Tooltip } from "@mui/material";
 
 export default function ChosenCoursesTable() {
   const { selectedCourses } = useContext(SelectedCoursesContext);
@@ -108,7 +108,7 @@ export default function ChosenCoursesTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Toaster />
+      <Toaster containerStyle={{ textAlign: "right" }} />
     </>
   );
 }

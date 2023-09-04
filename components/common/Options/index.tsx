@@ -49,7 +49,7 @@ function Options({
         sx={{
           width: "100%",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "row-reverse",
           bgcolor: "background.default",
           pl: 1,
           alignItems: "center",
@@ -62,12 +62,12 @@ function Options({
             pr: 1,
           }}
         >
-          <IconButton color="inherit" onClick={() => setSelectedItems([])}>
-            <RestartAltIcon />
-          </IconButton>
           <Typography component="p" variant="caption" color="inherit">
             بازنشانی
           </Typography>
+          <IconButton color="inherit" onClick={() => setSelectedItems([])}>
+            <RestartAltIcon />
+          </IconButton>
         </Box>
         <Grid sx={{ display: "flex" }} spacing={1} container>
           <Grid xs={5} item>

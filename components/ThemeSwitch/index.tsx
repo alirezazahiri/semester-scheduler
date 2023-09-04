@@ -17,7 +17,7 @@ function ThemeSwitch({ children }: { children: React.ReactNode }) {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row-reverse",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         bgcolor: "background.default",
@@ -34,6 +34,7 @@ function ThemeSwitch({ children }: { children: React.ReactNode }) {
       <Box
         sx={{
           display: "flex",
+          flexDirection: "row-reverse",
           alignItems: "center",
           justifyContent: "flex-end",
         }}

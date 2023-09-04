@@ -74,6 +74,7 @@ const Navbar = () => {
             open={open}
             onClose={closeHandler}
             dir="rtl"
+            MenuListProps={{sx: {bgcolor: "background.paper"}}}
           >
             {NAV_ITEMS.map((item) => (
               <Box key={`${item.href}`}>

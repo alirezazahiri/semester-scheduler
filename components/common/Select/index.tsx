@@ -31,9 +31,21 @@ function SelectContainer({ items, name, value, handleChange, width }: IProps) {
         sx={{
           textAlign: "right",
         }}
+        MenuProps={{
+          MenuListProps: {
+            sx: {
+              bgcolor: "background.paper",
+            },
+          },
+        }}
       >
         {items.map((item) => (
-          <MenuItem key={item.name} value={item.value} dir="rtl">
+          <MenuItem
+            key={item.name}
+            value={item.value}
+            sx={{ color: "primary.main" }}
+            dir="rtl"
+          >
             {item.name}
           </MenuItem>
         ))}

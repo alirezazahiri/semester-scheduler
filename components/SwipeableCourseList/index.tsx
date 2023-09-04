@@ -23,7 +23,7 @@ export default function SwipeableCourseList() {
         <MenuIcon />
       </Button>
       <SwipeableDrawer
-        anchor="left"
+        anchor="right"
         open={open}
         onClose={toggleDrawer}
         onOpen={toggleDrawer}

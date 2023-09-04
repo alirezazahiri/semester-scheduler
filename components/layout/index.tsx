@@ -10,11 +10,10 @@ interface IProps {
 function Layout({ children }: IProps) {
   return (
     <>
-      <Toaster position="top-center" />
+      <Toaster containerStyle={{ textAlign: "right" }} />
       <ThemeSwitch>
         <Navbar />
       </ThemeSwitch>
-
       <main dir="rtl">{children}</main>
     </>
   );
