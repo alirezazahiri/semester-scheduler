@@ -53,12 +53,7 @@ function CourseListLoader() {
           setSelectedItems={() => {}}
         />
         <Box
-          sx={{
-            position: "fixed",
-            bottom: 1,
-            left: 0,
-            pl: 1,
-          }}
+          sx={{ position: "sticky", bottom: 1, width: 350 }}
         >
           <TextField
             variant="outlined"
