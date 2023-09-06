@@ -7,6 +7,7 @@ export interface IRedirector {
   req: IncomingMessage;
   res: ServerResponse;
   resolvedUrl?: string;
+  checkPhone?: boolean;
 }
 
 export enum UserAuthState {
@@ -31,14 +32,15 @@ export const autoRedirector = ({ ...options }: IOptions) => {
 
   if (options.stayCondition === UserAuthState.AUTHORIZED) {
     if (data?.sid) {
-      if (!data?.phoneNumber)
-        if (options.resolvedUrl !== "/auth/confirm-phone-number")
-          return {
-            redirect: {
-              destination: "/auth/confirm-phone-number",
-              permanent: false,
-            },
-          };
+      if (options.checkPhone)
+        if (!data?.phoneNumber)
+          if (options.resolvedUrl !== "/auth/confirm-phone-number")
+            return {
+              redirect: {
+                destination: "/auth/confirm-phone-number",
+                permanent: false,
+              },
+            };
       return { props: { sid: data.sid } };
     }
     return { redirect: { destination: options.to, permanent: false } };
