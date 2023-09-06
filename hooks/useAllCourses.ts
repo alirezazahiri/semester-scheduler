@@ -18,7 +18,7 @@ const useAllCourses = () => {
 
   useEffect(() => {
     if (selectedCourses.length || !user) return;
-
+    if (user && selectedCourses.length) return;
     setLoading(true);
 
     const fetchData = async () => {
@@ -40,7 +40,9 @@ const useAllCourses = () => {
 
       let allCourses = focusedColleges.map<Promise<TCourse[]>>(
         async ({ value }) => {
-          const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${value}`);
+          const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${value}`, {
+            cache: "no-cache",
+          });
 
           const data = await res.json();
 

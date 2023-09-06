@@ -77,7 +77,7 @@ function CourseList({ items }: IProps) {
   const criteriaFilteredItems = criteria
     ? unitFilteredItems.filter(
         (item) =>
-          item.courseName.includes(criteria) ||
+          item.courseName.toLowerCase().includes(criteria.toLowerCase()) ||
           item.courseID.includes(criteria) ||
           item.professor.includes(criteria)
       )
