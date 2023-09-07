@@ -91,6 +91,8 @@ function DayRow({ name, plan }: IProps) {
                     component="p"
                     variant="body1"
                     color="primary.contrastText"
+                    fontSize="12px"
+                    mx={1}
                   >
                     {`${courseName} (گروه ${courseID.split("_")[1]})`}
                   </Typography>

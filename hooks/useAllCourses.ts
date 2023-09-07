@@ -41,7 +41,9 @@ const useAllCourses = () => {
       let allCourses = focusedColleges.map<Promise<TCourse[]>>(
         async ({ value }) => {
           const res = await fetch(`${process.env.NEXT_APP_DB_URI}/${value}`, {
-            cache: "no-cache",
+            next: {
+              revalidate: 10,
+            }
           });
 
           const data = await res.json();
