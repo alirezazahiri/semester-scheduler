@@ -7,6 +7,7 @@ import {
 import { Grid } from "@mui/material";
 import Head from "next/head";
 import React from "react";
+import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 
 function PasswordRecoveryPage() {
   return (
@@ -34,13 +35,19 @@ function PasswordRecoveryPage() {
   );
 }
 
-export const getServerSideProps = ({ req, res }: IRedirector) =>
-  autoRedirector({
+export const getServerSideProps = ({ req, res }: IRedirector) => {
+  const token = getTokenCookie({ req, res });
+  const isValid = verifyJWTToken(token as string);
+
+  return autoRedirector({
     req,
     res,
     to: "/auth/login",
     checkPhone: true,
-    stayCondition: UserAuthState.AUTHORIZED,
+    stayCondition: isValid
+      ? UserAuthState.AUTHORIZED
+      : UserAuthState.UNAUTHORIZED,
   });
+};
 
 export default PasswordRecoveryPage;
