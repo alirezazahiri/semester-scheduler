@@ -11,6 +11,9 @@ import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 import { Toaster } from "react-hot-toast";
 import showToast from "@/utils/showToast";
 import { Tooltip } from "@mui/material";
+import Box from "@mui/material/Box";
+
+type ExamType = { date: string; time: string };
 
 export default function ChosenCoursesTable() {
   const { selectedCourses } = useContext(SelectedCoursesContext);
@@ -32,6 +35,7 @@ export default function ChosenCoursesTable() {
               <TableCell align="center">واحد (کل)</TableCell>
               <TableCell align="center">واحد (عملی)</TableCell>
               <TableCell align="right">استاد درس</TableCell>
+              <TableCell align="right">تاریخ امتحان</TableCell>
             </TableRow>
           </TableHead>
           <TableBody
@@ -47,6 +51,7 @@ export default function ChosenCoursesTable() {
                 totalUnit,
                 practicalUnit,
                 professor,
+                dateAndTime,
               }) => (
                 <TableRow
                   key={courseID}
@@ -59,17 +64,21 @@ export default function ChosenCoursesTable() {
                       align="right"
                       dir="ltr"
                       onClick={() => copyCourseIDHandler(courseID)}
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row-reverse",
-                        alignItems: "center",
-                        gap: "4px",
-                        cursor: "pointer",
-                        fontWeight: "800",
-                      }}
                     >
-                      <ContentCopyIcon sx={{ color: "primary.main" }} />
-                      {courseID}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "row-reverse",
+                          alignItems: "center",
+                          gap: "4px",
+                          cursor: "pointer",
+                          fontWeight: "800",
+                        }}
+                      >
+                        <ContentCopyIcon sx={{ color: "primary.main" }} />
+
+                        {courseID}
+                      </Box>
                     </TableCell>
                   </Tooltip>
                   <TableCell align="right">{courseName}</TableCell>
@@ -80,6 +89,15 @@ export default function ChosenCoursesTable() {
                     {practicalUnit}
                   </TableCell>
                   <TableCell align="right">{professor}</TableCell>
+                  <TableCell align="right">
+                    {dateAndTime?.exam
+                      ? `ساعت ${((dateAndTime.exam as ExamType).time as string)
+                          .split("-")
+                          .join(" تا ")} در تاریخ ${
+                          (dateAndTime.exam as ExamType).date
+                        }`
+                      : "ندارد"}
+                  </TableCell>
                 </TableRow>
               )
             )}
@@ -103,6 +121,7 @@ export default function ChosenCoursesTable() {
                 )}
               </TableCell>
               <TableCell align="center"></TableCell>
+              <TableCell align="right"></TableCell>
               <TableCell align="right"></TableCell>
             </TableRow>
           </TableBody>
