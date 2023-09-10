@@ -44,63 +44,67 @@ export default function ChosenCoursesTable() {
               boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
             }}
           >
-            {selectedCourses.map(
-              ({
-                courseID,
-                courseName,
-                totalUnit,
-                practicalUnit,
-                professor,
-                dateAndTime,
-              }) => (
-                <TableRow
-                  key={courseID}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <Tooltip title="برای کپی کردن کلیک کنید" arrow followCursor>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      align="right"
-                      dir="ltr"
-                      onClick={() => copyCourseIDHandler(courseID)}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "row-reverse",
-                          alignItems: "center",
-                          gap: "4px",
-                          cursor: "pointer",
-                          fontWeight: "800",
-                        }}
+            {selectedCourses
+              .sort((a, b) => b.totalUnit - a.totalUnit)
+              .map(
+                ({
+                  courseID,
+                  courseName,
+                  totalUnit,
+                  practicalUnit,
+                  professor,
+                  dateAndTime,
+                }) => (
+                  <TableRow
+                    key={courseID}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <Tooltip title="برای کپی کردن کلیک کنید" arrow followCursor>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        align="right"
+                        dir="ltr"
+                        onClick={() => copyCourseIDHandler(courseID)}
                       >
-                        <ContentCopyIcon sx={{ color: "primary.main" }} />
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "row-reverse",
+                            alignItems: "center",
+                            gap: "4px",
+                            cursor: "pointer",
+                            fontWeight: "800",
+                          }}
+                        >
+                          <ContentCopyIcon sx={{ color: "primary.main" }} />
 
-                        {courseID}
-                      </Box>
+                          {courseID}
+                        </Box>
+                      </TableCell>
+                    </Tooltip>
+                    <TableCell align="right">{courseName}</TableCell>
+                    <TableCell align="center" sx={{ color: "primary.main" }}>
+                      {totalUnit}
                     </TableCell>
-                  </Tooltip>
-                  <TableCell align="right">{courseName}</TableCell>
-                  <TableCell align="center" sx={{ color: "primary.main" }}>
-                    {totalUnit}
-                  </TableCell>
-                  <TableCell align="center" sx={{ color: "primary.main" }}>
-                    {practicalUnit}
-                  </TableCell>
-                  <TableCell align="right">{professor}</TableCell>
-                  <TableCell align="right">
-                    {dateAndTime?.exam
-                      ? `ساعت ${((dateAndTime.exam as ExamType).time as string)
-                          .split("-")
-                          .join(" تا ")} در تاریخ ${
-                          (dateAndTime.exam as ExamType).date
-                        }`
-                      : "ندارد"}
-                  </TableCell>
-                </TableRow>
-              )
-            )}
+                    <TableCell align="center" sx={{ color: "primary.main" }}>
+                      {practicalUnit}
+                    </TableCell>
+                    <TableCell align="right">{professor}</TableCell>
+                    <TableCell align="right">
+                      {dateAndTime?.exam
+                        ? `ساعت ${(
+                            (dateAndTime.exam as ExamType).time as string
+                          )
+                            .split("-")
+                            .join(" تا ")} در تاریخ ${
+                            (dateAndTime.exam as ExamType).date
+                          }`
+                        : "ندارد"}
+                    </TableCell>
+                  </TableRow>
+                )
+              )}
             <TableRow
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
