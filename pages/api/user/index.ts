@@ -1,9 +1,9 @@
 import checkLoginMiddleware from "@/utils/checkLogin";
 import { NextApiResponse } from "next";
 import { IAuthenticatedRequest } from "@/types/api";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 
-const prisma = new PrismaClient();
+
 
 const handler = async (req: IAuthenticatedRequest, res: NextApiResponse) => {
   try {

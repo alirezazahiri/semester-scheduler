@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { updateProfileSchema } from "@/utils/validator";
 import {
   deleteTokenCookie,
@@ -8,7 +8,7 @@ import {
 } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 
-const prisma = new PrismaClient();
+
 
 const createUserHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "PATCH") {
@@ -43,7 +43,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
       },
     });
 
-    if (userExists)
+    if (userExists && sid !== currentSid)
       return res.status(403).json({
         statusCode: 403,
         success: false,
@@ -51,8 +51,8 @@ const createUserHandler: NextApiHandler = async (req, res) => {
       });
 
     const validation = await updateProfileSchema.safeParseAsync({
-      sid,
-      name,
+      sid: sid.trim(),
+      name: name.trim(),
       collegeId,
       gender,
     });
@@ -66,8 +66,8 @@ const createUserHandler: NextApiHandler = async (req, res) => {
 
     await prisma.student.update({
       data: {
-        sid,
-        name,
+        sid: sid.trim(),
+        name: name.trim(),
         collegeId,
         gender,
       },

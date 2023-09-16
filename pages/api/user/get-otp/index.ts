@@ -1,8 +1,8 @@
 import { PHONE_NUMBER_REGEX } from "@/utils/phoneNumber.utils";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const prisma = new PrismaClient();
+
 
 export default async function getOTPhandler(
   req: NextApiRequest,

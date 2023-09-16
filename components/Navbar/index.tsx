@@ -65,7 +65,7 @@ const Navbar = () => {
             disabled={!user?.name || user?.name === ""}
             sx={{ fontSize: "13px" }}
           >
-            {user?.name}
+            {user?.name.trim()}
             {!open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
           </Button>
           <Menu

@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import {
   deleteTokenCookie,
   getTokenCookie,
@@ -8,7 +8,7 @@ import {
 import { verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 
-const prisma = new PrismaClient();
+
 
 const logoutHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {

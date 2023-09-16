@@ -1,10 +1,10 @@
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { getTokenCookie } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 import { verifyJWTToken } from "@/utils/token.utils";
 
-const prisma = new PrismaClient();
+
 
 const saveCoursesHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "GET") {

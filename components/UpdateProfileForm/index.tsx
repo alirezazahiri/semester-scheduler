@@ -124,42 +124,14 @@ function UpdateProfileForm({ initialFormData }: Props) {
           defaultValue={initialFormData.gender}
           {...register("gender")}
         />
-
         <LoadingButtonElement
-          label="ثبت نام"
+          label="ثبت تغییرات"
           loading={loading}
           type="submit"
           color="primary"
           variant="contained"
           size="large"
         />
-        <Typography
-          component="div"
-          variant="caption"
-          textAlign="center"
-          fontSize={12}
-          mt={3}
-        >
-          حساب کاربری دارید ؟
-          <Link
-            href="/auth/login"
-            style={{
-              margin: "0 5px",
-              textDecoration: "none",
-            }}
-          >
-            <Typography
-              component="p"
-              variant="caption"
-              textAlign="center"
-              fontSize={12}
-              color="primary"
-              mt={1}
-            >
-              ثبت تغییرات
-            </Typography>
-          </Link>
-        </Typography>
       </FormControl>
       <TradeMark />
     </FormProvider>

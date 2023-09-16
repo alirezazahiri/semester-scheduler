@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import {
   deleteTokenCookie,
   setTokenCookie,
@@ -8,7 +8,7 @@ import {
 } from "@/utils/token.utils";
 import { IAuthenticatedRequest } from "@/types/api";
 
-const prisma = new PrismaClient();
+
 
 const loginHandler: NextApiHandler = async (
   req: IAuthenticatedRequest,

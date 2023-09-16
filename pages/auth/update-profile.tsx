@@ -6,7 +6,7 @@ import {
 } from "@/utils/autoRedirector";
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import { Grid } from "@mui/material";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { JwtPayload } from "jsonwebtoken";
 import Head from "next/head";
 import React from "react";
@@ -18,7 +18,7 @@ interface Props {
   gender: string;
 }
 
-const prisma = new PrismaClient();
+
 
 function UpdateProfilePage(initialFormData: Props) {
   return (

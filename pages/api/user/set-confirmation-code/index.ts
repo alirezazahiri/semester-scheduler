@@ -1,12 +1,12 @@
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import { generateOTP } from "@/utils/otp.utils";
 import { sendMessage } from "@/services/textMessage.service";
 import { PHONE_NUMBER_REGEX } from "@/utils/phoneNumber.utils";
 
-const prisma = new PrismaClient();
+
 
 export default async function setConfirmationCodeHandler(
   req: NextApiRequest,

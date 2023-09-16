@@ -3,12 +3,12 @@ import {
   getTokenCookie,
   verifyJWTToken,
 } from "@/utils/token.utils";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiHandler, NextApiResponse } from "next";
 import { IAuthenticatedRequest } from "@/types/api";
 
-const prisma = new PrismaClient();
+
 
 const checkLoginMiddleware = (handler: NextApiHandler) => {
   return async (req: IAuthenticatedRequest, res: NextApiResponse) => {
