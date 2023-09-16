@@ -27,8 +27,6 @@ interface Props {
 }
 
 function UpdateProfileForm({ initialFormData }: Props) {
-  console.log(initialFormData);
-
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const methods = useForm<TUpdateProfileSchema>({

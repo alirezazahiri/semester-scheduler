@@ -21,8 +21,6 @@ interface Props {
 const prisma = new PrismaClient();
 
 function UpdateProfilePage(initialFormData: Props) {
-  console.log(initialFormData);
-
   return (
     <>
       <Head>

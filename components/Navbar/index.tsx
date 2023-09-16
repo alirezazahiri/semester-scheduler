@@ -18,7 +18,6 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  console.log(router.asPath);
 
   const logoutHandler = async () => {
     setLoading(true);
