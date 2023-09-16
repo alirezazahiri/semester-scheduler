@@ -1,10 +1,7 @@
-import { PHONE_NUMBER_REGEX } from "@/utils/phoneNumber.utils";
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import prisma from "@/utils/prisma-singleton";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
-
-
 
 export default async function getUserByPhoneNumber(
   req: NextApiRequest,

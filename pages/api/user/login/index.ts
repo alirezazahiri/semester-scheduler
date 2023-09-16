@@ -8,8 +8,6 @@ import {
 } from "@/utils/token.utils";
 import { IAuthenticatedRequest } from "@/types/api";
 
-
-
 const loginHandler: NextApiHandler = async (
   req: IAuthenticatedRequest,
   res
@@ -29,7 +27,7 @@ const loginHandler: NextApiHandler = async (
         sid,
       },
     });
-    
+
     if (!user)
       return res.status(401).json({
         statusCode: 401,
@@ -46,7 +44,10 @@ const loginHandler: NextApiHandler = async (
         message: "Invalid username or password",
       });
     deleteTokenCookie({ req, res });
-    const token = tokenGenerator({ sid: user.sid, phoneNumber: user.phoneNumber ?? "" });
+    const token = tokenGenerator({
+      sid: user.sid,
+      phoneNumber: user.phoneNumber ?? "",
+    });
 
     setTokenCookie(token, { req, res });
     await prisma.student.update({

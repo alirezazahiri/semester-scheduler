@@ -9,8 +9,6 @@ import prisma from "@/utils/prisma-singleton";
 import { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 
-
-
 export default async function setPhoneNumberHandler(
   req: NextApiRequest,
   res: NextApiResponse

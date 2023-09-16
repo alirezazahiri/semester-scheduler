@@ -18,13 +18,11 @@ interface Props {
   gender: string;
 }
 
-
-
 function UpdateProfilePage(initialFormData: Props) {
   return (
     <>
       <Head>
-        <title>تغییر گذرواژه | دانشگاه صنعتی نوشیروانی بابل</title>
+        <title>به روز رسانی پروفایل | دانشگاه صنعتی نوشیروانی بابل</title>
         <meta
           name="description"
           content="در این صفحه میتوانید پروفایل خود را به روز رسانی کنید"
@@ -37,7 +35,7 @@ function UpdateProfilePage(initialFormData: Props) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-around",
-          height: "100vh",
+          minHeight: "100vh",
         }}
       >
         <UpdateProfileForm initialFormData={initialFormData} />

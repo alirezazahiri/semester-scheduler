@@ -61,10 +61,14 @@ function UpdateProfileForm({ initialFormData }: Props) {
     });
 
     if (result.success) {
-      showToast("پروفایل با موفقیت به روز رسانی شد", "success", 2500, true);
-      setSelectedCourses([]);
-      deleteTokenCookie();
-      router.replace("/auth/login");
+      if (result.statusCode === 400) {
+        showToast("تغییری ایجاد نشد", "error", 2500, true);
+      } else {
+        showToast("پروفایل با موفقیت به روز رسانی شد", "success", 2500, true);
+        setSelectedCourses([]);
+        deleteTokenCookie();
+        router.replace("/auth/login");
+      }
     } else {
       if (result.statusCode === 401)
         showToast(

@@ -1,14 +1,9 @@
 import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
 import prisma from "@/utils/prisma-singleton";
-import {
-  deleteTokenCookie,
-  getTokenCookie,
-} from "@/utils/token.utils";
+import { deleteTokenCookie, getTokenCookie } from "@/utils/token.utils";
 import { verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
-
-
 
 const logoutHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
@@ -21,9 +16,9 @@ const logoutHandler: NextApiHandler = async (req, res) => {
   const token = getTokenCookie({ req, res });
   const data = verifyJWTToken(token as string) as JwtPayload;
   if (!data)
-        return res
-          .status(401)
-          .json({ statusCode: 401, success: false, message: "Unauthorized" });
+    return res
+      .status(401)
+      .json({ statusCode: 401, success: false, message: "Unauthorized" });
   if (!data?.sid)
     return res.status(500).json({
       statusCode: 500,

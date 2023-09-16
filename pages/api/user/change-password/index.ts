@@ -4,8 +4,6 @@ import bcrypt from "bcrypt";
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 
-
-
 export default async function changePasswordHandler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -53,7 +51,10 @@ export default async function changePasswordHandler(
       });
     }
 
-    const isValid = await bcrypt.compare(currentPassword, user.password);
+    const isValid = await bcrypt.compare(
+      currentPassword,
+      user.password
+    );
 
     if (!isValid)
       return res.status(403).json({

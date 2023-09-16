@@ -6,8 +6,6 @@ import { generateOTP } from "@/utils/otp.utils";
 import { sendMessage } from "@/services/textMessage.service";
 import { PHONE_NUMBER_REGEX } from "@/utils/phoneNumber.utils";
 
-
-
 export default async function setConfirmationCodeHandler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -36,7 +34,6 @@ export default async function setConfirmationCodeHandler(
       });
 
     const { phoneNumber } = req.body;
-    
 
     if (!PHONE_NUMBER_REGEX.test(phoneNumber))
       return res.status(400).json({

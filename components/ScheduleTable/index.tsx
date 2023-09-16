@@ -72,19 +72,19 @@ function ScheduleTable() {
             border: "0.1px solid var(--border-primary-color)",
             display: "flex",
             alignItems: "center",
+            p: 1,
             justifyContent: "space-around",
+            wordBreak: "break-word",
           }}
         >
           {idx !== 0 ? (
             <Typography
               component="p"
               variant="subtitle2"
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: "center", fontSize: "11px" }}
               color="primary.contrastText"
             >
-              {time.split("-")[0]}
-              <br />
-              {time.split("-")[1]}
+              {time.split("-")[0]} تا {time.split("-")[1]}
             </Typography>
           ) : (
             <Typography

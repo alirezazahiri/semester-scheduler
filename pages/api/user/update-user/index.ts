@@ -7,8 +7,7 @@ import {
   verifyJWTToken,
 } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
-
-
+import { Student } from "@prisma/client";
 
 const createUserHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "PATCH") {
@@ -62,6 +61,24 @@ const createUserHandler: NextApiHandler = async (req, res) => {
         statusCode: 401,
         success: false,
         message: "invalid data",
+      });
+
+    const {
+      name: currentName,
+      collegeId: currentCollegeId,
+      gender: currentGender,
+    } = userExists as Student;
+
+    if (
+      currentName.trim() === name.trim() &&
+      currentCollegeId === collegeId &&
+      currentGender === gender &&
+      currentSid.trim() === sid.trim()
+    )
+      return res.status(400).json({
+        statusCode: 400,
+        success: true,
+        message: "No Changes Applied!",
       });
 
     await prisma.student.update({

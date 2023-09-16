@@ -2,9 +2,6 @@ import { NextApiHandler } from "next";
 import prisma from "@/utils/prisma-singleton";
 import bcrypt from "bcrypt";
 
-
-
-
 const createUserHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
     res

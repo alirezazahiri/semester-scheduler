@@ -1,8 +1,6 @@
 import prisma from "@/utils/prisma-singleton";
 import { NextApiRequest, NextApiResponse } from "next";
 
-
-
 export default async function checkOTPhandler(
   req: NextApiRequest,
   res: NextApiResponse
