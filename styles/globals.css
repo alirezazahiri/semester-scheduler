@@ -46,7 +46,21 @@ legend {
 .nav-btn-dark a {
   color: #3f50b5 !important;
 }
+.nav-btn-dark:hover {
+  background: #112147 !important;
+}
 
 .nav-btn-light a {
   color: #002884 !important;
+}
+
+.active-nav-dark {
+  background: #112147 !important;
+}
+.active-nav-light {
+  background: #b8c2fb !important;
+}
+
+.nav-btn-exit:hover {
+  background: #f4433622;
 }

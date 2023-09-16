@@ -4,10 +4,12 @@ import {
   TLogin,
   TCreateUserFormValue,
   TLoginUserFormValue,
+  TUpdateUserFormValue,
 } from "@/types/api";
 import {
   TChangePasswordSchema,
   TRecoverPasswordSchema,
+  TUpdateProfileSchema,
 } from "@/utils/validator";
 
 export const loginUser = async (formValue: TLoginUserFormValue) => {
@@ -44,6 +46,29 @@ export const signUpUser = async (formValue: TCreateUserFormValue) => {
 
   const response = await fetch("/api/user/create-user", {
     method: "POST",
+    body: JSON.stringify(obj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const result = await response.json();
+
+  return result;
+};
+
+export const updateUser = async (formValue: TUpdateUserFormValue) => {
+  let obj: TUpdateUserFormValue = {
+    name: "",
+    collegeId: "",
+    sid: "",
+    gender: "",
+  };
+  for (const [key, value] of Object.entries(formValue))
+    obj[key as keyof TUpdateUserFormValue] = value;
+
+  const response = await fetch("/api/user/update-user", {
+    method: "PATCH",
     body: JSON.stringify(obj),
     headers: {
       "Content-Type": "application/json",

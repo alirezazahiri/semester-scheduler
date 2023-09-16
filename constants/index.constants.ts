@@ -81,6 +81,7 @@ export const GENDER_DICTIONARY = {
 export const NAV_ITEMS = [
   {href: "/", label: "صفحه اصلی"},
   {href: "/chosen-courses", label: "دروس انتخاب شده"},
-  {href: "/auth/change-password", label: "تغییر گذرواژه"},
+  // {href: "/auth/change-password", label: "تغییر گذرواژه"},
+  {href: "/settings", label: "تنظیمات"},
   {href: null, label: "خروج"},
 ]

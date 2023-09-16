@@ -18,6 +18,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  console.log(router.asPath);
 
   const logoutHandler = async () => {
     setLoading(true);
@@ -74,14 +75,16 @@ const Navbar = () => {
             open={open}
             onClose={closeHandler}
             dir="rtl"
-            MenuListProps={{sx: {bgcolor: "background.paper"}}}
+            MenuListProps={{ sx: { bgcolor: "background.paper" } }}
           >
             {NAV_ITEMS.map((item) => (
               <Box key={`${item.href}`}>
                 {item.href ? (
                   <MenuItem
                     key={`${item.href}`}
-                    className={`nav-btn-${theme}`}
+                    className={`nav-btn-${theme} ${
+                      item.href === router.asPath ? "active-nav-" + theme : ""
+                    }`}
                     onClick={() => {
                       router.push(item.href);
                       closeHandler();
@@ -98,7 +101,7 @@ const Navbar = () => {
                 ) : (
                   <MenuItem
                     key={`${item.href}`}
-                    className={`nav-btn-${theme}`}
+                    className="nav-btn-exit"
                     onClick={() => {
                       logoutHandler();
                       closeHandler();
