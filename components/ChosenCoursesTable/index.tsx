@@ -11,6 +11,7 @@ import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
 import showToast from "@/utils/showToast";
 import { Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
+import { e2p } from "@/utils/numbers";
 
 type ExamType = { date: string; time: string };
 
@@ -84,20 +85,20 @@ export default function ChosenCoursesTable() {
                     </Tooltip>
                     <TableCell align="right">{courseName}</TableCell>
                     <TableCell align="center" sx={{ color: "primary.main" }}>
-                      {totalUnit}
+                      {e2p(`${totalUnit}`)}
                     </TableCell>
                     <TableCell align="center" sx={{ color: "primary.main" }}>
-                      {practicalUnit}
+                      {e2p(`${practicalUnit}`)}
                     </TableCell>
                     <TableCell align="right">{professor}</TableCell>
                     <TableCell align="right">
                       {dateAndTime?.exam
                         ? `ساعت ${(
-                            (dateAndTime.exam as ExamType).time as string
+                            e2p((dateAndTime.exam as ExamType).time as string)
                           )
                             .split("-")
                             .join(" تا ")} در تاریخ ${
-                            (dateAndTime.exam as ExamType).date
+                            e2p((dateAndTime.exam as ExamType).date.split(".").join("/"))
                           }`
                         : "ندارد"}
                     </TableCell>
@@ -118,10 +119,10 @@ export default function ChosenCoursesTable() {
                 align="center"
                 sx={{ color: "success.main", fontWeight: "bold" }}
               >
-                {selectedCourses.reduce(
+                {e2p(`${selectedCourses.reduce(
                   (prev, curr) => prev + curr.totalUnit,
                   0
-                )}
+                )}`)}
               </TableCell>
               <TableCell align="center"></TableCell>
               <TableCell align="right"></TableCell>

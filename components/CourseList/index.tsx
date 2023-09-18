@@ -15,6 +15,8 @@ import {
 } from "@/constants/index.constants";
 import { UserContext } from "@/context/UserContext";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
+import { PaginationItem } from "@mui/lab";
+import { e2p } from "@/utils/numbers";
 
 interface IProps {
   items: TCourse[];
@@ -157,6 +159,9 @@ function CourseList({ items }: IProps) {
             bgcolor: "background.default",
           }}
           dir="ltr"
+          renderItem={(item) => (
+            <PaginationItem {...item} page={e2p(`${item.page}`)} />
+          )}
         />
       </Box>
     </>

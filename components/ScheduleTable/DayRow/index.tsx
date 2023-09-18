@@ -5,6 +5,7 @@ import { Grid, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { useContext } from "react";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
+import { e2p } from "@/utils/numbers";
 
 interface IProps {
   name: string;
@@ -99,7 +100,7 @@ function DayRow({ name, plan }: IProps) {
                     fontSize="12px"
                     mx={1}
                   >
-                    {`${courseName} (گروه ${courseID.split("_")[1]})`}
+                    {`${e2p(courseName)} (گروه ${e2p(courseID.split("_")[1])})`}
                   </Typography>
                   <Typography
                     component="p"
@@ -113,7 +114,7 @@ function DayRow({ name, plan }: IProps) {
                     variant="subtitle2"
                     color="primary.contrastText"
                   >
-                    {time.from} تا {time.to}
+                    {e2p(time.from)} تا {e2p(time.to)}
                   </Typography>
                 </Grid>
               </Tooltip>

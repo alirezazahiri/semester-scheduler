@@ -13,6 +13,7 @@ import showToast from "@/utils/showToast";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { WEEK_DAYS_DICTIONARY } from "@/constants/index.constants";
 import { Days } from "@types";
+import { e2p } from "@/utils/numbers";
 
 interface IProps {
   item: TCourse;
@@ -112,18 +113,25 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
         <ListItemButton>
           <ListItemText
             id={item.courseID}
-            primary={`${item.registeredCount}/${item.capacity}`}
+            primary={`${e2p(`${item.registeredCount}`)}/${e2p(`${item.capacity}`)}`}
             primaryTypographyProps={{
               color:
                 item.registeredCount === item.capacity
                   ? "secondary"
                   : "primary",
               fontWeight: "700",
+              fontSize: "0.75rem",
             }}
           />
           <ListItemText
             id={item.courseID}
-            primary={`(${item.courseID.split("_")[1]} گروه) ${item.courseName}`}
+            primary={`${e2p(item.courseName)} (گروه ${e2p(item.courseID.split("_")[1])})`}
+            primaryTypographyProps={{
+              fontSize: "0.8rem",
+              textAlign: "right",
+              padding: "4px",
+              dir: "rtl"
+            }}
           />
         </ListItemButton>
       </Tooltip>

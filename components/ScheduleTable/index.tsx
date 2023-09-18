@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
-import Typography from "@mui/material/Typography";
 import { getCourseWeeklyPlan } from "@/utils/selectedCourses.utils";
 import { useEffect } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
@@ -9,10 +8,10 @@ import { TWeeklyPlan } from "@/types/plan";
 import { Grid } from "@mui/material";
 import DayRow from "./DayRow";
 import {
-  TABLE_HEADER_TIME_LIST,
   WEEK_DAYS_EN,
   WEEK_DAYS_FA,
 } from "@/constants/index.constants";
+import TableHeading from "./TableHeading";
 
 function ScheduleTable() {
   const { selectedCourses } = useContext(SelectedCoursesContext);
@@ -63,41 +62,7 @@ function ScheduleTable() {
       }}
       container
     >
-      {TABLE_HEADER_TIME_LIST.map((time, idx) => (
-        <Grid
-          key={time}
-          item
-          xs={(1 / TABLE_HEADER_TIME_LIST.length) * 12}
-          sx={{
-            border: "0.1px solid var(--border-primary-color)",
-            display: "flex",
-            alignItems: "center",
-            p: 1,
-            justifyContent: "space-around",
-            wordBreak: "break-word",
-          }}
-        >
-          {idx !== 0 ? (
-            <Typography
-              component="p"
-              variant="subtitle2"
-              sx={{ textAlign: "center", fontSize: "11px" }}
-              color="primary.contrastText"
-            >
-              {time.split("-")[0]} تا {time.split("-")[1]}
-            </Typography>
-          ) : (
-            <Typography
-              component="p"
-              variant="subtitle2"
-              fontSize="14px"
-              color="primary.contrastText"
-            >
-              {time}
-            </Typography>
-          )}
-        </Grid>
-      ))}
+      <TableHeading />
       {WEEK_DAYS_EN.map((day, index) => {
         return (
           <DayRow key={day} name={WEEK_DAYS_FA[index]} plan={weeklyPlan[day]} />
