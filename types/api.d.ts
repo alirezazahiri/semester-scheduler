@@ -23,6 +23,13 @@ export type TCreateUserFormValue = {
   gender: string;
 };
 
+export type TUpdateUserFormValue = {
+  sid: string;
+  name: string;
+  collegeId: string;
+  gender: string;
+};
+
 export type TLoginUserFormValue = {
   sid: string;
   password: string;

@@ -4,7 +4,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import { TCourse } from "@/types/courses";
-import { Tooltip } from "@mui/material";
+import { Box, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
 import sortedPlan from "@/utils/sortDailyPlan";
@@ -61,11 +61,36 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
     }
 
     if (interferenceDays.length > 0) {
-      const message = `تداخل درس های ${[...new Set(interferenceCourses)].join(
-        " و "
-      )} در روز${interferenceDays.length >= 2 ? "های" : ""} ${interferenceDays
-        .map((d) => WEEK_DAYS_DICTIONARY[d as Days])
-        .join(" و ")}`;
+      const interferingCourses = [...new Set(interferenceCourses)];
+      const message = (
+        <p>
+          تداخل درس های{" "}
+          {interferingCourses.map((c, i, a) => (
+            <>
+              <Box component="span" sx={{ color: "primary.main" }}>
+                {c}
+              </Box>
+              {a.length > 1 && i !== a.length - 1 ? " و " : ""}
+            </>
+          ))}{" "}
+          در روز
+          {interferenceDays.length >= 2 ? "های" : ""}{" "}
+          {interferenceDays.map((d, i, a) => (
+            <>
+              <Box component="span" sx={{ color: "secondary.main" }}>
+                {WEEK_DAYS_DICTIONARY[d as Days]}
+              </Box>
+              {a.length > 1 && i !== a.length - 1 ? " و " : ""}
+            </>
+          ))}
+        </p>
+      );
+      // join(" و ")
+      // `تداخل درس های ${[...new Set(interferenceCourses)].join(
+      //   " و "
+      // )} در روز${interferenceDays.length >= 2 ? "های" : ""} ${interferenceDays
+      //   .map((d) => WEEK_DAYS_DICTIONARY[d as Days])
+      //   .join(" و ")}`;
       showToast(message, "error", 3000);
     } else return handleToggle(item.courseID);
   };

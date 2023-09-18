@@ -1,10 +1,10 @@
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import { getTokenCookie } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
 import { verifyJWTToken } from "@/utils/token.utils";
 
-const prisma = new PrismaClient();
+
 
 const saveCoursesHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
@@ -18,9 +18,9 @@ const saveCoursesHandler: NextApiHandler = async (req, res) => {
   const token = getTokenCookie({ req, res });
   const data = verifyJWTToken(token as string) as JwtPayload;
   if (!data)
-  return res
-    .status(401)
-    .json({ statusCode: 401, success: false, message: "Unauthorized" });
+    return res
+      .status(401)
+      .json({ statusCode: 401, success: false, message: "Unauthorized" });
   if (data?.sid !== sid)
     return res.status(401).json({
       statusCode: 401,

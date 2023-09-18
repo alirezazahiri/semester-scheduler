@@ -1,10 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import bcrypt from "bcrypt";
 import { getTokenCookie, verifyJWTToken } from "@/utils/token.utils";
 import { JwtPayload } from "jsonwebtoken";
-
-const prisma = new PrismaClient();
 
 export default async function changePasswordHandler(
   req: NextApiRequest,
@@ -53,7 +51,10 @@ export default async function changePasswordHandler(
       });
     }
 
-    const isValid = await bcrypt.compare(currentPassword, user.password);
+    const isValid = await bcrypt.compare(
+      currentPassword,
+      user.password
+    );
 
     if (!isValid)
       return res.status(403).json({

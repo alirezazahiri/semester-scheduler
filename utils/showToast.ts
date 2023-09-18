@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
  * @param dismissPrevious set to 'true' if you want to dismiss all previous toasts
  */
 const showToast = (
-  message: string,
+  message: string | JSX.Element,
   type: "error" | "success" | "loading",
   duration: number = 1000,
   dismissPrevious: boolean = false

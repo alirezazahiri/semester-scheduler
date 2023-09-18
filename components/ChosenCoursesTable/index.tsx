@@ -8,7 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext/index";
-import { Toaster } from "react-hot-toast";
 import showToast from "@/utils/showToast";
 import { Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -131,7 +130,6 @@ export default function ChosenCoursesTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Toaster containerStyle={{ textAlign: "right" }} />
     </>
   );
 }

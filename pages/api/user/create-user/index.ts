@@ -1,8 +1,6 @@
 import { NextApiHandler } from "next";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma-singleton";
 import bcrypt from "bcrypt";
-
-const prisma = new PrismaClient();
 
 const createUserHandler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
@@ -32,8 +30,8 @@ const createUserHandler: NextApiHandler = async (req, res) => {
 
     await prisma.student.create({
       data: {
-        sid,
-        name,
+        sid: sid.trim(),
+        name: name.trim(),
         collegeId,
         password: hashedPassword,
         gender,
@@ -48,7 +46,7 @@ const createUserHandler: NextApiHandler = async (req, res) => {
         sid,
         collegeId,
         name,
-        gender
+        gender,
       },
     });
   } catch (error) {

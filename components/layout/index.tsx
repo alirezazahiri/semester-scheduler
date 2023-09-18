@@ -1,7 +1,7 @@
 import React from "react";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
+import ToasterContainer from "@/components/ToasterContainer";
 
 interface IProps {
   children: JSX.Element;
@@ -10,7 +10,7 @@ interface IProps {
 function Layout({ children }: IProps) {
   return (
     <>
-      <Toaster containerStyle={{ textAlign: "right" }} />
+      <ToasterContainer />
       <ThemeSwitch>
         <Navbar />
       </ThemeSwitch>

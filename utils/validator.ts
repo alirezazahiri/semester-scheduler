@@ -73,3 +73,19 @@ export const recoverPasswordSchema = object({
 });
 
 export type TRecoverPasswordSchema = TypeOf<typeof recoverPasswordSchema>;
+
+export const updateProfileSchema = object({
+  sid: string()
+    .nonempty("شماره دانشجویی الزامی است")
+    .min(8, "شماره دانشجویی باید حداقل دارای 8 رقم باشد")
+    .max(16, "شماره دانشجویی باید حداکثر دارای 16 کاراکتر باشد")
+    .regex(/[0-9]+/gm, "شماره دانشجویی تنها شامل ارقام است"),
+  name: string()
+    .nonempty("نام و نام خانوادگی الزامی است")
+    .min(2, " نام و نام خانوادگی باید حداقل دارای 2 حرف باشد")
+    .max(100, "نام و نام خانوادگی باید کوتاه تر از 100 کاراکتر باشد"),
+  collegeId: string().nonempty("دانشکده الزامی است").default("00"),
+  gender: string().nonempty("جنسیت الزامی است").default("0"),
+});
+
+export type TUpdateProfileSchema = TypeOf<typeof updateProfileSchema>;

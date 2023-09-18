@@ -23,7 +23,7 @@ function Index({ sid }: { sid: string }) {
       </Head>
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           bgcolor: "background.default",
           px: 4,
           pt: 8,
@@ -32,7 +32,7 @@ function Index({ sid }: { sid: string }) {
         {loading ? (
           <Box
             sx={{
-              height: "100%",
+              height: "100vh",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -65,7 +65,7 @@ const Navbar = () => {
             disabled={!user?.name || user?.name === ""}
             sx={{ fontSize: "13px" }}
           >
-            {user?.name}
+            {user?.name.trim()}
             {!open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
           </Button>
           <Menu
@@ -74,14 +74,16 @@ const Navbar = () => {
             open={open}
             onClose={closeHandler}
             dir="rtl"
-            MenuListProps={{sx: {bgcolor: "background.paper"}}}
+            MenuListProps={{ sx: { bgcolor: "background.paper" } }}
           >
             {NAV_ITEMS.map((item) => (
               <Box key={`${item.href}`}>
                 {item.href ? (
                   <MenuItem
                     key={`${item.href}`}
-                    className={`nav-btn-${theme}`}
+                    className={`nav-btn-${theme} ${
+                      item.href === router.asPath ? "active-nav-" + theme : ""
+                    }`}
                     onClick={() => {
                       router.push(item.href);
                       closeHandler();
@@ -98,7 +100,7 @@ const Navbar = () => {
                 ) : (
                   <MenuItem
                     key={`${item.href}`}
-                    className={`nav-btn-${theme}`}
+                    className="nav-btn-exit"
                     onClick={() => {
                       logoutHandler();
                       closeHandler();

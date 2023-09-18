@@ -43,7 +43,8 @@ function LoadingButtonElement({
       color={color}
       sx={{
         mt: 1,
-        width: 100,
+        minWidth: 100,
+        maxWidth: "fit-content",
         color: textColor || "background.default",
         ...sx,
       }}

@@ -8,6 +8,7 @@ export interface IRedirector {
   res: ServerResponse;
   resolvedUrl?: string;
   checkPhone?: boolean;
+  props?: object;
 }
 
 export enum UserAuthState {
@@ -26,7 +27,7 @@ interface IOptions extends IRedirector {
  * @returns An object with either the props or redirect destination
  */
 export const autoRedirector = ({ ...options }: IOptions) => {
-  const { req, res } = options;
+  const { req, res, props } = options;
   const token = getTokenCookie({ req, res }) || null;
   let data = token ? (verifyJWTToken(token as string) as JwtPayload) : null;
 
@@ -41,14 +42,14 @@ export const autoRedirector = ({ ...options }: IOptions) => {
                 permanent: false,
               },
             };
-      return { props: { sid: data.sid } };
+      return { props: { sid: data.sid, ...props } };
     }
     return { redirect: { destination: options.to, permanent: false } };
   } else {
     if (data?.sid)
       return {
         redirect: { destination: options.to, permanent: false },
-        props: { sid: data.sid },
+        props: { sid: data.sid, ...props },
       };
     else return { props: {} };
   }

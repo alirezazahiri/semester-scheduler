@@ -38,7 +38,7 @@ function DayRow({ name, plan }: IProps) {
         <Typography
           component="h1"
           variant="subtitle1"
-          sx={{ textAlign: "right", fontSize: "17px" }}
+          sx={{ textAlign: "right", fontSize: "17px", wordBreak: "break-word" }}
         >
           {name}
         </Typography>
@@ -51,7 +51,11 @@ function DayRow({ name, plan }: IProps) {
             TABLE_HEADER_TIME_LIST.length) *
           12
         }
-        sx={{ minHeight: 90, border: "1px solid var(--border-primary-color)", display: "flex" }}
+        sx={{
+          minHeight: 90,
+          border: "1px solid var(--border-primary-color)",
+          display: "flex",
+        }}
       >
         {calculateDayRow(plan, name)?.map(
           ({
@@ -84,6 +88,7 @@ function DayRow({ name, plan }: IProps) {
                     flexDirection: "column",
                     justifyContent: "space-around",
                     cursor: "pointer",
+                    wordBreak: "break-word",
                   }}
                   onClick={() => removeSelectedCourse(courseID)}
                 >
@@ -108,7 +113,7 @@ function DayRow({ name, plan }: IProps) {
                     variant="subtitle2"
                     color="primary.contrastText"
                   >
-                    {time.from} - {time.to}
+                    {time.from} تا {time.to}
                   </Typography>
                 </Grid>
               </Tooltip>
