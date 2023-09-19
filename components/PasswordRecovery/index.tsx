@@ -92,7 +92,17 @@ function PasswordRecovery() {
       <Stepper activeStep={activeStep} orientation="vertical">
         {STEPS.map((step) => (
           <Step key={step}>
-            <StepLabel>{step}</StepLabel>
+            <StepLabel
+              StepIconProps={{
+                sx: {
+                  ".MuiStepIcon-text": {
+                    fill: "#B5B9F4",
+                  },
+                },
+              }}
+            >
+              {step}
+            </StepLabel>
             <StepContent>
               <Box sx={{ mb: 2, textAlign: "center" }}>
                 {activeStep === 0 && (

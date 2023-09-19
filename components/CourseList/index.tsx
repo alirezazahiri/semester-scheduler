@@ -1,5 +1,5 @@
 import List from "@mui/material/List";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TCourse } from "@/types/courses";
 import CourseListItem from "@/components/CourseListItem";
 import Pagination from "@mui/material/Pagination";
@@ -15,7 +15,7 @@ import {
 } from "@/constants/index.constants";
 import { UserContext } from "@/context/UserContext";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
-import { PaginationItem } from "@mui/lab";
+import PaginationItem from '@mui/material/PaginationItem'
 import { e2p } from "@/utils/numbers";
 
 interface IProps {
@@ -33,6 +33,10 @@ function CourseList({ items }: IProps) {
     SelectedCoursesContext
   );
   const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    setSelectedCollege("00");
+  }, []);
 
   const handleToggle = (course: TCourse) => {
     if (selectedCourses.findIndex((c) => c.courseID === course.courseID) !== -1)
@@ -88,26 +92,6 @@ function CourseList({ items }: IProps) {
 
   return (
     <>
-      <Options
-        unitItems={UNIT_ITEMS}
-        collegeItems={[
-          ...COLLEGE_ITEMS.filter((item, idx) =>
-            idx == 0
-              ? true
-              : user
-              ? user.collegeId === "00"
-                ? true
-                : item.value === user.collegeId
-              : true
-          ),
-          ...COMMON_COLLEGES,
-        ]}
-        unit={unit}
-        college={selectedCollege}
-        changeHandler={changeHandler}
-        changeCollegeHandler={changeCollegeHandler}
-        setSelectedItems={setSelectedCourses}
-      />
       <List
         sx={{
           width: 350,
@@ -132,6 +116,26 @@ function CourseList({ items }: IProps) {
           />
         ))}
       </List>
+      <Options
+        unitItems={UNIT_ITEMS}
+        collegeItems={[
+          ...COLLEGE_ITEMS.filter((item, idx) =>
+            idx == 0
+              ? true
+              : user
+              ? user.collegeId === "00"
+                ? true
+                : item.value === user.collegeId
+              : true
+          ),
+          ...COMMON_COLLEGES,
+        ]}
+        unit={unit}
+        college={selectedCollege}
+        changeHandler={changeHandler}
+        changeCollegeHandler={changeCollegeHandler}
+        setSelectedItems={setSelectedCourses}
+      />
       <Box sx={{ position: "fixed", bottom: 0, width: 350 }}>
         <TextField
           variant="outlined"
@@ -157,6 +161,7 @@ function CourseList({ items }: IProps) {
             width: "100%",
             py: 1,
             bgcolor: "background.default",
+            mx: "auto",
           }}
           dir="ltr"
           renderItem={(item) => (

@@ -10,8 +10,11 @@ import {
   COMMON_COLLEGES,
   UNIT_ITEMS,
 } from "@/constants/index.constants";
+import PaginationItem from '@mui/material/PaginationItem'
 import CourseListItemLoader from "@/components/CourseListItem/Skeleton";
 import { SelectedCollegeContext } from "@/context/SelectedCollegeContext";
+import _ from "lodash";
+import { e2p } from "@/utils/numbers";
 
 function CourseListLoader() {
   const { selectedCollege, setSelectedCollege } = useContext(
@@ -26,19 +29,18 @@ function CourseListLoader() {
     <>
       <List
         sx={{
-          width: 360,
+          width: 350,
           bgcolor: "background.paper",
           borderRight: "1px solid var(--border-primary-color)",
-          height: "100%",
+          // height: "100%",
           pt: 8,
-          pb: 12,
+          pb: 6,
           overflow: "auto",
+          outline: 0,
           direction: "ltr",
         }}
       >
-        {[
-          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-        ].map((item) => (
+        {_.times(20).map((item) => (
           <CourseListItemLoader key={item} />
         ))}
       </List>
@@ -52,9 +54,7 @@ function CourseListLoader() {
           changeCollegeHandler={changeCollegeHandler}
           setSelectedItems={() => {}}
         />
-        <Box
-          sx={{ position: "sticky", bottom: 1, width: 350 }}
-        >
+        <Box sx={{ position: "sticky", bottom: 0, width: 350 }}>
           <TextField
             variant="outlined"
             size="small"
@@ -62,7 +62,7 @@ function CourseListLoader() {
             onChange={() => {}}
             label="جستجو"
             sx={{
-              width: 350,
+              width: "100%",
               zIndex: 3,
               textAlign: "right",
               bgcolor: "background.default",
@@ -77,12 +77,15 @@ function CourseListLoader() {
             size="medium"
             page={5}
             sx={{
-              width: 350,
-              zIndex: 3,
-              pt: 1,
+              width: "100%",
+              py: 1,
               bgcolor: "background.default",
+              mx: "auto"
             }}
             dir="ltr"
+            renderItem={(item) => (
+              <PaginationItem {...item} page={e2p(`${item.page}`)} />
+            )}
           />
         </Box>
       </>

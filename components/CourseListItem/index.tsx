@@ -86,12 +86,6 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
           ))}
         </p>
       );
-      // join(" و ")
-      // `تداخل درس های ${[...new Set(interferenceCourses)].join(
-      //   " و "
-      // )} در روز${interferenceDays.length >= 2 ? "های" : ""} ${interferenceDays
-      //   .map((d) => WEEK_DAYS_DICTIONARY[d as Days])
-      //   .join(" و ")}`;
       showToast(message, "error", 3000);
     } else return handleToggle(item.courseID);
   };

@@ -1,16 +1,26 @@
 import React from "react";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import { Tooltip, Skeleton } from "@mui/material";
+import { Tooltip, Skeleton, Box } from "@mui/material";
 
 function CourseListItemLoader() {
   return (
-    <ListItem disablePadding sx={{height: 50}}>
-      <Tooltip title={"loading..."} arrow followCursor>
-        <ListItemButton sx={{height: "100%"}}>
-          <Skeleton animation="wave" sx={{ width: 20 }}/>
-          <Skeleton animation="wave" sx={{ width: 310, mx: "5px" }}/>
-          <Skeleton animation="wave" sx={{ width: 20 }}/>
+    <ListItem disablePadding sx={{ height: 50 }}>
+      <Tooltip title={"...درحال بارگذاری"} arrow followCursor>
+        <ListItemButton
+          sx={{
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <Skeleton animation="wave" sx={{ width: 25, flexBasis: "auto" }} />
+          <Box component={"div"} sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+            <Skeleton animation="wave" sx={{ width: 230, height: 12 }} />
+            <Skeleton animation="wave" sx={{ width: 230, height: 12 }} />
+          </Box>
+          <Skeleton animation="wave" variant="rounded" sx={{ width: 20, flexBasis: "auto" }} />
         </ListItemButton>
       </Tooltip>
     </ListItem>

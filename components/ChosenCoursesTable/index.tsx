@@ -29,7 +29,14 @@ export default function ChosenCoursesTable() {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="courses table">
           <TableHead>
-            <TableRow>
+            <TableRow
+              sx={{
+                "*": {
+                  color: "primary.contrastText",
+                  fontWeight: "bold",
+                },
+              }}
+            >
               <TableCell align="right">کد درس</TableCell>
               <TableCell align="right">نام درس</TableCell>
               <TableCell align="center">واحد (کل)</TableCell>
@@ -54,56 +61,150 @@ export default function ChosenCoursesTable() {
                   practicalUnit,
                   professor,
                   dateAndTime,
-                }) => (
-                  <TableRow
-                    key={courseID}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <Tooltip title="برای کپی کردن کلیک کنید" arrow followCursor>
-                      <TableCell
-                        component="th"
-                        scope="row"
-                        align="right"
-                        dir="ltr"
-                        onClick={() => copyCourseIDHandler(courseID)}
+                }) => {
+                  const [examFrom, examTo] = dateAndTime.exam
+                    ? e2p((dateAndTime.exam as ExamType).time as string).split(
+                        "-"
+                      )
+                    : ["", ""];
+                  return (
+                    <TableRow
+                      key={courseID}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <Tooltip
+                        title="برای کپی کردن کلیک کنید"
+                        arrow
+                        followCursor
                       >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "row-reverse",
-                            alignItems: "center",
-                            gap: "4px",
-                            cursor: "pointer",
-                            fontWeight: "800",
-                          }}
+                        <TableCell
+                          component="th"
+                          scope="row"
+                          align="right"
+                          dir="ltr"
+                          onClick={() => copyCourseIDHandler(courseID)}
                         >
-                          <ContentCopyIcon sx={{ color: "primary.main" }} />
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "row-reverse",
+                              alignItems: "center",
+                              gap: "4px",
+                              cursor: "pointer",
+                              fontWeight: "800",
+                              color: "primary.contrastText",
+                            }}
+                          >
+                            <ContentCopyIcon sx={{ color: "primary.main" }} />
 
-                          {courseID}
-                        </Box>
+                            {courseID}
+                          </Box>
+                        </TableCell>
+                      </Tooltip>
+                      <TableCell
+                        align="right"
+                        sx={{
+                          fontSize: "13px",
+                          color: "primary.contrastText",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {courseName}
                       </TableCell>
-                    </Tooltip>
-                    <TableCell align="right">{courseName}</TableCell>
-                    <TableCell align="center" sx={{ color: "primary.main" }}>
-                      {e2p(`${totalUnit}`)}
-                    </TableCell>
-                    <TableCell align="center" sx={{ color: "primary.main" }}>
-                      {e2p(`${practicalUnit}`)}
-                    </TableCell>
-                    <TableCell align="right">{professor}</TableCell>
-                    <TableCell align="right">
-                      {dateAndTime?.exam
-                        ? `ساعت ${(
-                            e2p((dateAndTime.exam as ExamType).time as string)
-                          )
-                            .split("-")
-                            .join(" تا ")} در تاریخ ${
-                            e2p((dateAndTime.exam as ExamType).date.split(".").join("/"))
-                          }`
-                        : "ندارد"}
-                    </TableCell>
-                  </TableRow>
-                )
+                      <TableCell
+                        align="center"
+                        sx={{
+                          color: "primary.light",
+                          fontSize: "14px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {e2p(`${totalUnit}`)}
+                      </TableCell>
+                      <TableCell
+                        align="center"
+                        sx={{
+                          color: "primary.light",
+                          fontSize: "14px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {e2p(`${practicalUnit}`)}
+                      </TableCell>
+                      <TableCell
+                        align="right"
+                        sx={{
+                          color: "primary.contrastText",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {professor}
+                      </TableCell>
+                      <TableCell
+                        align="right"
+                        sx={{
+                          color: "primary.contrastText",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {dateAndTime?.exam ? (
+                          <Box
+                            component="div"
+                            sx={{
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "4px",
+                            }}
+                          >
+                            ساعت
+                            <Box
+                              component="span"
+                              sx={{
+                                color: "primary.light",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {examFrom}
+                            </Box>
+                            تا
+                            <Box
+                              component="span"
+                              sx={{
+                                color: "primary.light",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {examTo}
+                            </Box>
+                            در تاریخ
+                            <Box
+                              component="span"
+                              sx={{
+                                color: "primary.light",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {e2p(
+                                (dateAndTime.exam as ExamType).date
+                                  .split(".")
+                                  .join("/")
+                              )}
+                            </Box>
+                          </Box>
+                        ) : (
+                          <Box
+                            component="span"
+                            sx={{
+                              color: "secondary.main",
+                            }}
+                          >
+                            ندارد
+                          </Box>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
               )}
             <TableRow
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -111,18 +212,28 @@ export default function ChosenCoursesTable() {
               <TableCell component="th" scope="row" align="right"></TableCell>
               <TableCell
                 align="right"
-                sx={{ color: "success.main", fontWeight: "bold" }}
+                sx={{
+                  color: "success.main",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
               >
                 مجموع واحد ها
               </TableCell>
               <TableCell
                 align="center"
-                sx={{ color: "success.main", fontWeight: "bold" }}
+                sx={{
+                  color: "success.main",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
               >
-                {e2p(`${selectedCourses.reduce(
-                  (prev, curr) => prev + curr.totalUnit,
-                  0
-                )}`)}
+                {e2p(
+                  `${selectedCourses.reduce(
+                    (prev, curr) => prev + curr.totalUnit,
+                    0
+                  )}`
+                )}
               </TableCell>
               <TableCell align="center"></TableCell>
               <TableCell align="right"></TableCell>
@@ -134,3 +245,13 @@ export default function ChosenCoursesTable() {
     </>
   );
 }
+
+/*
+`ساعت ${(
+                          e2p((dateAndTime.exam as ExamType).time as string)
+                        )
+                          .split("-")
+                          .join(" تا ")} در تاریخ ${
+                          e2p((dateAndTime.exam as ExamType).date.split(".").join("/"))
+                        }`
+*/
