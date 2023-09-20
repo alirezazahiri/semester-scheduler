@@ -6,6 +6,7 @@ import React from "react";
 import { useContext } from "react";
 import { SelectedCoursesContext } from "@/context/SelectedCoursesContext";
 import { e2p } from "@/utils/numbers";
+import { useTheme } from "@mui/material/styles";
 
 interface IProps {
   name: string;
@@ -19,6 +20,8 @@ function DayRow({ name, plan }: IProps) {
   const removeSelectedCourse = (cid: string) => {
     setSelectedCourses(selectedCourses?.filter((c) => c.courseID !== cid));
   };
+  const theme = useTheme();
+
   return (
     <Grid
       container
@@ -39,7 +42,14 @@ function DayRow({ name, plan }: IProps) {
         <Typography
           component="h1"
           variant="subtitle1"
-          sx={{ textAlign: "right", fontSize: "17px", wordBreak: "break-word" }}
+          sx={{
+            textAlign: "right",
+            fontSize: "17px",
+            wordBreak: "break-word",
+            [theme.breakpoints.down("lg")]: {
+              fontSize: "14px",
+            },
+          }}
         >
           {name}
         </Typography>

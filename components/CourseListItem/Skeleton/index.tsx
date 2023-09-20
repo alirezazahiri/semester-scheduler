@@ -15,10 +15,10 @@ function CourseListItemLoader() {
             gap: "8px",
           }}
         >
-          <Skeleton animation="wave" sx={{ width: 25, flexBasis: "auto" }} />
+          <Skeleton animation="wave" variant="text" sx={{ width: 30, flexBasis: "auto" }} />
           <Box component={"div"} sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
             <Skeleton animation="wave" sx={{ width: 230, height: 12 }} />
-            <Skeleton animation="wave" sx={{ width: 230, height: 12 }} />
+            <Skeleton animation="wave" sx={{ width: 115, height: 12 }} />
           </Box>
           <Skeleton animation="wave" variant="rounded" sx={{ width: 20, flexBasis: "auto" }} />
         </ListItemButton>

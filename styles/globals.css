@@ -26,8 +26,8 @@ html {
   background: rgba(100, 100, 100, 0.8);
 }
 
-body {
-  background-color: inherit;
+::-webkit-scrollbar-track {
+  background: inherit;
 }
 
 legend {

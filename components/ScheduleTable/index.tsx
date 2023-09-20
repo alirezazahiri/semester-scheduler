@@ -5,18 +5,15 @@ import { getCourseWeeklyPlan } from "@/utils/selectedCourses.utils";
 import { useEffect } from "react";
 import { WeeklyPlanContext } from "@/context/WeeklyPlanContext";
 import { TWeeklyPlan } from "@/types/plan";
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import DayRow from "./DayRow";
-import {
-  WEEK_DAYS_EN,
-  WEEK_DAYS_FA,
-} from "@/constants/index.constants";
+import { WEEK_DAYS_EN, WEEK_DAYS_FA } from "@/constants/index.constants";
 import TableHeading from "./TableHeading";
 
 function ScheduleTable() {
   const { selectedCourses } = useContext(SelectedCoursesContext);
   const { weeklyPlan, setWeeklyPlan } = useContext(WeeklyPlanContext);
-
+  const theme = useTheme();
   useEffect(() => {
     const coursePlans = selectedCourses.map((course) =>
       getCourseWeeklyPlan(course)
@@ -59,6 +56,10 @@ function ScheduleTable() {
         justifyContent: "space-around",
         px: 0,
         py: 2,
+        [theme.breakpoints.down("md")]: {
+          minWidth: "1024px",
+          px: 2,
+        },
       }}
       container
     >
