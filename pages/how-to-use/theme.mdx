@@ -1,0 +1,69 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import ThemeSwitch from "@/components/ThemeSwitch";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import Link from "next/link";
+
+<Box
+  sx={{
+    m: "80px 20px",
+    color: "primary.light",
+    "& em": {
+      color: "primary.contrastText",
+    },
+    "& h1 strong": {
+      color: "primary.contrastText",
+    },
+    "& p": {
+      color: "primary.contrastText",
+    },
+    "& h1": {
+      textAlign: "center"
+    },
+  }}
+>
+
+## تم شب و روز
+
+<Box component="p" py={2} textAlign="center" fontWeight="bold">
+  این برنامه در دو حالت شب و روز در اختیار کاربران قرار گرفته است که تجربه بصری
+  بهتری را فراهم کند.
+</Box>
+
+<Divider />
+
+<Box
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "right",
+    gap: 1.5,
+    py: 2
+  }}
+>
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <Brightness7Icon />
+    <Box component="p">حالت روز</Box>
+  </Box>
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <Brightness4Icon />
+    <Box component="p">حالت شب</Box>
+  </Box>
+
+
+  <Box textAlign="center">
+  با کلیک بر روی دکمه تغییر تم (گوشه چپ سمت بالای صفحه) میتوانید حالات شب و روز را مشاهده کنید.
+  </Box>
+</Box>
+
+<Divider sx={{ my: 2 }} />
+<Link href="/how-to-use" >
+<Button component="div" sx={{fontSize: "16px", "& p": {
+    color: "primary.main"
+}}}>
+بازگشت به صفحۀ راهنما
+</Button>
+</Link>
+</Box>

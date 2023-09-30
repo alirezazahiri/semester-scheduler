@@ -24,9 +24,10 @@ interface Props {
     collegeId: string;
     gender: string;
   };
+  mdx?: boolean;
 }
 
-function UpdateProfileForm({ initialFormData }: Props) {
+function UpdateProfileForm({ initialFormData, mdx }: Props) {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const methods = useForm<TUpdateProfileSchema>({
@@ -51,34 +52,36 @@ function UpdateProfileForm({ initialFormData }: Props) {
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<TUpdateProfileSchema> = async () => {
-    setLoading(true);
-    const { collegeId, name, sid, gender } = getValues();
-    let result = await updateUser({
-      sid,
-      collegeId,
-      name,
-      gender,
-    });
+    if (!mdx) {
+      setLoading(true);
+      const { collegeId, name, sid, gender } = getValues();
+      let result = await updateUser({
+        sid,
+        collegeId,
+        name,
+        gender,
+      });
 
-    if (result.success) {
-      if (result.statusCode === 400) {
-        showToast("تغییری ایجاد نشد", "error", 2500, true);
+      if (result.success) {
+        if (result.statusCode === 400) {
+          showToast("تغییری ایجاد نشد", "error", 2500, true);
+        } else {
+          showToast("پروفایل با موفقیت به روز رسانی شد", "success", 2500, true);
+          setSelectedCourses([]);
+          deleteTokenCookie();
+          router.replace("/auth/login");
+        }
       } else {
-        showToast("پروفایل با موفقیت به روز رسانی شد", "success", 2500, true);
-        setSelectedCourses([]);
-        deleteTokenCookie();
-        router.replace("/auth/login");
+        if (result.statusCode === 401)
+          showToast(
+            "حساب کاربری با این شماره دانشجویی وجود دارد",
+            "error",
+            2500,
+            true
+          );
       }
-    } else {
-      if (result.statusCode === 401)
-        showToast(
-          "حساب کاربری با این شماره دانشجویی وجود دارد",
-          "error",
-          2500,
-          true
-        );
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -100,7 +103,7 @@ function UpdateProfileForm({ initialFormData }: Props) {
           color="primary"
           fontWeight={500}
         >
-          ثبت نام
+          به روز رسانی پروفایل
         </Typography>
         <FormInput
           label="شماره دانشجویی"
@@ -118,14 +121,14 @@ function UpdateProfileForm({ initialFormData }: Props) {
           label="دانشکده"
           labelName="collegeId"
           items={COLLEGE_ITEMS}
-          defaultValue={initialFormData.collegeId}
+          defaultValue={mdx ? "" : initialFormData.collegeId}
           {...register("collegeId")}
         />
         <FormSelect
           label="جنسیت"
           labelName="gender"
           items={GENDER_ITEMS}
-          defaultValue={initialFormData.gender}
+          defaultValue={mdx ? "" : initialFormData.gender}
           {...register("gender")}
         />
         <LoadingButtonElement
@@ -135,9 +138,12 @@ function UpdateProfileForm({ initialFormData }: Props) {
           color="primary"
           variant="contained"
           size="large"
+          sx={{
+            display: mdx ? "none" : "",
+          }}
         />
       </FormControl>
-      <TradeMark />
+      <TradeMark mdx={mdx} />
     </FormProvider>
   );
 }

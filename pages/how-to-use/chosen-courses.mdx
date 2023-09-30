@@ -1,0 +1,55 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import Link from "next/link";
+
+<Box
+  sx={{
+    m: "80px 20px",
+    color: "primary.light",
+    "& em": {
+      color: "primary.contrastText",
+    },
+    "& strong": {
+      color: "primary.contrastText",
+    },
+    "& p": {
+      color: "primary.contrastText",
+    },
+  }}
+>
+
+## دروس انتخاب شده
+
+<Box
+  component="p"
+  py={2}
+  textAlign="center"
+  fontWeight="bold"
+  sx={{
+    "& a": {
+      color: "primary.main",
+      textDecoration: "underline",
+    },
+  }}
+>
+  در این صفحه به بررسی جدول نمایش داده شده در مسیر
+  <Link href="/chosen-courses">دروس انتخاب شده</Link>
+  میپردازیم.
+</Box>
+
+<Divider sx={{ my: 2 }} />
+<Box component="p" textAlign="center">
+    در این صفحه یک جدول شامل اطلاعات کد درس، نام درس، تعداد واحد های عملی و تئوری درس، نام استاد درس و تاریخ امتحان درس نشان داده میشود
+   
+    همچنین برای سهولت نگهداری کد درس ها توسط دانشجویان، با کلیک بر روی کد درس میتوان آن را کپی کرد.
+</Box>
+<Divider sx={{ my: 2 }} />
+<Link href="/how-to-use">
+<Button component="div" sx={{fontSize: "16px", "& p": {
+    color: "primary.main"
+}}}>
+بازگشت به صفحۀ راهنما
+</Button>
+</Link>
+</Box>

@@ -24,6 +24,7 @@ function Settings() {
           key={href}
           style={{
             width: "100%",
+            textDecoration: "none"
           }}
         >
           <Button

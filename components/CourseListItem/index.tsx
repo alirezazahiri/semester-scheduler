@@ -107,7 +107,9 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
         <ListItemButton>
           <ListItemText
             id={item.courseID}
-            primary={`${e2p(`${item.registeredCount}`)}/${e2p(`${item.capacity}`)}`}
+            primary={`${e2p(`${item.registeredCount}`)}/${e2p(
+              `${item.capacity}`
+            )}`}
             primaryTypographyProps={{
               color:
                 item.registeredCount === item.capacity
@@ -119,12 +121,15 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
           />
           <ListItemText
             id={item.courseID}
-            primary={`${e2p(item.courseName)} (گروه ${e2p(item.courseID.split("_")[1])})`}
+            primary={`${e2p(item.courseName)} (گروه ${e2p(
+              item.courseID.split("_")[1]
+            )})`}
             primaryTypographyProps={{
               fontSize: "0.8rem",
               textAlign: "right",
               padding: "4px",
-              dir: "rtl"
+              color: "primary.contrastText",
+              dir: "rtl",
             }}
           />
         </ListItemButton>
