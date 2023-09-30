@@ -83,5 +83,6 @@ export const NAV_ITEMS = [
   {href: "/chosen-courses", label: "دروس انتخاب شده"},
   // {href: "/auth/change-password", label: "تغییر گذرواژه"},
   {href: "/settings", label: "تنظیمات"},
+  {href: "/how-to-use", label: "راهنما"},
   {href: null, label: "خروج"},
 ]

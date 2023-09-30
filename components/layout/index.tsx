@@ -5,6 +5,7 @@ import ToasterContainer from "@/components/ToasterContainer";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import { MDXProvider } from "@mdx-js/react";
 
 interface IProps {
   children: JSX.Element;
@@ -14,7 +15,7 @@ function Layout({ children }: IProps) {
   const theme = useTheme();
   const router = useRouter();
   return (
-    <>
+    <MDXProvider>
       <ToasterContainer />
       <ThemeSwitch>
         <Navbar />
@@ -31,7 +32,7 @@ function Layout({ children }: IProps) {
       >
         {children}
       </Box>
-    </>
+    </MDXProvider>
   );
 }
 

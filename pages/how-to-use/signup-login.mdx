@@ -1,0 +1,50 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import SignupForm from "@/components/SignupForm";
+import LoginForm from "@/components/LoginForm";
+import Link from "next/link";
+
+<Box
+  sx={{
+    m: "80px 20px",
+    color: "primary.light",
+    "& em": {
+      color: "primary.contrastText",
+    },
+    "& strong": {
+      color: "primary.contrastText",
+    },
+    "& p": {
+      color: "primary.contrastText",
+    },
+  }}
+>
+
+## ثبت نام و ورود به حساب کاربری
+
+<Box sx={{ py: 2, textAlign: "center" }}>
+  #### در مرحلۀ اول برای استفاده از برنامۀ پیش ثبت نام باید **حساب کاربری** خود
+  را **ایجاد کنید:**
+  <Box sx={{ display: "flex", py: 4 }}>
+    <SignupForm mdx />
+  </Box>
+</Box>
+<Divider />
+<Box sx={{ py: 2, textAlign: "center" }}>
+  #### پس از ایجاد حساب کاربری میتوانید همواره در ادامه با استفاده از اطلاعات
+  ثبت نامتان به برنامه **وارد شوید:**
+  <Box sx={{ display: "flex", py: 4 }}>
+    <LoginForm mdx />
+  </Box>
+</Box>
+
+<Divider sx={{ my: 2 }} />
+<Link href="/how-to-use" >
+<Button component="div" sx={{fontSize: "16px", "& p": {
+    color: "primary.main"
+}}}>
+بازگشت به صفحۀ راهنما
+</Button>
+</Link>
+</Box>

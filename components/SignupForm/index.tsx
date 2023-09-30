@@ -1,4 +1,4 @@
-import { FormControl, Typography } from "@mui/material";
+import { Box, FormControl, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
@@ -17,7 +17,11 @@ import showToast from "@/utils/showToast";
 import TradeMark from "@/components/common/TradeMark";
 import FormSelect from "@/components/common/FormSelect";
 
-const SignupForm = () => {
+interface Props {
+  mdx?: boolean;
+}
+
+const SignupForm = ({ mdx }: Props) => {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const methods = useForm<TCreateUserSchema>({
@@ -41,40 +45,43 @@ const SignupForm = () => {
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<TCreateUserSchema> = async () => {
-    setLoading(true);
-    const { collegeId, name, sid, password1: password, gender } = getValues();
-    let result = await signUpUser({
-      sid,
-      password,
-      collegeId,
-      name,
-      gender,
-    });
-
-    // login user after signup
-    if (result.success) {
-      showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
-      result = await loginUser({
+    if (!mdx) {
+      setLoading(true);
+      const { collegeId, name, sid, password1: password, gender } = getValues();
+      let result = await signUpUser({
         sid,
         password,
+        collegeId,
+        name,
+        gender,
       });
 
+      // login user after signup
       if (result.success) {
-        showToast("با موفقیت وارد شدید", "success", 2500, true);
-        setSelectedCourses([]);
-        setTokenCookie(result.token);
-        router.replace("/");
-      } else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
-    } else {
-      if (result.statusCode === 403)
-        showToast(
-          "حساب کاربری با شماره دانشجویی وارد شده وجود دارد",
-          "error",
-          2500,
-          true
-        );
+        showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
+        result = await loginUser({
+          sid,
+          password,
+        });
+
+        if (result.success) {
+          showToast("با موفقیت وارد شدید", "success", 2500, true);
+          setSelectedCourses([]);
+          setTokenCookie(result.token);
+          router.replace("/");
+        } else
+          showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+      } else {
+        if (result.statusCode === 403)
+          showToast(
+            "حساب کاربری با شماره دانشجویی وارد شده وجود دارد",
+            "error",
+            2500,
+            true
+          );
+      }
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -136,43 +143,45 @@ const SignupForm = () => {
           required
           {...register("password2")}
         />
-        <LoadingButtonElement
-          label="ثبت نام"
-          loading={loading}
-          type="submit"
-          color="primary"
-          variant="contained"
-          size="large"
-        />
-        <Typography
-          component="div"
-          variant="caption"
-          textAlign="center"
-          fontSize={12}
-          mt={3}
-        >
-          حساب کاربری دارید ؟
-          <Link
-            href="/auth/login"
-            style={{
-              margin: "0 5px",
-              textDecoration: "none",
-            }}
+        <Box display={`${mdx ? "none" : ""}`}>
+          <LoadingButtonElement
+            label="ثبت نام"
+            loading={loading}
+            type="submit"
+            color="primary"
+            variant="contained"
+            size="large"
+          />
+          <Typography
+            component="div"
+            variant="caption"
+            textAlign="center"
+            fontSize={12}
+            mt={3}
           >
-            <Typography
-              component="p"
-              variant="caption"
-              textAlign="center"
-              fontSize={12}
-              color="primary"
-              mt={1}
+            حساب کاربری دارید ؟
+            <Link
+              href="/auth/login"
+              style={{
+                margin: "0 5px",
+                textDecoration: "none",
+              }}
             >
-              وارد شوید
-            </Typography>
-          </Link>
-        </Typography>
+              <Typography
+                component="p"
+                variant="caption"
+                textAlign="center"
+                fontSize={12}
+                color="primary"
+                mt={1}
+              >
+                وارد شوید
+              </Typography>
+            </Link>
+          </Typography>
+        </Box>
       </FormControl>
-      <TradeMark />
+      <TradeMark mdx={mdx} />
     </FormProvider>
   );
 };

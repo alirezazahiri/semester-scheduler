@@ -17,7 +17,11 @@ import { useTheme } from "@mui/material/styles";
 import showToast from "@/utils/showToast";
 import TradeMark from "@/components/common/TradeMark";
 
-const LoginForm = () => {
+interface Props {
+  mdx?: boolean;
+}
+
+const LoginForm = ({ mdx }: Props) => {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const methods = useForm<TLoginUserSchema>({
@@ -42,24 +46,26 @@ const LoginForm = () => {
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<TLoginUserSchema> = async () => {
-    setLoading(true);
-    showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
-    const { sid, password } = getValues();
+    if (!mdx) {
+      setLoading(true);
+      showToast("درحال ورود به حساب کاربری", "loading", 10000, true);
+      const { sid, password } = getValues();
 
-    const result = await loginUser({ sid, password });
+      const result = await loginUser({ sid, password });
 
-    if (result.success) {
-      showToast("با موفقیت وارد شدید", "success", 2500, true);
-      setSelectedCourses([]);
-      setTokenCookie(result.token);
-      router.replace("/");
-    } else {
-      if (result.statusCode === 401)
-        showToast("گذرواژه یا نام کاربری اشتباه است", "error", 2500, true);
-      else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+      if (result.success) {
+        showToast("با موفقیت وارد شدید", "success", 2500, true);
+        setSelectedCourses([]);
+        setTokenCookie(result.token);
+        router.replace("/");
+      } else {
+        if (result.statusCode === 401)
+          showToast("گذرواژه یا نام کاربری اشتباه است", "error", 2500, true);
+        else showToast("خطا در هنگام ورود به حساب کاربری", "error", 2500, true);
+      }
+
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
@@ -95,96 +101,98 @@ const LoginForm = () => {
           required
           {...register("password")}
         />
-        <LoadingButtonElement
-          label="ورود"
-          loading={loading}
-          type="submit"
-          color="primary"
-          variant="contained"
-          size="large"
-        />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            [theme.breakpoints.down("md")]: {
-              flexDirection: "column",
-              alignItems: "center",
-            },
-          }}
-        >
-          <Typography
-            component="div"
-            variant="caption"
-            textAlign="center"
-            fontSize={12}
-            mt={3}
-            display="flex"
-            alignItems="center"
+        <Box display={`${mdx ? "none" : ""}`}>
+          <LoadingButtonElement
+            label="ورود"
+            loading={loading}
+            type="submit"
+            color="primary"
+            variant="contained"
+            size="large"
+          />
+          <Box
             sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
               [theme.breakpoints.down("md")]: {
                 flexDirection: "column",
                 alignItems: "center",
               },
             }}
           >
-            حساب کاربری ندارید ؟
-            <Link
-              href="/auth/signup"
-              style={{
-                margin: "0 5px",
-                textDecoration: "none",
+            <Typography
+              component="div"
+              variant="caption"
+              textAlign="center"
+              fontSize={12}
+              mt={3}
+              display="flex"
+              alignItems="center"
+              sx={{
+                [theme.breakpoints.down("md")]: {
+                  flexDirection: "column",
+                  alignItems: "center",
+                },
               }}
             >
-              <Typography
-                component="p"
-                variant="caption"
-                textAlign="center"
-                fontSize={12}
-                color="primary"
+              حساب کاربری ندارید ؟
+              <Link
+                href="/auth/signup"
+                style={{
+                  margin: "0 5px",
+                  textDecoration: "none",
+                }}
               >
-                ساخت حساب کاربری
-              </Typography>
-            </Link>
-          </Typography>
-          <Typography
-            component="div"
-            variant="caption"
-            textAlign="center"
-            fontSize={12}
-            mt={3}
-            display="flex"
-            alignItems="center"
-            sx={{
-              [theme.breakpoints.down("md")]: {
-                flexDirection: "column",
-                alignItems: "center",
-              },
-            }}
-          >
-            گذرواژه ام را فراموش کرده ام
-            <Link
-              href="/password-recovery"
-              style={{
-                margin: "0 5px",
-                textDecoration: "none",
+                <Typography
+                  component="p"
+                  variant="caption"
+                  textAlign="center"
+                  fontSize={12}
+                  color="primary"
+                >
+                  ساخت حساب کاربری
+                </Typography>
+              </Link>
+            </Typography>
+            <Typography
+              component="div"
+              variant="caption"
+              textAlign="center"
+              fontSize={12}
+              mt={3}
+              display="flex"
+              alignItems="center"
+              sx={{
+                [theme.breakpoints.down("md")]: {
+                  flexDirection: "column",
+                  alignItems: "center",
+                },
               }}
             >
-              <Typography
-                component="p"
-                variant="caption"
-                textAlign="center"
-                fontSize={12}
-                color="primary"
+              گذرواژه ام را فراموش کرده ام
+              <Link
+                href="/password-recovery"
+                style={{
+                  margin: "0 5px",
+                  textDecoration: "none",
+                }}
               >
-                بازیابی گذرواژه
-              </Typography>
-            </Link>
-          </Typography>
+                <Typography
+                  component="p"
+                  variant="caption"
+                  textAlign="center"
+                  fontSize={12}
+                  color="primary"
+                >
+                  بازیابی گذرواژه
+                </Typography>
+              </Link>
+            </Typography>
+          </Box>
         </Box>
       </FormControl>
-      <TradeMark />
+      <TradeMark mdx={mdx} />
     </FormProvider>
   );
 };
