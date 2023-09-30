@@ -12,7 +12,11 @@ import TradeMark from "@/components/common/TradeMark";
 import showToast from "@/utils/showToast";
 import { changePassword } from "@/services/student.service";
 
-function ChangePasswordForm() {
+interface Props {
+  mdx?: boolean;
+}
+
+function ChangePasswordForm({ mdx }: Props) {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const methods = useForm<TChangePasswordSchema>({
@@ -36,19 +40,21 @@ function ChangePasswordForm() {
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<TChangePasswordSchema> = async () => {
-    setLoading(true);
-    showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
-    const { newPassword, currentPassword } = getValues();
-    const result = await changePassword({ newPassword, currentPassword });
-    if (result.success) {
-      showToast("گذرواژه با موفقیت تغییر پیدا کرد", "success", 2500, true);
-      router.replace("/");
-    } else {
-      if (result.statusCode === 403)
-        showToast("گذرواژه نادرست می باشد", "error", 2500, true);
-      else showToast("تغییر گذرواژه با خطا مواجه شد", "error", 2500, true);
+    if (!mdx) {
+      setLoading(true);
+      showToast("درحال ثبت گذرواژه جدید", "loading", 10000, true);
+      const { newPassword, currentPassword } = getValues();
+      const result = await changePassword({ newPassword, currentPassword });
+      if (result.success) {
+        showToast("گذرواژه با موفقیت تغییر پیدا کرد", "success", 2500, true);
+        router.replace("/");
+      } else {
+        if (result.statusCode === 403)
+          showToast("گذرواژه نادرست می باشد", "error", 2500, true);
+        else showToast("تغییر گذرواژه با خطا مواجه شد", "error", 2500, true);
+      }
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -97,6 +103,9 @@ function ChangePasswordForm() {
           color="primary"
           variant="contained"
           size="large"
+          sx={{
+            display: `${mdx ? "none" : ""}`
+          }}
         />
         <Typography
           component="div"
@@ -104,6 +113,7 @@ function ChangePasswordForm() {
           textAlign="center"
           fontSize={12}
           mt={3}
+          display={`${mdx ? "none" : ""}`}
         >
           گذرواژه ام را فراموش کرده ام
           <Link
@@ -126,7 +136,7 @@ function ChangePasswordForm() {
           </Link>
         </Typography>
       </FormControl>
-      <TradeMark />
+      <TradeMark mdx={mdx} />
     </FormProvider>
   );
 }

@@ -26,9 +26,7 @@ import Link from "next/link";
     component="p" 
     sx={{
         py: 2, 
-        "& strong": {
-            color: "secondary.main"
-        },
+        
         "& a": {
             color: "primary.main",
             textDecoration: "none"
@@ -36,9 +34,9 @@ import Link from "next/link";
         textAlign: "center"
     }}
   >
- این برنامه به منظور ساده سازی فرآیند ثبت نام نیمسال جدید برای دانشجویان ساخته شده است.
- 
-  در این بخش به نحوۀ استفاده از آن میپردازیم و **نکات** مورد توجه برای **نسخۀ کنونی** را در پایان خواهیم دید!
+ **این برنامه به منظور ساده سازی فرآیند ثبت نام نیمسال جدید برای دانشجویان ساخته شده است.**
+
+**توجه کنید که این برنامه هیچ ارتباط مستقیمی با اطلاعات درسی و واحد های گذرانده شما ندارد و تنها میتواند در انتخاب و سهولت نوشتن برنامه درسی ترم آینده به شما کمک کند.**
 
 <Divider sx={{ my: 2 }} />
 
@@ -68,6 +66,12 @@ import Link from "next/link";
   </Link>
   <Link href="/how-to-use/password-and-profile">
     <Button component="li">گذرواژه و به روز رسانی پروفایل</Button>
+  </Link>
+  <Link href="/how-to-use/courses-and-scheduler">
+    <Button component="li">انتخاب دروس و تعریف برنامه درسی</Button>
+  </Link>
+  <Link href="/how-to-use/theme">
+    <Button component="li">تم روز و شب</Button>
   </Link>
 </Box>
 

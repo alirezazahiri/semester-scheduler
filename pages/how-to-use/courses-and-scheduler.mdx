@@ -1,0 +1,90 @@
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+import Link from "next/link";
+import SaveIcon from "@mui/icons-material/Save";
+import PrintIcon from "@mui/icons-material/Print";
+import MenuIcon from "@mui/icons-material/Menu";
+
+<Box
+  sx={{
+    m: "80px 20px",
+    color: "primary.light",
+    "& em": {
+      color: "primary.contrastText",
+    },
+    "& strong": {
+      color: "primary.contrastText",
+    },
+    "& p": {
+      color: "primary.contrastText",
+    },
+  }}
+>
+
+## انتخاب دروس و تعریف برنامه درسی
+
+<Divider sx={{ my: 2 }} />
+
+### دکمه های موجود در صفحۀ اصلی
+
+<Box mb={1} />
+<Box
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "right",
+    gap: 1.5,
+  }}
+>
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <MenuIcon color="primary" />
+    <Box component="p">دکمه نمایش لیست دروس</Box>
+  </Box>
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <SaveIcon color="primary" />
+    <Box component="p">دکمه ذخیره سازی دروس انتخابی</Box>
+  </Box>
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <PrintIcon color="secondary" />
+    <Box component="p">دکمه آماده سازی جهت چاپ دروس انتخابی</Box>
+  </Box>
+
+<Box component="p" sx={{ fontWeight: "bold" }}>
+  همانطور که در لیست بالا مشاهده میکنید با کلیک بر روی این دکمه ها یک ویژگی از
+  برنامه فعال میشود:
+</Box>
+
+### ویژگی اول: دکمه نمایش لیست دروس
+
+با کلیک بر روی این دکمه میتوانید لیست دروس را مشاهده کنید.
+این لیست، دروس را در صفحه هایی که هر یک شامل 20 درس هستند نمایش میدهد و با کلیک بر روی هر درس میتوانید بلافاصله آن را در لیست دروس انتخابی ببینید.
+
+در بالای این لیست دو فیلتر بر اساس تعداد واحد دروس و دانشکده ارائه کننده دروس قرار دارد. که میتوانید با استفاده از آن ها دروس نمایش داده شده را محدود تر کرده و یافتن درس مورد نظر خود را ساده تر کنید.
+
+همچنین یک دکمه تحت عنوان بازنشانی قرار دارد که با استفاده از آن دروس انتخابی را به طور کلی میتوان حذف نمود.
+
+ در پایین لیست دروس نیز محل جستجو قرار دارد که میتوانید در آن بر اساس، نام اساتید، نام دروس، کد دروس به درس مورد نظر خود دست یابید.
+
+### ویژگی دوم: دکمه ذخیره سازی دروس انتخابی
+
+با کلیک بر روی این دکمه میتوانید تمامی دروس انتخابی خود را در حساب کاربری خود ذخیره کرده و بدون نیاز به انتخاب دوباره و دوباره آنها، برنامه خود را مشاهده کنید.
+
+### ویژگی سوم: دکمه آماده سازی جهت چاپ دروس انتخابی
+
+با کلیک بر روی این دکمه میتوانید برنامه هفتگی خود را چاپ کنید.
+
+</Box>
+
+<Divider sx={{ my: 2 }} />
+<Link href="/how-to-use">
+<Button component="div" sx={{fontSize: "16px", "& p": {
+    color: "primary.main"
+}}}>
+بازگشت به صفحۀ راهنما
+</Button>
+</Link>
+<Divider sx={{my: 2}}/>
+<Box component="footer">
+  </Box>
+</Box>

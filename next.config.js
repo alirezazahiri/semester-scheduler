@@ -15,7 +15,6 @@ const withMDX = require("@next/mdx")({
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   reactStrictMode: false,
-  output: "standalone",
   env: {
     NEXT_APP_DB_URI: process.env.DB_URI,
     JWT_SECRET: process.env.JWT_SECRET,

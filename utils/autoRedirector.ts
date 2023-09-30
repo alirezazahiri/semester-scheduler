@@ -42,6 +42,14 @@ export const autoRedirector = ({ ...options }: IOptions) => {
                 permanent: false,
               },
             };
+      if (data?.phoneNumber)
+        if (options.resolvedUrl === "/auth/confirm-phone-number")
+          return {
+            redirect: {
+              destination: "/",
+              permanent: false,
+            },
+          };
       return { props: { sid: data.sid, ...props } };
     }
     return { redirect: { destination: options.to, permanent: false } };
