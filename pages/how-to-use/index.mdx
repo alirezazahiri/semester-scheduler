@@ -19,14 +19,14 @@ import Link from "next/link";
     "& h1": {
       textAlign: "center"
     },
+    height: "100%",
   }}
 >
   # راهنمای استفاده از برنامۀ **پیش ثبت نام** دانشگاه **صنعتی نوشیروانی بابل**
   <Box 
     component="p" 
     sx={{
-        py: 2, 
-        
+        py: 2,
         "& a": {
             color: "primary.main",
             textDecoration: "none"
@@ -40,55 +40,66 @@ import Link from "next/link";
 
 <Divider sx={{ my: 2 }} />
 
+
+<Box sx={{
+  height: "100%",
+}}>
+
 # لیست موضوعات
 
-<Box
-  sx={{
-    pr: 2,
-    py: 2,
-    "& li": {
-      fontSize: "16px",
-    },
-    textAlign: "right",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 1.5,
-    listStyle: "none",
-    "& a": {
-      color: "primary.main",
-    },
-  }}
-  component="ul"
->
-  <Link href="/how-to-use/signup-login" style={{ textDecoration: "none" }}>
-    <Button component="li">ثبت نام و ورود به حساب کاربری</Button>
-  </Link>
-  <Link
-    href="/how-to-use/password-and-profile"
-    style={{ textDecoration: "none" }}
+  <Box
+    sx={{
+      pr: 2,
+      py: 2,
+      "& li": {
+        fontSize: "16px",
+      },
+      textAlign: "right",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 1.5,
+      listStyle: "none",
+      "& a": {
+        color: "primary.main",
+      },
+    }}
+    component="ul"
   >
-    <Button component="li">گذرواژه و به روز رسانی پروفایل</Button>
-  </Link>
-  <Link
-    href="/how-to-use/courses-and-scheduler"
-    style={{ textDecoration: "none" }}
-  >
-    <Button component="li">انتخاب دروس و تعریف برنامه درسی</Button>
-  </Link>
-  <Link href="/how-to-use/chosen-courses" style={{ textDecoration: "none" }}>
-    <Button component="li">دروس انتخاب شده</Button>
-  </Link>
-  <Link href="/how-to-use/theme" style={{ textDecoration: "none" }}>
-    <Button component="li">تم روز و شب</Button>
-  </Link>
-</Box>
-
+    <Link href="/how-to-use/signup-login" style={{ textDecoration: "none" }}>
+      <Button component="li">ثبت نام و ورود به حساب کاربری</Button>
+    </Link>
+    <Link
+      href="/how-to-use/password-and-profile"
+      style={{ textDecoration: "none" }}
+    >
+      <Button component="li">گذرواژه و به روز رسانی پروفایل</Button>
+    </Link>
+    <Link
+      href="/how-to-use/courses-and-scheduler"
+      style={{ textDecoration: "none" }}
+    >
+      <Button component="li">انتخاب دروس و تعریف برنامه درسی</Button>
+    </Link>
+    <Link href="/how-to-use/chosen-courses" style={{ textDecoration: "none" }}>
+      <Button component="li">دروس انتخاب شده</Button>
+    </Link>
+    <Link href="/how-to-use/theme" style={{ textDecoration: "none" }}>
+      <Button component="li">تم روز و شب</Button>
+    </Link>
   </Box>
-
-<Divider />
-
-<Box component="p" my={2}>
-برای در میان گذاشتن انتقادات یا پیشنهادات میتوانید به آدرس ایمیل <a href="mailto:itsalireza.zr@gmail.com">itsalireza.zr@gmail.com</a> پیام دهید.
 </Box>
+</Box>
+
+</Box>
+<Box component="footer" sx={{
+  position: "fixed",
+  bottom: 10,
+  left: 0,
+  right:0,
+  p: 2,
+  borderTop: "1px solid rgba(255, 255, 255, 0.12)"
+}}>
+برای در میان گذاشتن انتقادات یا پیشنهادات میتوانید به آدرس ایمیل <a style={{color: "#3f50b5"}} href="mailto:itsalireza.zr@gmail.com">itsalireza.zr@gmail.com</a> پیام دهید.
 </Box>

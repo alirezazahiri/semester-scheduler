@@ -1,9 +1,10 @@
 import LoginForm from "@/components/LoginForm";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import { autoRedirector } from "@/utils/autoRedirector";
 import { IRedirector, UserAuthState } from '@/utils/autoRedirector';
 import Head from "next/head";
+import HelpFab from "@/components/HelpFab";
 
 const LoginPage = () => {
   return (
@@ -24,6 +25,18 @@ const LoginPage = () => {
     >
       <LoginForm />
     </Grid>
+    <Box
+        sx={{
+          display: "flex",
+          width: "fit-content",
+          position: "fixed",
+          bottom: 16,
+          right: 16,
+          displayPrint: "none",
+        }}
+      >
+        <HelpFab />
+      </Box>
     </>
   );
 };
