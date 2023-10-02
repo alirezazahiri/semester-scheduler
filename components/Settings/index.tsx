@@ -6,6 +6,7 @@ import React from "react";
 const SETTINGS_BUTTONS = [
   { href: "/auth/change-password", label: "تغییر گذرواژه" },
   { href: "/auth/update-profile", label: "به روز رسانی پروفایل" },
+  { href: "/about", label: "درباره" },
 ] as const;
 function Settings() {
   return (

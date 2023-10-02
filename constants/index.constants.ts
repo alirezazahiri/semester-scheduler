@@ -76,13 +76,15 @@ export const GENDER_DICTIONARY = {
   "0": "all",
   "1": "مرد",
   "2": "زن",
-}
+};
 
 export const NAV_ITEMS = [
-  {href: "/", label: "صفحه اصلی"},
-  {href: "/chosen-courses", label: "دروس انتخاب شده"},
+  { href: "/", label: "صفحه اصلی" },
+  { href: "/chosen-courses", label: "دروس انتخاب شده" },
   // {href: "/auth/change-password", label: "تغییر گذرواژه"},
-  {href: "/settings", label: "تنظیمات"},
-  {href: "/how-to-use", label: "راهنما"},
-  {href: null, label: "خروج"},
-]
+  { href: "/settings", label: "تنظیمات" },
+  { href: "/how-to-use", label: "راهنما" },
+  { href: null, label: "خروج" },
+];
+
+export const VERSION_NUMBER = "v1.0.0";
