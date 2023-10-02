@@ -45,7 +45,7 @@ import Link from "next/link";
   height: "100%",
 }}>
 
-# لیست موضوعات
+# منو راهنما
 
   <Box
     sx={{
@@ -88,6 +88,9 @@ import Link from "next/link";
     <Link href="/how-to-use/theme" style={{ textDecoration: "none" }}>
       <Button component="li">تم روز و شب</Button>
     </Link>
+    <Link href="/" style={{ textDecoration: "none" }}>
+      <Button component="li" color="info">بازگشت به صفحه اصلی</Button>
+    </Link>
   </Box>
 </Box>
 </Box>
@@ -95,11 +98,12 @@ import Link from "next/link";
 </Box>
 <Box component="footer" sx={{
   position: "fixed",
-  bottom: 10,
+  bottom: 0,
   left: 0,
   right:0,
   p: 2,
-  borderTop: "1px solid rgba(255, 255, 255, 0.12)"
+  borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+  backdropFilter: "blur(20px)"
 }}>
 برای در میان گذاشتن انتقادات یا پیشنهادات میتوانید به آدرس ایمیل <a style={{color: "#3f50b5"}} href="mailto:itsalireza.zr@gmail.com">itsalireza.zr@gmail.com</a> پیام دهید.
 </Box>
