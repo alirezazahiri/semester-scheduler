@@ -17,6 +17,7 @@ function Settings() {
         alignItems: "center",
         gap: 2.5,
         width: "250px",
+        pt: "140px",
       }}
     >
       {SETTINGS_BUTTONS.map(({ href, label }) => (

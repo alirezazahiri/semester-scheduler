@@ -106,6 +106,7 @@ function ConfirmPhoneNumber() {
           width: "50%",
         },
         mx: "auto",
+        pt: "140px",
       }}
     >
       <Stepper activeStep={activeStep} orientation="vertical">

@@ -93,6 +93,7 @@ function UpdateProfileForm({ initialFormData, mdx }: Props) {
             width: "50%",
           },
           mx: "auto",
+          pt: "140px",
         }}
         component={"form"}
         onSubmit={handleSubmit(onSubmitHandler)}

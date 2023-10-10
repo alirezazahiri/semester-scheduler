@@ -77,6 +77,7 @@ const LoginForm = ({ mdx }: Props) => {
             width: "50%",
           },
           mx: "auto",
+          pt: "70px",
         }}
         component={"form"}
         onSubmit={handleSubmit(onSubmitHandler)}
