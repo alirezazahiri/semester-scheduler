@@ -1,6 +1,6 @@
 import { TChangePasswordSchema, changePasswordSchema } from "@/utils/validator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormControl, Typography } from "@mui/material";
+import { Box, FormControl, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -59,85 +59,87 @@ function ChangePasswordForm({ mdx }: Props) {
 
   return (
     <FormProvider {...methods}>
-      <FormControl
-        sx={{
-          width: "80%",
-          [theme.breakpoints.up("md")]: {
-            width: "50%",
-          },
-          mx: "auto",
-          pt: "140px",
-        }}
-        component={"form"}
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
-        <Typography
-          variant="h4"
-          component="h4"
-          color="primary"
-          fontWeight={500}
-        >
-          تغییر گذرواژه
-        </Typography>
-        <FormInput
-          label="گذرواژه کنونی"
-          dir="ltr"
-          required
-          {...register("currentPassword")}
-        />
-        <FormInput
-          label="گذرواژه جدید"
-          dir="ltr"
-          required
-          {...register("newPassword")}
-        />
-        <FormInput
-          label="تایید گذرواژه جدید"
-          dir="ltr"
-          required
-          {...register("confirmNewPassword")}
-        />
-        <LoadingButtonElement
-          label="ثبت"
-          loading={loading}
-          type="submit"
-          color="primary"
-          variant="contained"
-          size="large"
+      <Box sx={{ display: "grid", gridTemplateRows: "100% .1fr", width: "100%" }}>
+        <FormControl
           sx={{
-            display: `${mdx ? "none" : ""}`
+            width: "80%",
+            [theme.breakpoints.up("md")]: {
+              width: "50%",
+            },
+            mx: "auto",
+            pt: "140px",
           }}
-        />
-        <Typography
-          component="div"
-          variant="caption"
-          textAlign="center"
-          fontSize={12}
-          mt={3}
-          display={`${mdx ? "none" : ""}`}
+          component={"form"}
+          onSubmit={handleSubmit(onSubmitHandler)}
         >
-          گذرواژه ام را فراموش کرده ام
-          <Link
-            href="/password-recovery"
-            style={{
-              margin: "0 5px",
-              textDecoration: "none",
-            }}
+          <Typography
+            variant="h4"
+            component="h4"
+            color="primary"
+            fontWeight={500}
           >
-            <Typography
-              component="p"
-              variant="caption"
-              textAlign="center"
-              fontSize={12}
-              color="primary"
-              mt={1}
+            تغییر گذرواژه
+          </Typography>
+          <FormInput
+            label="گذرواژه کنونی"
+            dir="ltr"
+            required
+            {...register("currentPassword")}
+          />
+          <FormInput
+            label="گذرواژه جدید"
+            dir="ltr"
+            required
+            {...register("newPassword")}
+          />
+          <FormInput
+            label="تایید گذرواژه جدید"
+            dir="ltr"
+            required
+            {...register("confirmNewPassword")}
+          />
+          <LoadingButtonElement
+            label="ثبت"
+            loading={loading}
+            type="submit"
+            color="primary"
+            variant="contained"
+            size="large"
+            sx={{
+              display: `${mdx ? "none" : ""}`,
+            }}
+          />
+          <Typography
+            component="div"
+            variant="caption"
+            textAlign="center"
+            fontSize={12}
+            mt={3}
+            display={`${mdx ? "none" : ""}`}
+          >
+            گذرواژه ام را فراموش کرده ام
+            <Link
+              href="/password-recovery"
+              style={{
+                margin: "0 5px",
+                textDecoration: "none",
+              }}
             >
-              بازیابی گذرواژه
-            </Typography>
-          </Link>
-        </Typography>
-      </FormControl>
-      <TradeMark mdx={mdx} />
+              <Typography
+                component="p"
+                variant="caption"
+                textAlign="center"
+                fontSize={12}
+                color="primary"
+                mt={1}
+              >
+                بازیابی گذرواژه
+              </Typography>
+            </Link>
+          </Typography>
+        </FormControl>
+        <TradeMark mdx={mdx} />
+      </Box>
     </FormProvider>
   );
 }

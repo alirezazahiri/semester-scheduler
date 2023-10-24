@@ -34,6 +34,7 @@ const FormSelect = React.forwardRef((props: IProps, ref) => {
         sx={{
           textAlign: "right",
         }}
+        dir="ltr"
         {...rest}
         ref={ref}
         required
