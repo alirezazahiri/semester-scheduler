@@ -12,10 +12,8 @@ const TradeMark = ({ mdx }: Props) => (
     color="primary"
     dir="ltr"
     sx={{
-      position: "absolute",
-      left: 0,
-      right: 0,
-      bottom: 5,
+      mt: 5,
+      py: 2,
       textAlign: "center",
       fontSize: 14,
       opacity: 0.6,

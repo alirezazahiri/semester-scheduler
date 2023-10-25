@@ -70,6 +70,7 @@ const LoginForm = ({ mdx }: Props) => {
 
   return (
     <FormProvider {...methods}>
+      <Box sx={{display: "grid", gridTemplateRows: "100% .1fr", width: "100%"}}>
       <FormControl
         sx={{
           width: "80%",
@@ -194,6 +195,7 @@ const LoginForm = ({ mdx }: Props) => {
         </Box>
       </FormControl>
       <TradeMark mdx={mdx} />
+      </Box>
     </FormProvider>
   );
 };

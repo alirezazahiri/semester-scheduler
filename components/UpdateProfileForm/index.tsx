@@ -1,4 +1,4 @@
-import { FormControl, Typography } from "@mui/material";
+import { Box, FormControl, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import FormInput from "@/components/common/FormInput";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
@@ -86,65 +86,68 @@ function UpdateProfileForm({ initialFormData, mdx }: Props) {
 
   return (
     <FormProvider {...methods}>
-      <FormControl
-        sx={{
-          width: "80%",
-          [theme.breakpoints.up("md")]: {
-            width: "50%",
-          },
-          mx: "auto",
-          pt: "140px",
-        }}
-        component={"form"}
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
-        <Typography
-          variant="h4"
-          component="h4"
-          color="primary"
-          fontWeight={500}
-        >
-          به روز رسانی پروفایل
-        </Typography>
-        <FormInput
-          label="شماره دانشجویی"
-          dir="ltr"
-          required
-          {...register("sid")}
-        />
-        <FormInput
-          label="نام و نام خانوادگی"
-          required
-          {...register("name")}
-          sx={{ pt: 2 }}
-        />
-        <FormSelect
-          label="دانشکده"
-          labelName="collegeId"
-          items={COLLEGE_ITEMS}
-          defaultValue={mdx ? "" : initialFormData.collegeId}
-          {...register("collegeId")}
-        />
-        <FormSelect
-          label="جنسیت"
-          labelName="gender"
-          items={GENDER_ITEMS}
-          defaultValue={mdx ? "" : initialFormData.gender}
-          {...register("gender")}
-        />
-        <LoadingButtonElement
-          label="ثبت تغییرات"
-          loading={loading}
-          type="submit"
-          color="primary"
-          variant="contained"
-          size="large"
+      <Box sx={{ display: "grid", gridTemplateRows: "100% .1fr", width: "100%" }}>
+        <FormControl
           sx={{
-            display: mdx ? "none" : "",
+            width: "80%",
+            [theme.breakpoints.up("md")]: {
+              width: "50%",
+            },
+            mx: "auto",
+            pt: "140px",
           }}
-        />
-      </FormControl>
-      <TradeMark mdx={mdx} />
+          component={"form"}
+          onSubmit={handleSubmit(onSubmitHandler)}
+        >
+          <Typography
+            variant="h4"
+            component="h4"
+            color="primary"
+            fontWeight={500}
+          >
+            به روز رسانی پروفایل
+          </Typography>
+          <FormInput
+            label="شماره دانشجویی"
+            dir="ltr"
+            required
+            {...register("sid")}
+          />
+          <FormInput
+            label="نام و نام خانوادگی"
+            dir="ltr"
+            required
+            {...register("name")}
+            sx={{ pt: 2 }}
+          />
+          <FormSelect
+            label="دانشکده"
+            labelName="collegeId"
+            items={COLLEGE_ITEMS}
+            defaultValue={mdx ? "" : initialFormData.collegeId}
+            {...register("collegeId")}
+          />
+          <FormSelect
+            label="جنسیت"
+            labelName="gender"
+            items={GENDER_ITEMS}
+            defaultValue={mdx ? "" : initialFormData.gender}
+            {...register("gender")}
+          />
+          <LoadingButtonElement
+            label="ثبت تغییرات"
+            loading={loading}
+            type="submit"
+            color="primary"
+            variant="contained"
+            size="large"
+            sx={{
+              display: mdx ? "none" : "",
+            }}
+          />
+        </FormControl>
+        <TradeMark mdx={mdx} />
+      </Box>
     </FormProvider>
   );
 }

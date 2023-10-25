@@ -86,103 +86,106 @@ const SignupForm = ({ mdx }: Props) => {
 
   return (
     <FormProvider {...methods}>
-      <FormControl
-        sx={{
-          width: "80%",
-          [theme.breakpoints.up("md")]: {
-            width: "50%",
-          },
-          mx: "auto",
-          pt: "140px",
-        }}
-        component={"form"}
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
-        <Typography
-          variant="h4"
-          component="h4"
-          color="primary"
-          fontWeight={500}
+      <Box sx={{ display: "grid", gridTemplateRows: "100% .1fr", width: "100%" }}>
+        <FormControl
+          sx={{
+            width: "80%",
+            [theme.breakpoints.up("md")]: {
+              width: "50%",
+            },
+            mx: "auto",
+            pt: "140px",
+          }}
+          component={"form"}
+          onSubmit={handleSubmit(onSubmitHandler)}
         >
-          ثبت نام
-        </Typography>
-        <FormInput
-          label="شماره دانشجویی"
-          dir="ltr"
-          required
-          {...register("sid")}
-        />
-        <FormInput
-          label="نام و نام خانوادگی"
-          required
-          {...register("name")}
-          sx={{ pt: 2 }}
-        />
-        <FormSelect
-          label="دانشکده"
-          labelName="collegeId"
-          defaultValue="00"
-          items={COLLEGE_ITEMS}
-          {...register("collegeId")}
-        />
-        <FormSelect
-          label="جنسیت"
-          labelName="gender"
-          defaultValue="0"
-          items={GENDER_ITEMS}
-          {...register("gender")}
-        />
-        <FormInput
-          label="گذرواژه"
-          dir="ltr"
-          required
-          {...register("password1")}
-        />
-        <FormInput
-          label="تایید گذرواژه"
-          dir="ltr"
-          required
-          {...register("password2")}
-        />
-        <Box display={`${mdx ? "none" : ""}`}>
-          <LoadingButtonElement
-            label="ثبت نام"
-            loading={loading}
-            type="submit"
-            color="primary"
-            variant="contained"
-            size="large"
-          />
           <Typography
-            component="div"
-            variant="caption"
-            textAlign="center"
-            fontSize={12}
-            mt={3}
+            variant="h4"
+            component="h4"
+            color="primary"
+            fontWeight={500}
           >
-            حساب کاربری دارید ؟
-            <Link
-              href="/auth/login"
-              style={{
-                margin: "0 5px",
-                textDecoration: "none",
-              }}
-            >
-              <Typography
-                component="p"
-                variant="caption"
-                textAlign="center"
-                fontSize={12}
-                color="primary"
-                mt={1}
-              >
-                وارد شوید
-              </Typography>
-            </Link>
+            ثبت نام
           </Typography>
-        </Box>
-      </FormControl>
-      <TradeMark mdx={mdx} />
+          <FormInput
+            label="شماره دانشجویی"
+            dir="ltr"
+            required
+            {...register("sid")}
+          />
+          <FormInput
+            label="نام و نام خانوادگی"
+            dir="ltr"
+            required
+            {...register("name")}
+            sx={{ pt: 2 }}
+          />
+          <FormSelect
+            label="دانشکده"
+            labelName="collegeId"
+            defaultValue="00"
+            items={COLLEGE_ITEMS}
+            {...register("collegeId")}
+          />
+          <FormSelect
+            label="جنسیت"
+            labelName="gender"
+            defaultValue="0"
+            items={GENDER_ITEMS}
+            {...register("gender")}
+          />
+          <FormInput
+            label="گذرواژه"
+            dir="ltr"
+            required
+            {...register("password1")}
+          />
+          <FormInput
+            label="تایید گذرواژه"
+            dir="ltr"
+            required
+            {...register("password2")}
+          />
+          <Box display={`${mdx ? "none" : ""}`}>
+            <LoadingButtonElement
+              label="ثبت نام"
+              loading={loading}
+              type="submit"
+              color="primary"
+              variant="contained"
+              size="large"
+            />
+            <Typography
+              component="div"
+              variant="caption"
+              textAlign="center"
+              fontSize={12}
+              mt={3}
+            >
+              حساب کاربری دارید ؟
+              <Link
+                href="/auth/login"
+                style={{
+                  margin: "0 5px",
+                  textDecoration: "none",
+                }}
+              >
+                <Typography
+                  component="p"
+                  variant="caption"
+                  textAlign="center"
+                  fontSize={12}
+                  color="primary"
+                  mt={1}
+                >
+                  وارد شوید
+                </Typography>
+              </Link>
+            </Typography>
+          </Box>
+        </FormControl>
+        <TradeMark mdx={mdx} />
+      </Box>
     </FormProvider>
   );
 };
