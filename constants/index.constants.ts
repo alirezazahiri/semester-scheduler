@@ -64,6 +64,8 @@ export const UNIT_ITEMS = [
   { name: "دو واحدی", value: 2 },
   { name: "سه واحدی", value: 3 },
   { name: "چهار واحدی", value: 4 },
+  { name: "پنج واحدی", value: 5 },
+  { name: "شش واحدی", value: 6 },
 ];
 
 export const GENDER_ITEMS = [
