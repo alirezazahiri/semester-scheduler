@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const SETTINGS_BUTTONS = [
+  { href: "/auth/confirm-phone-number", label: "ثبت شمارۀ همراه" },
   { href: "/auth/change-password", label: "تغییر گذرواژه" },
   { href: "/auth/update-profile", label: "به روز رسانی پروفایل" },
   { href: "/about", label: "درباره" },
@@ -26,7 +27,7 @@ function Settings() {
           key={href}
           style={{
             width: "100%",
-            textDecoration: "none"
+            textDecoration: "none",
           }}
         >
           <Button
