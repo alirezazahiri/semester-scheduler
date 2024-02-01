@@ -20,7 +20,7 @@ const LoginPage = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        height: "100vh",
+        minHeight: "100vh",
       }}
     >
       <LoginForm />

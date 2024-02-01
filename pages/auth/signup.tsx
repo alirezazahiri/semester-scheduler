@@ -20,7 +20,7 @@ const SignUpPage = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-around",
-          height: "100vh",
+          minHeight: "100vh",
         }}
       >
         <SignupForm />
