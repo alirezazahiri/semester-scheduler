@@ -5,6 +5,15 @@ import Link from "next/link";
 import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
 import MenuIcon from "@mui/icons-material/Menu";
+import Head from "next/head"
+
+<Head>
+      <title>راهنمای انتخاب دروس و تعریف برنامۀ درسی | دانشگاه صنعتی نوشیروانی بابل</title>
+      <meta
+        name="description"
+        content="راهنمای انتخاب دروس و تعریف برنامۀ درسی برنامۀ پیش ثبت نام دانشگاه صنعتی نوشیروانی بابل"
+      />
+</Head>
 
 <Box
   sx={{
@@ -77,10 +86,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 </Box>
 
 <Divider sx={{ my: 2 }} />
-<Link href="/how-to-use">
-<Button component="div" sx={{fontSize: "16px", "& p": {
-    color: "primary.main"
-}}}>
+<Link href="/how-to-use" >
+<Button sx={{fontSize: "16px"}} color="primary">
 بازگشت به صفحۀ راهنما
 </Button>
 </Link>

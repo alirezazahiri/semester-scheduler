@@ -1,10 +1,18 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import ThemeSwitch from "@/components/ThemeSwitch";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Link from "next/link";
+import Head from "next/head"
+
+<Head>
+      <title>راهنمای تم روز و شب | دانشگاه صنعتی نوشیروانی بابل</title>
+      <meta
+        name="description"
+        content="راهنمای تم روز و شب برنامۀ پیش ثبت نام دانشگاه صنعتی نوشیروانی بابل"
+      />
+</Head>
 
 <Box
   sx={{
@@ -52,7 +60,6 @@ import Link from "next/link";
     <Box component="p">حالت شب</Box>
   </Box>
 
-
   <Box textAlign="center">
   با کلیک بر روی دکمه تغییر تم (گوشه چپ سمت بالای صفحه) میتوانید حالات شب و روز را مشاهده کنید.
   </Box>
@@ -60,9 +67,7 @@ import Link from "next/link";
 
 <Divider sx={{ my: 2 }} />
 <Link href="/how-to-use" >
-<Button component="div" sx={{fontSize: "16px", "& p": {
-    color: "primary.main"
-}}}>
+<Button  sx={{fontSize: "16px"}} color="primary">
 بازگشت به صفحۀ راهنما
 </Button>
 </Link>

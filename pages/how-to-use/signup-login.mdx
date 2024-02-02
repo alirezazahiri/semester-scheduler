@@ -4,6 +4,15 @@ import Divider from "@mui/material/Divider";
 import SignupForm from "@/components/SignupForm";
 import LoginForm from "@/components/LoginForm";
 import Link from "next/link";
+import Head from "next/head"
+
+<Head>
+      <title>راهنمای ثبت نام و ورود به حساب کاربری | دانشگاه صنعتی نوشیروانی بابل</title>
+      <meta
+        name="description"
+        content="راهنمای ثبت نام و ورود به حساب کاربری برنامۀ پیش ثبت نام دانشگاه صنعتی نوشیروانی بابل"
+      />
+</Head>
 
 <Box
   sx={{
@@ -41,9 +50,7 @@ import Link from "next/link";
 
 <Divider sx={{ my: 2 }} />
 <Link href="/how-to-use" >
-<Button component="div" sx={{fontSize: "16px", "& p": {
-    color: "primary.main"
-}}}>
+<Button  sx={{fontSize: "16px"}} color="primary">
 بازگشت به صفحۀ راهنما
 </Button>
 </Link>

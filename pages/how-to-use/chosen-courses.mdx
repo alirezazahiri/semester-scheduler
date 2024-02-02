@@ -2,6 +2,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
+import Head from "next/head"
+
+<Head>
+      <title>راهنمای دروس انتخاب شده | دانشگاه صنعتی نوشیروانی بابل</title>
+      <meta
+        name="description"
+        content="راهنمای دروس انتخاب شده برنامۀ پیش ثبت نام دانشگاه صنعتی نوشیروانی بابل"
+      />
+</Head>
 
 <Box
   sx={{
@@ -45,10 +54,8 @@ import Link from "next/link";
     همچنین برای سهولت نگهداری کد درس ها توسط دانشجویان، با کلیک بر روی کد درس میتوان آن را کپی کرد.
 </Box>
 <Divider sx={{ my: 2 }} />
-<Link href="/how-to-use">
-<Button component="div" sx={{fontSize: "16px", "& p": {
-    color: "primary.main"
-}}}>
+<Link href="/how-to-use" >
+<Button sx={{fontSize: "16px"}} color="primary">
 بازگشت به صفحۀ راهنما
 </Button>
 </Link>
