@@ -29,6 +29,31 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
     if (selectedCourses.find((c) => c.courseID === item.courseID)) {
       return handleToggle(item.courseID);
     }
+    const examInterferingCourses = [];
+    let examInterferingDate = "";
+    for (const selectedCourse of selectedCourses) {
+      if (selectedCourse.dateAndTime.exam && item.dateAndTime?.exam) {
+        const courseExamDateTime = selectedCourse.dateAndTime.exam as {
+          date: string;
+          time: string;
+        };
+        const itemExamDateTime = item.dateAndTime.exam as {
+          date: string;
+          time: string;
+        };
+        examInterferingDate = itemExamDateTime.date;
+        if (courseExamDateTime.date == itemExamDateTime.date) {
+          if (isInterfering(itemExamDateTime.time, courseExamDateTime.time)) {
+            examInterferingCourses.push(
+              `${e2p(selectedCourse.courseName)} (گروه ${e2p(
+                selectedCourse.courseID.split("_")[1]
+              )})`
+            );
+          }
+        }
+      }
+    }
+
     const days = Object.keys(weeklyPlan);
     let interferenceDays = [];
     let interferenceCourses = [];
@@ -65,7 +90,7 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
       const interferingCourses = [...new Set(interferenceCourses)];
       const message = (
         <p>
-          تداخل درس های{" "}
+          تداخل زمان برگزاری کلاس درس های{" "}
           {interferingCourses.map((c, i, a) => (
             <>
               <Box component="span" sx={{ color: "primary.main" }}>
@@ -87,6 +112,34 @@ function CourseListItem({ item, handleToggle, checked }: IProps) {
         </p>
       );
       showToast(message, "error", 3000);
+    } else if (examInterferingCourses.length) {
+      const message = (
+        <p>
+          تداخل امتحانات درس های{" "}
+          {
+            <Box component="span" sx={{ color: "primary.main" }}>
+              {`${e2p(item.courseName)} (گروه ${e2p(
+                item.courseID.split("_")[1]
+              )})`}
+            </Box>
+          }{" "}
+          {" و "}
+          {examInterferingCourses.map((eic, i, a) => (
+            <>
+              <Box component="span" sx={{ color: "primary.main" }}>
+                {eic}
+              </Box>
+              {a.length > 1 && i !== a.length - 1 ? " و " : ""}
+            </>
+          ))}{" "}
+          در تاریخ{" "}
+          <Box component="span" sx={{ color: "secondary.main" }}>
+            {e2p(examInterferingDate.replaceAll(".", "/"))}
+          </Box>
+        </p>
+      );
+      showToast(message, "error", 2500);
+      return handleToggle(item.courseID);
     } else return handleToggle(item.courseID);
   };
   return (

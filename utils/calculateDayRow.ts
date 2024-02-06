@@ -24,7 +24,6 @@ const calculateDayRow = (plan: TDailyPlan[], dayName: string) => {
   for (let i = 0; i < times?.length; i++) {
     const startTime = i === 0 ? "7:30" : times[i - 1].split("-")[1];
     if (i > 0 && isInterfering(times[i - 1], times[i])) {
-      //TODO: figure another way to show interference
       continue;
     }
     const diffFromStart = getTimeScale(startTime, times[i].split("-")[0]);
