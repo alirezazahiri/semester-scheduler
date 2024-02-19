@@ -90,8 +90,7 @@ export default async function setOtpHandler(
     return res.status(201).json({
       message: "otp created successfully!",
       success: true,
-      statusCode: 201,
-      otp: code,
+      statusCode: 201
     });
   } catch (err) {
     res.status(500).json({

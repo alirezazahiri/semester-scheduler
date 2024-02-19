@@ -45,14 +45,13 @@ export default async function getOTPhandler(
       });
     }
 
-    const { value, expiresIn } = dedicatedOTP;
+    const { expiresIn } = dedicatedOTP;
 
     return res.status(200).json({
       message: "success",
       success: true,
       statusCode: 200,
       otp: {
-        value,
         expiresIn,
       },
     });

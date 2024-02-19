@@ -5,8 +5,6 @@ import { useTheme } from "@mui/material/styles";
 import { matchIsNumeric } from "@/utils/otp.utils";
 import LoadingButtonElement from "@/components/common/LoadingButtonEl";
 import CountdownTimer from "@/components/common/CountdownTimer";
-import { getOtpService } from "@/services/student.service";
-import { cleanPhoneNumber } from "@/utils/phoneNumber.utils";
 
 interface IProps {
   length: number;
